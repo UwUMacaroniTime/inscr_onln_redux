@@ -1,0 +1,273 @@
+[gd_scene load_steps=16 format=3 uid="uid://s53h2f3swdrw"]
+
+[ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_5sxta"]
+[ext_resource type="Texture2D" uid="uid://bo5otj55s2e21" path="res://gfx/pixport/Adder.png" id="2_5x3ru"]
+[ext_resource type="Script" path="res://scenes/card/card.gd" id="2_bi6mc"]
+[ext_resource type="Texture2D" uid="uid://rd1hfix6wupq" path="res://gfx/pixport/49er.png" id="3_fh1e6"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="3_fnah2"]
+[ext_resource type="Texture2D" uid="uid://cf2sriou2jnq5" path="res://gfx/cardextras/pixel_special_stat_icons.png" id="3_upmis"]
+[ext_resource type="Script" path="res://classes/Sigils/Sprinter.gd" id="5_1yhdk"]
+[ext_resource type="Texture2D" uid="uid://drbpoarayruwf" path="res://gfx/cardextras/banoverlay.png" id="5_48lg5"]
+[ext_resource type="Texture2D" uid="uid://d2ojmwh2hoygq" path="res://gfx/sigils/Waterborne.png" id="6_26dv8"]
+
+[sub_resource type="Resource" id="Resource_bqywo"]
+script = ExtResource("5_1yhdk")
+movement_quirk = 0
+rune_value = 1
+use_restrictions = 0
+
+[sub_resource type="Resource" id="Resource_mwo0l"]
+resource_name = "49er"
+script = ExtResource("3_fnah2")
+portait = ExtResource("3_fh1e6")
+tribes = Array[int]([9])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([SubResource("Resource_bqywo")])
+attack = 1
+attack_special = 0
+health = 2
+health_special = 0
+conductive = false
+blood_cost = 0
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 2
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""
+
+[sub_resource type="LabelSettings" id="LabelSettings_grnag"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_464i6"]
+resource_name = "LightDefaultPanel"
+bg_color = Color(0.701961, 0.67451, 0.498039, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_xhlj8"]
+line_spacing = 0.0
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4d7x"]
+atlas = ExtResource("3_upmis")
+region = Rect2(0, 9, 16, 8)
+
+[node name="Card" type="Button"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 150)
+layout_direction = 2
+offset_right = 100.0
+offset_bottom = 150.0
+pivot_offset = Vector2(50, 75)
+theme = ExtResource("1_5sxta")
+script = ExtResource("2_bi6mc")
+data = SubResource("Resource_mwo0l")
+
+[node name="CardTop" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.56
+mouse_filter = 2
+
+[node name="Name" type="Label" parent="CardTop"]
+unique_name_in_owner = true
+layout_direction = 1
+layout_mode = 2
+text = "Adder"
+label_settings = SubResource("LabelSettings_grnag")
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Outline" type="Panel" parent="CardTop"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_464i6")
+
+[node name="Portrait" type="TextureRect" parent="CardTop/Outline"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_5x3ru")
+stretch_mode = 6
+
+[node name="CardBottom" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.56
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_5sxta")
+
+[node name="SigilClip" type="Control" parent="CardBottom"]
+clip_contents = true
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardBottom/SigilClip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TribeText" type="Label" parent="CardBottom/SigilClip/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 2
+text = "- reptile -"
+label_settings = SubResource("LabelSettings_xhlj8")
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Sigils" type="GridContainer" parent="CardBottom/SigilClip/VBoxContainer"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="StatsClip" type="Control" parent="CardBottom"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HpIcon" type="TextureRect" parent="CardBottom/StatsClip"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -16.0
+grow_vertical = 0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_c4d7x")
+expand_mode = 2
+
+[node name="HpLabel" type="Label" parent="CardBottom/StatsClip"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_vertical = 0
+text = "health"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="AtkIcon" type="TextureRect" parent="CardBottom/StatsClip"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 32.0
+grow_vertical = 0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_c4d7x")
+expand_mode = 2
+
+[node name="AtkLabel" type="Label" parent="CardBottom/StatsClip"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_vertical = 0
+text = "atk"
+vertical_alignment = 2
+
+[node name="IconOverlay" type="Panel" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.862745)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 150.0
+mouse_filter = 1
+
+[node name="Icon" type="TextureRect" parent="IconOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_26dv8")
+stretch_mode = 5
+
+[node name="TextureOverlay" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 8
+texture = ExtResource("5_48lg5")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

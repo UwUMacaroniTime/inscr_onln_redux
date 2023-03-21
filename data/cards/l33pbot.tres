@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://ogprww6mbnat"]
+
+[ext_resource type="Texture2D" uid="uid://d3w5x6fee6brr" path="res://gfx/pixport/L33pB0t.png" id="1_bvwyg"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_ivj7r"]
+[ext_resource type="Resource" uid="uid://duegliqhq0xrd" path="res://data/sigils/Mighty Leap.tres" id="3_5d78a"]
+
+[resource]
+resource_name = "L33pB0t"
+script = ExtResource("2_ivj7r")
+portait = ExtResource("1_bvwyg")
+tribes = Array[int]([])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_5d78a")])
+attack = 1
+attack_special = 0
+health = 2
+health_special = 0
+conductive = false
+blood_cost = 0
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 2
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""

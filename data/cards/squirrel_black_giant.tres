@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://o8ksynh5878l"]
+
+[ext_resource type="Texture2D" uid="uid://dveva381xc1nx" path="res://gfx/pixport/Black Giant Squirrel.png" id="1_c86gg"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_gr7ci"]
+[ext_resource type="Resource" uid="uid://b708aa2ogkxxc" path="res://data/sigils/Rodent Dependant.tres" id="3_gq6fv"]
+
+[resource]
+resource_name = "Black Giant Squirrel"
+script = ExtResource("2_gr7ci")
+portait = ExtResource("1_c86gg")
+tribes = Array[int]([3])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_gq6fv")])
+attack = 3
+attack_special = 0
+health = 3
+health_special = 0
+conductive = false
+blood_cost = 1
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 0
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""

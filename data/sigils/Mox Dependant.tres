@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Sigil_TribeDependant" load_steps=2 format=3 uid="uid://b7pf0w2rme6sw"]
+
+[ext_resource type="Script" path="res://classes/Sigils/TribeDependant.gd" id="1_pciw6"]
+
+[resource]
+resource_name = "Gem Dependant"
+script = ExtResource("1_pciw6")
+tribe = 17
+rune_value = 1
+use_restrictions = 0

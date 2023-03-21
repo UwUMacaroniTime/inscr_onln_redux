@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Sigil_Sentry" load_steps=2 format=3 uid="uid://cmdy42l4ox4o2"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Sentry.gd" id="1_l21sn"]
+
+[resource]
+resource_name = "Sentry"
+script = ExtResource("1_l21sn")
+damage = 1
+range = 0
+trigger_on_this_move = true
+rune_value = 1
+use_restrictions = 0

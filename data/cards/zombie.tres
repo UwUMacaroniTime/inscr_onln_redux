@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://b1rr82pp1to1k"]
+
+[ext_resource type="Texture2D" uid="uid://nj01650hx5wc" path="res://gfx/pixport/Zombie.png" id="1_lumeo"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_d0dnt"]
+[ext_resource type="Resource" uid="uid://bs7duigwv7exg" path="res://data/sigils/Stinky.tres" id="3_q15md"]
+
+[resource]
+resource_name = "Zombie"
+script = ExtResource("2_d0dnt")
+portait = ExtResource("1_lumeo")
+tribes = Array[int]([16])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_q15md")])
+attack = 1
+attack_special = 0
+health = 1
+health_special = 0
+conductive = false
+blood_cost = 0
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 2
+energy_cost = 0
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""

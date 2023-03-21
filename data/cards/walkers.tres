@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://bumljkvqqra58"]
+
+[ext_resource type="Texture2D" uid="uid://disvvyvnbvsfo" path="res://gfx/pixport/The Walkers.png" id="1_dk3mb"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_suwr0"]
+[ext_resource type="Resource" uid="uid://6mgeuq7w3708" path="res://data/sigils/Bone King.tres" id="3_h7iiy"]
+
+[resource]
+resource_name = "The Walkers"
+script = ExtResource("2_suwr0")
+portait = ExtResource("1_dk3mb")
+tribes = Array[int]([])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_h7iiy")])
+attack = 2
+attack_special = 0
+health = 2
+health_special = 0
+conductive = true
+blood_cost = 0
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 5
+energy_cost = 0
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""

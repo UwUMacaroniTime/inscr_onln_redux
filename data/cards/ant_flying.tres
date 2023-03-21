@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://beodoytijxjsy"]
+
+[ext_resource type="Texture2D" uid="uid://b7e036hlxlhhh" path="res://gfx/pixport/Flying Ant.png" id="1_cfkaw"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_fkuek"]
+[ext_resource type="Resource" uid="uid://dekag3cpg0g8f" path="res://data/sigils/Airborne.tres" id="3_me5uy"]
+
+[resource]
+resource_name = "Flying Ant"
+script = ExtResource("2_fkuek")
+portait = ExtResource("1_cfkaw")
+tribes = Array[int]([6, 7])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_me5uy")])
+attack = 0
+attack_special = 1
+health = 2
+health_special = 0
+conductive = false
+blood_cost = 1
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 0
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""

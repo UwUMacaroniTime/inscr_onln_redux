@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Sigil_MightyLeap" load_steps=2 format=3 uid="uid://duegliqhq0xrd"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Mighty Leap.gd" id="1_ielrs"]
+
+[resource]
+script = ExtResource("1_ielrs")
+rune_value = 0
+use_restrictions = 0

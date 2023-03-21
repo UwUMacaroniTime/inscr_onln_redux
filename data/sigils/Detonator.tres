@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Sigil_Detonator" load_steps=2 format=3 uid="uid://cpn7xuwaqt6t0"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Detonator.gd" id="1_yhby5"]
+
+[resource]
+resource_name = "Detonator"
+script = ExtResource("1_yhby5")
+damage = 5
+rune_value = 1
+use_restrictions = 0

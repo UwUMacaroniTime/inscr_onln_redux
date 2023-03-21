@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="CData" load_steps=7 format=3 uid="uid://pt1j8tik5x71"]
+
+[ext_resource type="Texture2D" uid="uid://dyelnckq63p50" path="res://gfx/pixport/Elk Fawn.png" id="1_iqbhk"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_bawnk"]
+[ext_resource type="Resource" uid="uid://dwvsl1f6bme38" path="res://data/sigils/Sprinter.tres" id="3_7w1hk"]
+[ext_resource type="Resource" uid="uid://cc6vt5noetejp" path="res://data/cards/elk.tres" id="4_7almm"]
+[ext_resource type="Script" path="res://classes/Sigils/Fledgeling.gd" id="5_nwxdu"]
+
+[sub_resource type="Resource" id="Resource_70ku0"]
+resource_name = "Fledgeling"
+script = ExtResource("5_nwxdu")
+evolution_form = ExtResource("4_7almm")
+turns_to_evolve = 1
+rune_value = 1
+use_restrictions = 0
+
+[resource]
+resource_name = "Elk Fawn"
+script = ExtResource("2_bawnk")
+portait = ExtResource("1_iqbhk")
+tribes = Array[int]([8])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_7w1hk"), SubResource("Resource_70ku0")])
+attack = 1
+attack_special = 0
+health = 1
+health_special = 0
+conductive = false
+blood_cost = 1
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 0
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://bnqfaydw07m8r"]
+
+[ext_resource type="Texture2D" uid="uid://rd1hfix6wupq" path="res://gfx/pixport/49er.png" id="1_i7ols"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_yxkwm"]
+[ext_resource type="Resource" uid="uid://bpggu4ptuwrv2" path="res://classes/test_sigil.tres" id="3_ta8hs"]
+
+[resource]
+script = ExtResource("2_yxkwm")
+portait = ExtResource("1_i7ols")
+tribes = Array[int]([6])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_ta8hs")])
+attack = 0
+health = 1
+blood_cost = 1
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 0
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""

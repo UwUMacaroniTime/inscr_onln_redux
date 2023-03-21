@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Sigil_Brittle" load_steps=2 format=3 uid="uid://cwuwapnixbnby"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Brittle.gd" id="1_e3jdw"]
+
+[resource]
+script = ExtResource("1_e3jdw")
+rune_value = 1
+use_restrictions = 0

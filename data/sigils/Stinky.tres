@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Sigil_Stinky" load_steps=2 format=3 uid="uid://bs7duigwv7exg"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Stinky.gd" id="1_psdvr"]
+
+[resource]
+resource_name = "Stinky"
+script = ExtResource("1_psdvr")
+amount = 1
+rune_value = 1
+use_restrictions = 0

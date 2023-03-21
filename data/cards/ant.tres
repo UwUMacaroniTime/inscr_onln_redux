@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CData" load_steps=3 format=3 uid="uid://deffrobkmhgqo"]
+
+[ext_resource type="Texture2D" uid="uid://dndglr6en1n0t" path="res://gfx/pixport/Worker Ant.png" id="1_qdj3x"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_2fkwi"]
+
+[resource]
+resource_name = "Worker Ant"
+script = ExtResource("2_2fkwi")
+portait = ExtResource("1_qdj3x")
+tribes = Array[int]([6, 7])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([])
+attack = 0
+attack_special = 1
+health = 2
+health_special = 0
+conductive = false
+blood_cost = 1
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 0
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""

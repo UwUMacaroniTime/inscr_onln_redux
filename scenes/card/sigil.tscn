@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt4cq1s4huvku"]
+
+[ext_resource type="Texture2D" uid="uid://b58452l0lpi6h" path="res://gfx/sigils/Airborne.png" id="1_635y7"]
+
+[node name="sigil" type="TextureRect"]
+texture_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+texture = ExtResource("1_635y7")
+stretch_mode = 5

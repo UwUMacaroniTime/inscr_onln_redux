@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CData" load_steps=3 format=3 uid="uid://b4exmohqe0efo"]
+
+[ext_resource type="Texture2D" uid="uid://bwfyivreh1xpl" path="res://gfx/pixport/Robo-Ant.png" id="1_7xfyh"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_kudwx"]
+
+[resource]
+resource_name = "Antdroid"
+script = ExtResource("2_kudwx")
+portait = ExtResource("1_7xfyh")
+tribes = Array[int]([6, 7])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([])
+attack = 0
+attack_special = 1
+health = 2
+health_special = 0
+conductive = false
+blood_cost = 0
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 3
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""

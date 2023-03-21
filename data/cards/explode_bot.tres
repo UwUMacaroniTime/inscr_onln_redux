@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://dkplr165hkp6r"]
+
+[ext_resource type="Texture2D" uid="uid://bs8e0ckrrsdrg" path="res://gfx/pixport/Explode Bot.png" id="1_k13hc"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_1vc0p"]
+[ext_resource type="Resource" uid="uid://cpn7xuwaqt6t0" path="res://data/sigils/Detonator.tres" id="3_8kfiw"]
+
+[resource]
+resource_name = "Explode Bot"
+script = ExtResource("2_1vc0p")
+portait = ExtResource("1_k13hc")
+tribes = Array[int]([10])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_8kfiw")])
+attack = 1
+attack_special = 0
+health = 1
+health_special = 0
+conductive = false
+blood_cost = 0
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 2
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""

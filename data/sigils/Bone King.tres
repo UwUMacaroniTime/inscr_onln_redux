@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Sigil_BoneKing" load_steps=2 format=3 uid="uid://6mgeuq7w3708"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Bone King.gd" id="1_hmgp5"]
+
+[resource]
+script = ExtResource("1_hmgp5")
+amount = 4
+rune_value = 1
+use_restrictions = 0

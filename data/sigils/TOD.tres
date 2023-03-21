@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Sigil_TouchOfDeath" load_steps=2 format=3 uid="uid://ctx0jou25qr02"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Touch Of Death.gd" id="1_smrt0"]
+
+[resource]
+resource_name = "Touch Of Death"
+script = ExtResource("1_smrt0")
+rune_value = 1
+use_restrictions = 0

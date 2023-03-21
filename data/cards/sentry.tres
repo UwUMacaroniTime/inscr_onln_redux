@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://cpigjttb1exdh"]
+
+[ext_resource type="Texture2D" uid="uid://cp5chlja3f1jx" path="res://gfx/pixport/Sentry Drone.png" id="1_8b4rj"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_icfoa"]
+[ext_resource type="Resource" uid="uid://cmdy42l4ox4o2" path="res://data/sigils/Sentry.tres" id="3_3ihbr"]
+
+[resource]
+resource_name = "Sentry Drone"
+script = ExtResource("2_icfoa")
+portait = ExtResource("1_8b4rj")
+tribes = Array[int]([10, 11])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_3ihbr")])
+attack = 0
+attack_special = 0
+health = 2
+health_special = 0
+conductive = false
+blood_cost = 0
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 1
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+banned = false
+rare = false
+description = ""
