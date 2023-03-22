@@ -1,7 +1,7 @@
 class_name Sigil_TribeDependant
 extends Sigil
 
-@export var tribe:CData.TRIBES = CData.TRIBES.MOX
+@export var tribe:CData.TRIBES = CData.TRIBES.Mox
 
 func get_icon() -> Texture2D:
 	if icon_override == null:
@@ -10,6 +10,6 @@ func get_icon() -> Texture2D:
 
 func get_desc() -> String:
 	var construct:String = "If owner controls no \"" \
-	+ CData.TRIBES.find_key(tribe).to_pascal_case()\
-	+ "\" ant creatures, this perishes."
+	+ CData.TRIBES.find_key(tribe)\
+	+ "\" creatures, this perishes."
 	return super.get_desc().format([construct])

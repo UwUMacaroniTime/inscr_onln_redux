@@ -9,6 +9,7 @@ extends Control
 @onready var card_browser_list = %Allcards
 
 var card_scn:PackedScene = load("res://scenes/card/card.tscn")
+var cards:Array[Dictionary] = [{}, {}]
 
 enum card_location {
 	MAINDECK,
@@ -53,27 +54,44 @@ func _on_mode_select_tab_changed(tab:int):
 			side_deck.visible = true
 			card_browser.visible = true
 
+func deck_size(loc:card_location) -> int:
+	var total = 0
+	for card in cards[loc]:
+		total += cards[loc][card]
+	return total
+
 func _card_selected(card:Card, loc:int):
 	match loc:
 		card_location.BROWSER:
 			match mode_select.current_tab:
 				0:
+					if cards[0].get(card.data.resource_name, 1) >= 4:
+						return
+					
 					var new_card : = gen_card(card_location.MAINDECK)
 					new_card.data = card.data
 					new_card.visual_apply()
+					
+					cards[0][card.data.resource_name] = cards[0].get(card.data.resource_name, 0) + 1
 				1:
+					if cards[1].get(card.data.resource_name, 1) >= 10:
+						return
+					
 					var new_card : = gen_card(card_location.SIDEDECK)
 					new_card.data = card.data
 					new_card.visual_apply()
+					
+					cards[1][card.data.resource_name] = cards[1].get(card.data.resource_name, 0) + 1
 		card_location.SIDEDECK:
 			card.queue_free()
+			cards[1][card.data.resource_name] -= 1
 		card_location.MAINDECK:
 			card.queue_free()
+			cards[0][card.data.resource_name] -= 1
 
 func _card_hovered(card:Card, _loc:int):
 	preview_card.data = card.data
 	preview_card.visual_apply()
-	
 
 func _on_search_pressed():
 	var name_edit :LineEdit = $ButtonsNStuff/NameEdit

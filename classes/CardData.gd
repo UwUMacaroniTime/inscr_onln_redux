@@ -2,35 +2,35 @@ class_name  CData
 extends Resource
 
 enum TRIBES {
-	CANINE, ## The-jack-of-all-trades tribe. Don't really specialize in anything, but have general synergy.
-	FELINE, 
-	REPTILE, ## Reptiles have good high value target shutdown- whether by outright removing or by blocking damage.
-	RODENT, ## Rodents mostly specialize in both expendability and defense. 
-	FISH, ## Fish consist almost entirely of waterborne cards.
-	FEATHERED, ## Feathered are usually airborne and provide utility and direct damage.
-	INSECT, ## Cheap and squishy but threatening units that can easily pile up if you aren't careful.
-	ANT, ## Ants count towards the "Ants" special stat.
-	HOOVED, ## Hooved cards are especially mobile,characterized by sigils like Sprinter and Hefty
-	BLUECOLLAR,
-	MILITARY, ## Military are not afraid to detonate everything in firey explosions, including themselves.
-	CONSTRUCT, ## Constructs primarily are very low attack, high health units.
-	SCOUNDREL, ## Outlaws, Bandits, and Outcasts. love having open spaces to deal direct damage into.
-	ROYAL, ## Anything that is revered or at the top a monarchratic system. Royals are usually squishy but have high value, so that Royal Protector cards may synergize well with them.
-	GHOST, ## Miscelaneous non-physical spirits. Highly expendable or actively want to die.
-	MARROWITE, ## Marrowites are mostly skeletons, or skeleton-esq such as Exeskeleton. Often brittle.
-	CADAVER, ## Cadavers are mostly zombies or dead bodies. Soak up damage like a sponge.
-	MOX, ## Mox count towards the "Gem Guardian", "Mental Gemnastics", and "Gem Dependant" sigils.
-	DAMNED, ## Disgraced by society, usually demon-creatures. 
+	Canine, ## The-jack-of-all-trades tribe. Don't really specialize in anything, but have general synergy.
+	Feline, 
+	Reptile, ## Reptiles have good high value target shutdown- whether by outright removing or by blocking damage.
+	Rodent, ## Rodents mostly specialize in both expendability and defense. 
+	Fish, ## Fish consist almost entirely of waterborne cards.
+	Feathered, ## Feathered are usually airborne and provide utility and direct damage.
+	Insect, ## Cheap and squishy but threatening units that can easily pile up if you aren't careful.
+	Ant, ## Ants count towards the "Ants" special stat.
+	Hooved, ## Hooved cards are especially mobile,characterized by sigils like Sprinter and Hefty
+	Bluecollar,
+	Military, ## Military are not afraid to detonate everything in firey explosions, including themselves.
+	Construct, ## Constructs primarily are very low attack, high health units.
+	Scoundrel, ## Outlaws, Bandits, and Outcasts. love having open spaces to deal direct damage into.
+	Royal, ## Anything that is revered or at the top a monarchratic system. Royals are usually squishy but have high value, so that Royal Protector cards may synergize well with them.
+	Ghost, ## Miscelaneous non-physical spirits. Highly expendable or actively want to die.
+	Marrowite, ## Marrowites are mostly skeletons, or skeleton-esq such as Exeskeleton. Often brittle.
+	Cadaver, ## Cadavers are mostly zombies or dead bodies. Soak up damage like a sponge.
+	Mox, ## Mox count towards the "Gem Guardian", "Mental Gemnastics", and "Gem Dependant" sigils.
+	Damned, ## Disgraced by society, usually demon-creatures. 
 }
 
 enum SPECIAL_STAT {
-	NONE,
-	ANTS,
-	MOX,
-	HAND_SIZE,
-	MIRROR_ATTACK,
-	MIRROR_HEALTH,
-	BELL_PROXIMITY,
+	None,
+	Ants,
+	Mox,
+	Hand_Size,
+	Mirror_Attack,
+	Mirror_Health,
+	Bell_Proximity,
 }
 
 ## The visual artwork of the card.
