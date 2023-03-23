@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3 uid="uid://r7s6o2e5l3as"]
+
+[ext_resource type="Texture2D" uid="uid://bqg5tn566gihb" path="res://gfx/char_portraits/Magnificus.png" id="1_3nulj"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_ayt82"]
+
+[resource]
+resource_name = "Magnificus"
+script = ExtResource("2_ayt82")
+portrait = ExtResource("1_3nulj")
+title = ""
+description = "Christmas tree looking mfer"

@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=8 format=3 uid="uid://b47gia5qause6"]
+
+[ext_resource type="Texture2D" uid="uid://cxifg45ydvw0s" path="res://gfx/char_portraits/Lonely Wizard.png" id="1_encbr"]
+[ext_resource type="Shader" path="res://scenes/scrybename.gdshader" id="1_ki8c8"]
+[ext_resource type="Texture2D" uid="uid://cukm0cfkewj0c" path="res://gfx/textures/veins.png" id="2_2ydie"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_vlpkt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2opsx"]
+resource_name = "DisplaceMaterial"
+shader = ExtResource("1_ki8c8")
+shader_parameter/magnitude = 1.0
+shader_parameter/bob_magnitude = 1.0
+shader_parameter/bob_speed = 0.05
+shader_parameter/pulse_magnitude = 0.25
+shader_parameter/pulse_speed = 0.5
+shader_parameter/displace_tex = ExtResource("2_2ydie")
+
+[sub_resource type="Gradient" id="Gradient_ehy0w"]
+offsets = PackedFloat32Array(0, 0.340852, 0.54386, 0.726817, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.1072, 0.16, 0.15824, 1, 0.2064, 0.43, 0.43, 1, 0.00553394, 0.677983, 0.676749, 1, 0, 0.865752, 0.865752, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bohts"]
+gradient = SubResource("Gradient_ehy0w")
+fill_from = Vector2(0.991453, 1)
+
+[resource]
+resource_name = "Lonely"
+script = ExtResource("2_vlpkt")
+portrait = ExtResource("1_encbr")
+name_tex = SubResource("GradientTexture2D_bohts")
+name_mat = SubResource("ShaderMaterial_2opsx")
+title = ""
+description = "[b]Leshy, scrybe of beasts[\\b]
+aadhgfgaa, aa. Hhh?Abhgfj
+lorem ipsum, etc. etc."

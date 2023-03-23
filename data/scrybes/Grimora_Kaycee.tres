@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=6 format=3 uid="uid://b4vre56dwe03j"]
+
+[ext_resource type="Texture2D" uid="uid://wj2jgyyspujq" path="res://gfx/char_portraits/Kaycee.png" id="1_naqy4"]
+[ext_resource type="Material" uid="uid://drd8o10ti6w7y" path="res://data/scrybes/materials/frost_displace.tres" id="1_somx0"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_bkomp"]
+
+[sub_resource type="Gradient" id="Gradient_q7epe"]
+offsets = PackedFloat32Array(0, 0.275689, 0.942356, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.00864603, 0.418926, 0.460173, 1, 0.575215, 0.727034, 0.813995, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7gsg7"]
+gradient = SubResource("Gradient_q7epe")
+fill_from = Vector2(1, 1)
+
+[resource]
+resource_name = "Kaycee"
+script = ExtResource("2_bkomp")
+portrait = ExtResource("1_naqy4")
+name_tex = SubResource("GradientTexture2D_7gsg7")
+name_mat = ExtResource("1_somx0")
+title = "Intrepid Investigator"
+description = "The poor moth who got too close to the truth.
+Controls the opponent and manipulates their luck to get the upper hand.
+ 
+[b]Frozen Marrow:
+[/b]The first card to die each turn summons an Ice Flow. Whenever you destroy an Ice Flow, gain +1 hammer use.
+ 
+[b]Mullinagain:
+[/b]Once per game: You may discard your hand and draw that many cards."

@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=8 format=3 uid="uid://dlujy6x6874i0"]
+
+[ext_resource type="Texture2D" uid="uid://bifgbqdt3w306" path="res://gfx/char_portraits/Leshy.png" id="1_pigsa"]
+[ext_resource type="Shader" path="res://scenes/scrybename.gdshader" id="1_vw5ui"]
+[ext_resource type="Texture2D" uid="uid://c6u7ng80i8oka" path="res://gfx/textures/bark.png" id="2_jwfrm"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_nvbav"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uk6kn"]
+resource_name = "DisplaceMaterial"
+shader = ExtResource("1_vw5ui")
+shader_parameter/magnitude = 0.8
+shader_parameter/bob_magnitude = 0.2
+shader_parameter/bob_speed = 0.5
+shader_parameter/pulse_magnitude = 0.07
+shader_parameter/pulse_speed = 0.2
+shader_parameter/displace_tex = ExtResource("2_jwfrm")
+
+[sub_resource type="Gradient" id="Gradient_xskla"]
+offsets = PackedFloat32Array(0, 0.448622, 0.887218, 1)
+colors = PackedColorArray(0.0333688, 0.11405, 0, 1, 0.200248, 0.429629, 0.0202234, 1, 0.34878, 0.719837, 1.92523e-06, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wex1k"]
+gradient = SubResource("Gradient_xskla")
+fill_from = Vector2(1, 0.982906)
+
+[resource]
+resource_name = "Leshy"
+script = ExtResource("2_nvbav")
+portrait = ExtResource("1_pigsa")
+name_tex = SubResource("GradientTexture2D_wex1k")
+name_mat = SubResource("ShaderMaterial_uk6kn")
+title = "Druidic Photographer"
+description = "Guardian of the forest and oft the welcomer to the scrybe islands.
+Reccomended for beginners.
+[b]Gamemaster:
+[/b]Leshy starts with 1 extra card in his starting hand. However, Leshy's deck must be 4 cards larger.
+[b]Mortua Memoria:
+[/b]Once pre game: choose a card. That card perishes."

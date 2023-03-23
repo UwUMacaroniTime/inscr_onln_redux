@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3 uid="uid://07we4qg0ga2"]
+
+[ext_resource type="Texture2D" uid="uid://davkgnevw0st1" path="res://gfx/char_portraits/Dredger.png" id="1_bpmbp"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_e1lg0"]
+
+[resource]
+resource_name = "Dredger"
+script = ExtResource("2_e1lg0")
+portrait = ExtResource("1_bpmbp")
+description = "[b]Leshy, scrybe of beasts[\\b]
+aadhgfgaa, aa. Hhh?Abhgfj
+lorem ipsum, etc. etc."

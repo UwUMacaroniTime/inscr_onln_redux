@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3 uid="uid://cxjs7vmdns34"]
+
+[ext_resource type="Texture2D" uid="uid://iv5saadbsdgb" path="res://gfx/char_portraits/Sawyer.png" id="1_la4ao"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_miv42"]
+
+[resource]
+resource_name = "Sawyer"
+script = ExtResource("2_miv42")
+portrait = ExtResource("1_la4ao")
+title = "Perfect Martyr"
+description = "Sawyer's noble sacrifice earned him some loyalty- Whether he likes it or not.
+ 
+[b]Last Remains:
+[/b]When you play a canine, gain 1 bone.
+ 
+[b]Fetch:
+[/b]Once per turn, 4 bones: All freindly canines gain +1/+0."

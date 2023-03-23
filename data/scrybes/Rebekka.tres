@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3 uid="uid://gfq6skyeieka"]
+
+[ext_resource type="Texture2D" uid="uid://bc7t0yoh5xyxn" path="res://gfx/char_portraits/Trader.png" id="1_p8hie"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_05xls"]
+
+[resource]
+resource_name = "Rebekka"
+script = ExtResource("2_05xls")
+portrait = ExtResource("1_p8hie")
+description = "Woof."

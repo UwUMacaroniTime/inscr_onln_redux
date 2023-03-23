@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=8 format=3 uid="uid://dki3lr5elm1k1"]
+
+[ext_resource type="Texture2D" uid="uid://cujvjqetvtsoe" path="res://gfx/char_portraits/Goobert.png" id="1_f6psm"]
+[ext_resource type="Shader" path="res://scenes/scrybename.gdshader" id="1_tvxco"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_l81yg"]
+[ext_resource type="Texture2D" uid="uid://d3qyshya3kl8c" path="res://gfx/textures/slime.jpg" id="2_wx6km"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n4kds"]
+resource_name = "DisplaceMaterial"
+shader = ExtResource("1_tvxco")
+shader_parameter/magnitude = 0.6
+shader_parameter/bob_magnitude = 1.0
+shader_parameter/bob_speed = 0.1
+shader_parameter/pulse_magnitude = 0.0
+shader_parameter/pulse_speed = 0.0
+shader_parameter/displace_tex = ExtResource("2_wx6km")
+
+[sub_resource type="Gradient" id="Gradient_4qsw3"]
+offsets = PackedFloat32Array(0, 0.689223, 1)
+colors = PackedColorArray(0.149892, 0.338177, 1.44392e-07, 1, 0.514311, 1, 0.146352, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wqwjs"]
+gradient = SubResource("Gradient_4qsw3")
+fill_from = Vector2(1, 0.982906)
+
+[resource]
+resource_name = "Goobert"
+script = ExtResource("2_l81yg")
+portrait = ExtResource("1_f6psm")
+name_tex = SubResource("GradientTexture2D_wqwjs")
+name_mat = SubResource("ShaderMaterial_n4kds")
+title = "Sticky Denizen"
+description = "Makes the most of their viscous form with a cheery disposition and an insatiable lust to learn.
+ 
+[b]Liquid Bulwark:
+[/b]All your cards have the Mighty Leap effect. Existing cards with MightyLeap gain +0/+1 instead.
+ 
+[b]Creative Liscense:
+[/b]Once per game: choose a card in hand and duplicate it."

@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://yqe35bfl8wva"]
+
+[ext_resource type="Shader" path="res://scenes/scrybename.gdshader" id="1_ff2ns"]
+[ext_resource type="Texture2D" uid="uid://cqpr75yjahjo2" path="res://gfx/textures/frost-crystals-public-domain.jpg" id="2_2djn6"]
+
+[resource]
+resource_name = "DisplaceMaterial"
+shader = ExtResource("1_ff2ns")
+shader_parameter/magnitude = 0.3
+shader_parameter/bob_magnitude = 0.05
+shader_parameter/bob_speed = 0.5
+shader_parameter/pulse_magnitude = 0.1
+shader_parameter/pulse_speed = 2.0
+shader_parameter/displace_tex = ExtResource("2_2djn6")

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://drd8o10ti6w7y"]
+
+[ext_resource type="Shader" path="res://scenes/scrybename.gdshader" id="1_f3ru0"]
+[ext_resource type="Texture2D" uid="uid://cqpr75yjahjo2" path="res://gfx/textures/frost-crystals-public-domain.jpg" id="2_oe8j3"]
+
+[resource]
+resource_name = "DisplaceMaterial"
+shader = ExtResource("1_f3ru0")
+shader_parameter/magnitude = 0.8
+shader_parameter/displace_tex = ExtResource("2_oe8j3")

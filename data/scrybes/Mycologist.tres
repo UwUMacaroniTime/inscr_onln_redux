@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3 uid="uid://dlps533qx2e3m"]
+
+[ext_resource type="Texture2D" uid="uid://bc7t0yoh5xyxn" path="res://gfx/char_portraits/Trader.png" id="1_6kojk"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_f0134"]
+
+[resource]
+resource_name = "Mycologist"
+script = ExtResource("2_f0134")
+portrait = ExtResource("1_6kojk")
+title = "Exiled Doctors"
+description = "[b]Leshy, scrybe of beasts[\\b]
+aadhgfgaa, aa. Hhh?Abhgfj
+lorem ipsum, etc. etc."

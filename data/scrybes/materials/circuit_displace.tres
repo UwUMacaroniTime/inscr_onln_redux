@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bbio6b302h22w"]
+
+[ext_resource type="Shader" path="res://scenes/scrybename.gdshader" id="1_2u8u8"]
+[ext_resource type="Texture2D" uid="uid://d3snbf34fvwjc" path="res://gfx/textures/Circuit.png" id="1_oimlj"]
+
+[resource]
+resource_name = "DisplaceMaterial"
+shader = ExtResource("1_2u8u8")
+shader_parameter/magnitude = 0.5
+shader_parameter/displace_tex = ExtResource("1_oimlj")

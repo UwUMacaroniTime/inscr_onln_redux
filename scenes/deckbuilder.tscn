@@ -1,8 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://qrh7v3mee2ao"]
+[gd_scene load_steps=21 format=3 uid="uid://qrh7v3mee2ao"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_6ek54"]
 [ext_resource type="PackedScene" uid="uid://s53h2f3swdrw" path="res://scenes/card/card.tscn" id="1_nrmy2"]
 [ext_resource type="Script" path="res://scenes/deckbuilder.gd" id="2_bu6d7"]
+[ext_resource type="Texture2D" uid="uid://bifgbqdt3w306" path="res://gfx/char_portraits/Leshy.png" id="4_tdxse"]
+[ext_resource type="Shader" path="res://scenes/portrait-palette.gdshader" id="4_whoxo"]
+[ext_resource type="Texture2D" uid="uid://biyodn2e4a55v" path="res://gfx/char_portraits/P03.png" id="5_1noy1"]
+[ext_resource type="Texture2D" uid="uid://d0vvhetlepiei" path="res://gfx/char_portraits/Grimora.png" id="6_da2ij"]
+[ext_resource type="FontFile" uid="uid://doe8y2lnclpcj" path="res://fonts/alagard.ttf" id="6_xarbb"]
+[ext_resource type="Texture2D" uid="uid://bqg5tn566gihb" path="res://gfx/char_portraits/Magnificus.png" id="7_t25xg"]
+[ext_resource type="Texture2D" uid="uid://bn1nhhqqjf6w3" path="res://gfx/char_portraits/Royal.png" id="8_2t2mh"]
+[ext_resource type="Texture2D" uid="uid://iv5saadbsdgb" path="res://gfx/char_portraits/Sawyer.png" id="9_vuph5"]
+[ext_resource type="Texture2D" uid="uid://wj2jgyyspujq" path="res://gfx/char_portraits/Kaycee.png" id="10_47o8b"]
+[ext_resource type="Texture2D" uid="uid://cwwhjuls7f2x5" path="res://gfx/char_portraits/Prospector.png" id="11_t80xq"]
+[ext_resource type="Texture2D" uid="uid://davkgnevw0st1" path="res://gfx/char_portraits/Dredger.png" id="12_wapr8"]
+[ext_resource type="Texture2D" uid="uid://sk668qmuath7" path="res://gfx/char_portraits/Smelter.png" id="13_crcqt"]
+[ext_resource type="Texture2D" uid="uid://bnjwaf27vf3v6" path="res://gfx/char_portraits/Inspector.png" id="14_jfpca"]
+[ext_resource type="Texture2D" uid="uid://cxifg45ydvw0s" path="res://gfx/char_portraits/Lonely Wizard.png" id="15_i0jsm"]
+[ext_resource type="Texture2D" uid="uid://cujvjqetvtsoe" path="res://gfx/char_portraits/Goobert.png" id="16_a1eiy"]
+[ext_resource type="Texture2D" uid="uid://bc7t0yoh5xyxn" path="res://gfx/char_portraits/Trader.png" id="17_xgaly"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipkmm"]
+shader = ExtResource("4_whoxo")
 
 [node name="Deckbuilder" type="Control"]
 texture_filter = 1
@@ -53,6 +72,7 @@ split_offset = 120
 
 [node name="Main Deck" type="ScrollContainer" parent="Split"]
 unique_name_in_owner = true
+visible = false
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -98,6 +118,7 @@ theme_override_constants/v_separation = 6
 
 [node name="CardBrowser" type="PanelContainer" parent="Split"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -119,6 +140,121 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_6ek54")
+
+[node name="PreviewScrybe" type="Control" parent="Split"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrybeDesc" type="RichTextLabel" parent="Split/PreviewScrybe"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6ek54")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+text = "Perpetually encompanied by a scattering of beasts as he performs the noble task of gold mining.
+Reccomended for those looking for a variation on leshy's gameplay.
+ 
+[b]Canine Loyalty:
+[/b]The prospector starts with a bloodhound in their opening hand.
+ 
+[b]Gold Fever:
+[/b]Once per game: all enemy cards perish and become Gold Nuggets."
+
+[node name="Portrait" type="TextureRect" parent="Split/PreviewScrybe"]
+material = SubResource("ShaderMaterial_ipkmm")
+layout_mode = 1
+anchors_preset = -1
+offset_right = 143.5
+offset_bottom = 140.24
+tooltip_text = "This is the portrait players will see you as in-game when playing this deck."
+texture = ExtResource("11_t80xq")
+
+[node name="Title" type="Control" parent="Split/PreviewScrybe"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 141.0
+offset_top = -1.0
+offset_right = 489.0
+offset_bottom = 98.0
+
+[node name="Name" type="Label" parent="Split/PreviewScrybe/Title"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_xarbb")
+theme_override_font_sizes/font_size = 64
+text = "Prospector"
+
+[node name="Gradient" type="TextureRect" parent="Split/PreviewScrybe/Title/Name"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Split/PreviewScrybe/Title"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 60.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.282353)
+theme_override_fonts/font = ExtResource("6_xarbb")
+theme_override_font_sizes/font_size = 32
+text = "Guardian of the Forest"
+
+[node name="ScrybeBrowser" type="ItemList" parent="Split"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 14
+max_columns = 99
+same_column_width = true
+fixed_icon_size = Vector2i(64, 64)
+item_0/text = "Leshy"
+item_0/icon = ExtResource("4_tdxse")
+item_1/text = "P03"
+item_1/icon = ExtResource("5_1noy1")
+item_2/text = "Grimora"
+item_2/icon = ExtResource("6_da2ij")
+item_3/text = "Magnificus"
+item_3/icon = ExtResource("7_t25xg")
+item_4/text = "Royal"
+item_4/icon = ExtResource("8_2t2mh")
+item_5/text = "Sawyer"
+item_5/icon = ExtResource("9_vuph5")
+item_6/text = "Kaycee"
+item_6/icon = ExtResource("10_47o8b")
+item_7/text = "Prospector"
+item_7/icon = ExtResource("11_t80xq")
+item_8/text = "Dredger"
+item_8/icon = ExtResource("12_wapr8")
+item_9/text = "Smelter"
+item_9/icon = ExtResource("13_crcqt")
+item_10/text = "Inspector"
+item_10/icon = ExtResource("14_jfpca")
+item_11/text = "Lonely Wizard"
+item_11/icon = ExtResource("15_i0jsm")
+item_12/text = "Goobert"
+item_12/icon = ExtResource("16_a1eiy")
+item_13/text = "Trader"
+item_13/icon = ExtResource("17_xgaly")
 
 [node name="ButtonsNStuff" type="Panel" parent="."]
 layout_mode = 1
@@ -221,15 +357,6 @@ tab_0/title = "Main Deck"
 tab_1/title = "Side Deck"
 tab_2/title = "Scrybe"
 
-[node name="ScrybeSelect" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 87.0
-grow_horizontal = 2
-grow_vertical = 2
-
+[connection signal="item_selected" from="Split/ScrybeBrowser" to="." method="_scrybe_selected"]
 [connection signal="pressed" from="ButtonsNStuff/Search" to="." method="_on_search_pressed"]
 [connection signal="tab_changed" from="ModeSelect" to="." method="_on_mode_select_tab_changed"]

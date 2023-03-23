@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3 uid="uid://cwkiqptin5bsv"]
+
+[ext_resource type="Texture2D" uid="uid://dxkt7161natjd" path="res://gfx/char_portraits/Trapper.png" id="1_714hr"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_m4xn7"]
+
+[resource]
+resource_name = "Trapper"
+script = ExtResource("2_m4xn7")
+portrait = ExtResource("1_714hr")
+description = "[b]Leshy, scrybe of beasts[\\b]
+aadhgfgaa, aa. Hhh?Abhgfj
+lorem ipsum, etc. etc."

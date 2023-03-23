@@ -7,10 +7,13 @@ extends Control
 @onready var side_deck_list := %SidedeckList
 @onready var preview_card :Card = %PreviewCard
 @onready var card_browser_list = %Allcards
+@onready var scrybe_browser_list = %ScrybeBrowser
+@onready var scrybe = %PreviewScrybe
 
 var card_scn:PackedScene = load("res://scenes/card/card.tscn")
-var cards:Array[Dictionary] = [{}, {}]
-
+var card_decks:Array[Dictionary] = [{}, {}]
+var scrybes = []
+var scrybe_data :ScrybeData
 enum card_location {
 	MAINDECK,
 	SIDEDECK,
@@ -25,6 +28,11 @@ func _ready():
 		# just assume it's a CData file. If it isn't this all messes up anyway
 		card.data = load("data/cards/" + file)
 		card.visual_apply()
+	scrybe_browser_list.clear()
+	for file in DirAccess.get_files_at("res://data/scrybes"):
+		var scrybe :ScrybeData = load("data/scrybes/" + file)
+		scrybes.append(scrybe)
+		scrybe_browser_list.add_item(scrybe.resource_name, scrybe.portrait)
 
 func gen_card(loc:card_location) -> Card:
 	var card_instance :Card = card_scn.instantiate()
@@ -40,11 +48,28 @@ func gen_card(loc:card_location) -> Card:
 			card_browser_list.add_child(card_instance)
 	return card_instance
 
+func _scrybe_selected(idx:int):
+	var scrybe_desc := %ScrybeDesc
+	var portrait := $Split/PreviewScrybe/Portrait
+	var backdrop :TextureRect = $Split/PreviewScrybe/Title/Name/Gradient
+	var title := $Split/PreviewScrybe/Title/Title
+	var name := $Split/PreviewScrybe/Title/Name
+	scrybe_data = scrybes[idx]
+	scrybe_desc.text = scrybe_data.description
+	portrait.texture = scrybe_data.portrait
+	backdrop.texture = scrybe_data.name_tex
+	backdrop.material = scrybe_data.name_mat
+	title.text = scrybe_data.title
+	name.text = scrybe_data.resource_name
+	portrait.material.set_shader_parameter("palette", scrybe_data.name_tex)
+
 func _on_mode_select_tab_changed(tab:int):
 	main_deck.visible = false
 	side_deck.visible = false
 	var card_browser := %CardBrowser
 	card_browser.visible = false
+	scrybe_browser_list.visible = false
+	scrybe.visible = false
 	
 	match tab:
 		0:
@@ -53,11 +78,15 @@ func _on_mode_select_tab_changed(tab:int):
 		1:
 			side_deck.visible = true
 			card_browser.visible = true
+		2:
+			scrybe_browser_list.visible = true
+			scrybe.visible = true
+			
 
 func deck_size(loc:card_location) -> int:
 	var total = 0
-	for card in cards[loc]:
-		total += cards[loc][card]
+	for card in card_decks[loc]:
+		total += card_decks[loc][card]
 	return total
 
 func _card_selected(card:Card, loc:int):
@@ -65,29 +94,29 @@ func _card_selected(card:Card, loc:int):
 		card_location.BROWSER:
 			match mode_select.current_tab:
 				0:
-					if cards[0].get(card.data.resource_name, 1) >= 4:
+					if card_decks[0].get(card.data.resource_name, 1) >= 4:
 						return
 					
 					var new_card : = gen_card(card_location.MAINDECK)
 					new_card.data = card.data
 					new_card.visual_apply()
 					
-					cards[0][card.data.resource_name] = cards[0].get(card.data.resource_name, 0) + 1
+					card_decks[0][card.data.resource_name] = card_decks[0].get(card.data.resource_name, 0) + 1
 				1:
-					if cards[1].get(card.data.resource_name, 1) >= 10:
+					if card_decks[1].get(card.data.resource_name, 1) >= 10:
 						return
 					
 					var new_card : = gen_card(card_location.SIDEDECK)
 					new_card.data = card.data
 					new_card.visual_apply()
 					
-					cards[1][card.data.resource_name] = cards[1].get(card.data.resource_name, 0) + 1
+					card_decks[1][card.data.resource_name] = card_decks[1].get(card.data.resource_name, 0) + 1
 		card_location.SIDEDECK:
 			card.queue_free()
-			cards[1][card.data.resource_name] -= 1
+			card_decks[1][card.data.resource_name] -= 1
 		card_location.MAINDECK:
 			card.queue_free()
-			cards[0][card.data.resource_name] -= 1
+			card_decks[0][card.data.resource_name] -= 1
 
 func _card_hovered(card:Card, _loc:int):
 	preview_card.data = card.data

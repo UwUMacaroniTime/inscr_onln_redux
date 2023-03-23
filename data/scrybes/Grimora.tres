@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=8 format=3 uid="uid://cnx3pw1wgy8p0"]
+
+[ext_resource type="Texture2D" uid="uid://d0vvhetlepiei" path="res://gfx/char_portraits/Grimora.png" id="1_563cp"]
+[ext_resource type="Shader" path="res://scenes/scrybename.gdshader" id="1_bv6q7"]
+[ext_resource type="Texture2D" uid="uid://82nilnuhaukv" path="res://gfx/textures/skin.png" id="2_i54gj"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_otvp1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hk13m"]
+resource_name = "DisplaceMaterial"
+shader = ExtResource("1_bv6q7")
+shader_parameter/magnitude = 0.4
+shader_parameter/bob_magnitude = 0.2
+shader_parameter/bob_speed = 0.5
+shader_parameter/pulse_magnitude = 0.07
+shader_parameter/pulse_speed = 0.2
+shader_parameter/displace_tex = ExtResource("2_i54gj")
+
+[sub_resource type="Gradient" id="Gradient_3kskv"]
+offsets = PackedFloat32Array(0, 0.16792, 0.862155, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.266067, 0.00941991, 0.134534, 1, 0.6686, 0.218675, 0.59389, 1, 0.971403, 0.881943, 0.950591, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8t5su"]
+gradient = SubResource("Gradient_3kskv")
+fill_from = Vector2(1, 1)
+
+[resource]
+resource_name = "Grimora"
+script = ExtResource("2_otvp1")
+portrait = ExtResource("1_563cp")
+name_tex = SubResource("GradientTexture2D_8t5su")
+name_mat = SubResource("ShaderMaterial_hk13m")
+title = "Deadly Matriarch"
+description = "Summons creatures back from the graveyard to not only make her minions work to death, but past it.
+[b]Unburial:
+[/b]For the cost of a bone, Grimora may draw out of their graveyard instead of their main or side deck.
+[b]Postmortem Doula:
+[/b]Once per game: Choose a friendly creature that perished. Create a duplicate of this in your hand."

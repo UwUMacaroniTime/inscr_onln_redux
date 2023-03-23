@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=6 format=3 uid="uid://c6x70m8abkggu"]
+
+[ext_resource type="Material" uid="uid://yqe35bfl8wva" path="res://data/scrybes/materials/rocks_displace.tres" id="1_dx70v"]
+[ext_resource type="Texture2D" uid="uid://cwwhjuls7f2x5" path="res://gfx/char_portraits/Prospector.png" id="2_h4dsr"]
+[ext_resource type="Script" path="res://classes/ScrybeData.gd" id="3_ddwli"]
+
+[sub_resource type="Gradient" id="Gradient_7wnea"]
+offsets = PackedFloat32Array(0, 0.295739, 0.846395, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.417938, 0.26984, 3.36915e-07, 1, 0.96722, 0.422369, 0, 1, 1, 0.688381, 0.580949, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qb32a"]
+gradient = SubResource("Gradient_7wnea")
+fill_from = Vector2(1, 1)
+
+[resource]
+resource_name = "Prospector"
+script = ExtResource("3_ddwli")
+portrait = ExtResource("2_h4dsr")
+name_tex = SubResource("GradientTexture2D_qb32a")
+name_mat = ExtResource("1_dx70v")
+title = "Guardian of the Forest"
+description = "Perpetually encompanied by a scattering of beasts as he performs the noble task of gold mining.
+Reccomended for those looking for a variation on leshy's gameplay.
+ 
+[b]Treasured Partner:
+[/b]The prospector starts with a bloodhound in their opening hand.
+ 
+[b]Gold Fever:
+[/b]Once per game: all enemy cards perish and become Gold Nuggets."
