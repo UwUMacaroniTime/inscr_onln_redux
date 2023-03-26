@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://qrh7v3mee2ao"]
+[gd_scene load_steps=22 format=3 uid="uid://qrh7v3mee2ao"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_6ek54"]
 [ext_resource type="PackedScene" uid="uid://s53h2f3swdrw" path="res://scenes/card/card.tscn" id="1_nrmy2"]
 [ext_resource type="Script" path="res://scenes/deckbuilder.gd" id="2_bu6d7"]
 [ext_resource type="Texture2D" uid="uid://bifgbqdt3w306" path="res://gfx/char_portraits/Leshy.png" id="4_tdxse"]
-[ext_resource type="Shader" path="res://scenes/portrait-palette.gdshader" id="4_whoxo"]
 [ext_resource type="Texture2D" uid="uid://biyodn2e4a55v" path="res://gfx/char_portraits/P03.png" id="5_1noy1"]
 [ext_resource type="Texture2D" uid="uid://d0vvhetlepiei" path="res://gfx/char_portraits/Grimora.png" id="6_da2ij"]
 [ext_resource type="FontFile" uid="uid://doe8y2lnclpcj" path="res://fonts/alagard.ttf" id="6_xarbb"]
@@ -19,9 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://cxifg45ydvw0s" path="res://gfx/char_portraits/Lonely Wizard.png" id="15_i0jsm"]
 [ext_resource type="Texture2D" uid="uid://cujvjqetvtsoe" path="res://gfx/char_portraits/Goobert.png" id="16_a1eiy"]
 [ext_resource type="Texture2D" uid="uid://bc7t0yoh5xyxn" path="res://gfx/char_portraits/Trader.png" id="17_xgaly"]
+[ext_resource type="PackedScene" uid="uid://c0urwjf0g6cad" path="res://scenes/dialogues/dialogue_window.tscn" id="19_p2g6o"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipkmm"]
-shader = ExtResource("4_whoxo")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tr6xp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bmmwd"]
 
 [node name="Deckbuilder" type="Control"]
 texture_filter = 1
@@ -72,7 +73,6 @@ split_offset = 120
 
 [node name="Main Deck" type="ScrollContainer" parent="Split"]
 unique_name_in_owner = true
-visible = false
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -118,7 +118,6 @@ theme_override_constants/v_separation = 6
 
 [node name="CardBrowser" type="PanelContainer" parent="Split"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -143,6 +142,7 @@ theme = ExtResource("1_6ek54")
 
 [node name="PreviewScrybe" type="Control" parent="Split"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -169,7 +169,6 @@ Reccomended for those looking for a variation on leshy's gameplay.
 [/b]Once per game: all enemy cards perish and become Gold Nuggets."
 
 [node name="Portrait" type="TextureRect" parent="Split/PreviewScrybe"]
-material = SubResource("ShaderMaterial_ipkmm")
 layout_mode = 1
 anchors_preset = -1
 offset_right = 143.5
@@ -180,9 +179,9 @@ texture = ExtResource("11_t80xq")
 [node name="Title" type="Control" parent="Split/PreviewScrybe"]
 layout_mode = 1
 anchors_preset = 0
-offset_left = 141.0
+offset_left = 145.0
 offset_top = -1.0
-offset_right = 489.0
+offset_right = 587.0
 offset_bottom = 98.0
 
 [node name="Name" type="Label" parent="Split/PreviewScrybe/Title"]
@@ -221,6 +220,7 @@ text = "Guardian of the Forest"
 
 [node name="ScrybeBrowser" type="ItemList" parent="Split"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 14
@@ -260,8 +260,86 @@ item_13/icon = ExtResource("17_xgaly")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = -1.0
+offset_right = -1.0
 offset_bottom = 85.0
 grow_horizontal = 2
+
+[node name="Deckname" type="LineEdit" parent="ButtonsNStuff"]
+modulate = Color(1, 1, 1, 0.14902)
+layout_mode = 0
+offset_right = 830.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("6_xarbb")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tr6xp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bmmwd")
+text = "Really long deck name seriously who names a deck this long"
+placeholder_text = "New Deck..."
+max_length = 128
+context_menu_enabled = false
+flat = true
+caret_blink = true
+
+[node name="Save" type="Button" parent="ButtonsNStuff"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -259.0
+offset_top = -30.0
+offset_right = -223.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "save"
+
+[node name="SaveAs" type="Button" parent="ButtonsNStuff"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -217.0
+offset_top = -30.0
+offset_right = -148.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+text = " save as..."
+
+[node name="Load" type="Button" parent="ButtonsNStuff"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -142.0
+offset_top = -30.0
+offset_right = -106.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "load"
+
+[node name="Eval" type="Button" parent="ButtonsNStuff"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -30.0
+offset_right = -44.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "evaluate"
 
 [node name="CardName" type="Label" parent="ButtonsNStuff"]
 layout_mode = 1
@@ -343,12 +421,28 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Search"
 
+[node name="SizeInfo" type="RichTextLabel" parent="ButtonsNStuff"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 55.0
+offset_right = 329.0
+offset_bottom = 85.0
+bbcode_enabled = true
+text = "[color=red]main deck: 0/20
+side deck: 0/10"
+
+[node name="FileDialog" type="FileDialog" parent="ButtonsNStuff"]
+initial_position = 1
+size = Vector2i(500, 300)
+access = 1
+root_subfolder = "decks"
+
 [node name="ModeSelect" type="TabBar" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 28.0
 offset_top = 58.0
-offset_right = 479.0
+offset_right = 204.0
 offset_bottom = 87.0
 theme = ExtResource("1_6ek54")
 scrolling_enabled = false
@@ -356,6 +450,8 @@ tab_count = 3
 tab_0/title = "Main Deck"
 tab_1/title = "Side Deck"
 tab_2/title = "Scrybe"
+
+[node name="Window" parent="." instance=ExtResource("19_p2g6o")]
 
 [connection signal="item_selected" from="Split/ScrybeBrowser" to="." method="_scrybe_selected"]
 [connection signal="pressed" from="ButtonsNStuff/Search" to="." method="_on_search_pressed"]

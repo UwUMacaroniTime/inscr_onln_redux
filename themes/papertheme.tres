@@ -1,9 +1,22 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://do36jrxowl4gq"]
+[gd_resource type="Theme" load_steps=30 format=3 uid="uid://do36jrxowl4gq"]
 
 [ext_resource type="FontFile" uid="uid://ccobqqhhsssft" path="res://fonts/MarksmanReal.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://dlsi228dt07ma" path="res://gfx/extra/Off.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://da8hhwuu0hdw3" path="res://gfx/extra/On.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://b6yqjod5bliwg" path="res://gfx/extra/theme-scribber.png" id="3_g0p2f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftiaq"]
+resource_name = "DefaultPanel"
+bg_color = Color(0.6, 0.576471, 0.427451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="9"]
 content_margin_top = 5.0
@@ -235,6 +248,9 @@ border_color = Color(0, 0, 0, 1)
 expand_margin_left = 1.0
 expand_margin_right = 1.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6swm"]
+bg_color = Color(0.847059, 0.847059, 0.847059, 1)
+
 [sub_resource type="StyleBoxFlat" id="23"]
 draw_center = false
 border_width_left = 2
@@ -261,8 +277,20 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v256h"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 33.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
 [resource]
 default_font = ExtResource("1")
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_ftiaq")
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_color_disabled = Color(0, 0, 0, 1)
 Button/colors/font_color_focus = Color(0, 0, 0, 1)
@@ -328,6 +356,7 @@ TabContainer/styles/tab_fg = SubResource("8")
 TextEdit/colors/font_color = Color(0, 0, 0, 1)
 TextEdit/styles/focus = SubResource("11")
 TextEdit/styles/normal = SubResource("11")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_j6swm")
 Tree/colors/font_color = Color(0, 0, 0, 1)
 Tree/styles/bg = SubResource("6")
 TspBg/styles/bg = SubResource("23")
@@ -344,5 +373,6 @@ VScrollBar/styles/grabber_highlight = SubResource("12")
 VScrollBar/styles/grabber_pressed = SubResource("12")
 VScrollBar/styles/scroll = SubResource("4")
 VScrollBar/styles/scroll_focus = null
+Window/styles/embedded_border = SubResource("StyleBoxFlat_v256h")
 WindowDialog/colors/title_color = Color(0, 0, 0, 1)
 WindowDialog/styles/panel = SubResource("6")

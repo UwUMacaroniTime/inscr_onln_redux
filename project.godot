@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SettingsManager="*res://singletons/SettingsManager.gd"
+ErrorDialogue="*res://singletons/error_dialogue.tscn"
 NetManager="*res://singletons/NetManager.gd"
 
 [rendering]

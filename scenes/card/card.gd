@@ -38,6 +38,7 @@ func visual_apply():
 		var sigil_instance :TextureRect = sigil_scne.instantiate()
 		sigils.add_child(sigil_instance)
 		sigil_instance.texture = sigil.get_icon()
+		sigil_instance.tooltip_text = sigil.get_desc()
 	
 	if len(data.sigils) >= 2:
 		sigils.columns = 2

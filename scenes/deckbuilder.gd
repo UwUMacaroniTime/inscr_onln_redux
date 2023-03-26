@@ -8,12 +8,15 @@ extends Control
 @onready var preview_card :Card = %PreviewCard
 @onready var card_browser_list = %Allcards
 @onready var scrybe_browser_list = %ScrybeBrowser
-@onready var scrybe = %PreviewScrybe
+@onready var preview_scrybe = %PreviewScrybe
 
 var card_scn:PackedScene = load("res://scenes/card/card.tscn")
 var card_decks:Array[Dictionary] = [{}, {}]
 var scrybes = []
 var scrybe_data :ScrybeData
+var min_main_size = 20
+var min_side_size = 5
+
 enum card_location {
 	MAINDECK,
 	SIDEDECK,
@@ -61,7 +64,7 @@ func _scrybe_selected(idx:int):
 	backdrop.material = scrybe_data.name_mat
 	title.text = scrybe_data.title
 	name.text = scrybe_data.resource_name
-	portrait.material.set_shader_parameter("palette", scrybe_data.name_tex)
+#	portrait.material.set_shader_parameter("palette", scrybe_data.name_tex)
 
 func _on_mode_select_tab_changed(tab:int):
 	main_deck.visible = false
@@ -69,7 +72,7 @@ func _on_mode_select_tab_changed(tab:int):
 	var card_browser := %CardBrowser
 	card_browser.visible = false
 	scrybe_browser_list.visible = false
-	scrybe.visible = false
+	preview_scrybe.visible = false
 	
 	match tab:
 		0:
@@ -80,8 +83,7 @@ func _on_mode_select_tab_changed(tab:int):
 			card_browser.visible = true
 		2:
 			scrybe_browser_list.visible = true
-			scrybe.visible = true
-			
+			preview_scrybe.visible = true
 
 func deck_size(loc:card_location) -> int:
 	var total = 0
@@ -117,10 +119,25 @@ func _card_selected(card:Card, loc:int):
 		card_location.MAINDECK:
 			card.queue_free()
 			card_decks[0][card.data.resource_name] -= 1
+	udate_deck_size_info()
 
 func _card_hovered(card:Card, _loc:int):
 	preview_card.data = card.data
 	preview_card.visual_apply()
+
+func udate_deck_size_info():
+	var size_info := $ButtonsNStuff/SizeInfo
+	size_info.text = ""
+	var main_size := deck_size(card_location.MAINDECK)
+	var side_size := deck_size(card_location.SIDEDECK)
+	if main_size < min_main_size:
+		size_info.text += "[color=red]"
+	size_info.text += "main deck: " + str(main_size) + "/" + str(min_main_size) + "\n"
+	
+	if main_size < min_main_size and not side_size < min_side_size:
+		size_info.text += "[/color]"
+	
+	size_info.text += "side deck: " + str(side_size) + "/" + str(min_side_size)
 
 func _on_search_pressed():
 	var name_edit :LineEdit = $ButtonsNStuff/NameEdit

@@ -5,3 +5,4 @@ extends Resource
 @export var card_TribeText_visible:bool = true
 
 @export var network_enable:bool = false
+@export var disable_network_warning:bool = false

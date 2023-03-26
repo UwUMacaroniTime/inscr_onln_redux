@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://65yoy4vwp7mn"]
+
+[ext_resource type="Script" path="res://singletons/error_dialogue.gd" id="2_hmmws"]
+
+[node name="ErrorDialog" type="AcceptDialog"]
+disable_3d = true
+canvas_item_default_texture_filter = 0
+initial_position = 1
+size = Vector2i(300, 150)
+popup_window = true
+dialog_autowrap = true
+script = ExtResource("2_hmmws")
+
+[node name="BodyText" type="RichTextLabel" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 292.0
+offset_bottom = 101.0
+focus_mode = 2
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true
