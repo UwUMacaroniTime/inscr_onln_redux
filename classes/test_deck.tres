@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DeckObject" load_steps=2 format=3 uid="uid://dv2tpa1in6ngx"]
+
+[ext_resource type="Script" path="res://classes/DeckObject.gd" id="1_3km3r"]
+
+[resource]
+script = ExtResource("1_3km3r")
+main_deck = Array[Resource("res://classes/CardData.gd")]([])
+side_deck = Array[Resource("res://classes/CardData.gd")]([])

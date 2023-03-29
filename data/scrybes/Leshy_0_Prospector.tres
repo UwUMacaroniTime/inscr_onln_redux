@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ScrybeData" load_steps=6 format=3 uid="uid://c6x70m8abkggu"]
 
 [ext_resource type="Material" uid="uid://yqe35bfl8wva" path="res://data/scrybes/materials/rocks_displace.tres" id="1_dx70v"]
-[ext_resource type="Texture2D" uid="uid://cwwhjuls7f2x5" path="res://gfx/char_portraits/Prospector.png" id="2_h4dsr"]
+[ext_resource type="Texture2D" uid="uid://dmog65qjy061j" path="res://data/portraits/prospector/prospector_MAW.tres" id="2_0ngl1"]
 [ext_resource type="Script" path="res://classes/ScrybeData.gd" id="3_ddwli"]
 
 [sub_resource type="Gradient" id="Gradient_7wnea"]
@@ -15,7 +15,7 @@ fill_from = Vector2(1, 1)
 [resource]
 resource_name = "Prospector"
 script = ExtResource("3_ddwli")
-portrait = ExtResource("2_h4dsr")
+portrait = ExtResource("2_0ngl1")
 name_tex = SubResource("GradientTexture2D_qb32a")
 name_mat = ExtResource("1_dx70v")
 title = "Guardian of the Forest"

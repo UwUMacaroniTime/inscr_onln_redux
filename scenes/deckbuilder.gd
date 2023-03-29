@@ -14,6 +14,7 @@ var card_scn:PackedScene = load("res://scenes/card/card.tscn")
 var card_decks:Array[Dictionary] = [{}, {}]
 var scrybes = []
 var scrybe_data :ScrybeData
+var deck_save_path :String
 var min_main_size = 20
 var min_side_size = 5
 
@@ -36,6 +37,50 @@ func _ready():
 		var scrybe :ScrybeData = load("data/scrybes/" + file)
 		scrybes.append(scrybe)
 		scrybe_browser_list.add_item(scrybe.resource_name, scrybe.portrait)
+	
+	if FileAccess.file_exists(SettingsManager.settings.default_deck):
+		from_data(load(SettingsManager.settings.default_deck))
+
+func from_data(data:DeckObject):
+	for card in main_deck_list.get_children():
+		card.queue_free()
+	for card in side_deck_list.get_children():
+		card.queue_free()
+	
+	for card_data in data.main_deck:
+		var card = gen_card(card_location.MAINDECK)
+		card.data = card_data
+		card.visual_apply()
+		card_decks[0][card_data.resource_name] = card_decks[0].get(card_data.resource_name, 0) + 1
+	
+	for card_data in data.side_deck:
+		var card = gen_card(card_location.SIDEDECK)
+		card.data = card_data
+		card.visual_apply()
+		card_decks[1][card_data.resource_name] = card_decks[1].get(card_data.resource_name, 0) + 1
+	
+	var scridx = scrybes.find(data.scrybe) # sort of icky
+	scrybe_browser_list.select(scridx)
+	_scrybe_selected(scridx)
+	scrybe_data = data.scrybe
+	deck_save_path = data.resource_path
+	udate_deck_size_info()
+	SettingsManager.settings.default_deck = deck_save_path
+
+func to_data():
+	var data := DeckObject.new()
+	
+	for card in main_deck_list.get_children():
+		assert(card is Card)
+		data.main_deck.append(card.data)
+	
+	for card in side_deck_list.get_children():
+		assert(card is Card)
+		data.side_deck.append(card.data)
+	
+	data.scrybe = scrybe_data
+	data.resource_path = deck_save_path
+	ResourceSaver.save(data, deck_save_path)
 
 func gen_card(loc:card_location) -> Card:
 	var card_instance :Card = card_scn.instantiate()
@@ -173,3 +218,10 @@ func _on_search_pressed():
 			continue
 		
 		card.visible = true
+
+func _on_file_dialog_file_selected(path):
+	if $ButtonsNStuff/FileDialog.file_mode == FileDialog.FILE_MODE_SAVE_FILE:
+		deck_save_path = path
+		to_data()
+	else:
+		from_data(load(path))

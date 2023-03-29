@@ -15,7 +15,7 @@ func load_settings():
 		pass
 		# fall back on default values
 #		settings = SettingsRes.new()
-	print(settings.disable_network_warning)
+	print(settings.default_deck)
 
 func save_settings():
 #	if not FileAccess.file_exists(file_loc):

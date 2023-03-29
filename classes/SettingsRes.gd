@@ -7,4 +7,4 @@ extends Resource
 @export var network_enable:bool = false
 @export var disable_network_warning:bool = false
 
-
+@export_global_file("*.res") var default_deck:String
