@@ -7,4 +7,8 @@
 resource_name = "DisplaceMaterial"
 shader = ExtResource("1_2u8u8")
 shader_parameter/magnitude = 0.5
+shader_parameter/bob_magnitude = 0.05
+shader_parameter/bob_speed = 0.5
+shader_parameter/pulse_magnitude = 0.07
+shader_parameter/pulse_speed = 1.0
 shader_parameter/displace_tex = ExtResource("1_oimlj")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ScrybeData" load_steps=6 format=3 uid="uid://detvieofs1s5q"]
 
 [ext_resource type="Material" uid="uid://bbio6b302h22w" path="res://data/scrybes/materials/circuit_displace.tres" id="1_ahxj7"]
-[ext_resource type="Texture2D" uid="uid://biyodn2e4a55v" path="res://gfx/char_portraits/P03.png" id="1_xmw2k"]
+[ext_resource type="Texture2D" uid="uid://y8ptjmvlrq0a" path="res://data/portraits/P03/P03_angy_stare.tres" id="2_komec"]
 [ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_py4oa"]
 
 [sub_resource type="Gradient" id="Gradient_qdpwf"]
@@ -15,7 +15,7 @@ fill_from = Vector2(1, 1)
 [resource]
 resource_name = "P03"
 script = ExtResource("2_py4oa")
-portrait = ExtResource("1_xmw2k")
+portrait = ExtResource("2_komec")
 name_tex = SubResource("GradientTexture2D_1e2gl")
 name_mat = ExtResource("1_ahxj7")
 title = "Mechanized Mastermind"

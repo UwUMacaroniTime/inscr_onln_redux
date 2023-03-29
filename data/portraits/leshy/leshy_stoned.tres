@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c10u2o5fafl1v"]
+
+[ext_resource type="Texture2D" uid="uid://bifgbqdt3w306" path="res://gfx/char_portraits/Leshy.png" id="1_ml3ge"]
+
+[resource]
+atlas = ExtResource("1_ml3ge")
+region = Rect2(55, 0, 55, 55)
