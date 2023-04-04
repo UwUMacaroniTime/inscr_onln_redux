@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://qrh7v3mee2ao"]
+[gd_scene load_steps=26 format=3 uid="uid://qrh7v3mee2ao"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_6ek54"]
-[ext_resource type="PackedScene" uid="uid://s53h2f3swdrw" path="res://scenes/card/card.tscn" id="1_nrmy2"]
+[ext_resource type="PackedScene" uid="uid://y6yahgt2gvvg" path="res://scenes/card/card.tscn" id="1_nrmy2"]
 [ext_resource type="Script" path="res://scenes/deckbuilder.gd" id="2_bu6d7"]
 [ext_resource type="Texture2D" uid="uid://bifgbqdt3w306" path="res://gfx/char_portraits/Leshy.png" id="4_tdxse"]
 [ext_resource type="Texture2D" uid="uid://biyodn2e4a55v" path="res://gfx/char_portraits/P03.png" id="5_1noy1"]
@@ -19,6 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://cujvjqetvtsoe" path="res://gfx/char_portraits/Goobert.png" id="16_a1eiy"]
 [ext_resource type="Texture2D" uid="uid://bc7t0yoh5xyxn" path="res://gfx/char_portraits/Trader.png" id="17_xgaly"]
 [ext_resource type="Script" path="res://scenes/DeckFileDialog.gd" id="19_2dvue"]
+[ext_resource type="Script" path="res://scenes/Db.gd" id="19_f6ifl"]
+[ext_resource type="Texture2D" uid="uid://vpc62nxn4ych" path="res://gfx/icons/save.tres" id="19_panoh"]
+[ext_resource type="Texture2D" uid="uid://d1u56luomx2wk" path="res://gfx/icons/save_As.tres" id="20_eung0"]
+[ext_resource type="Texture2D" uid="uid://bfky8mo1124mx" path="res://gfx/icons/load.tres" id="21_6w3jv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tr6xp"]
 
@@ -280,66 +284,54 @@ max_length = 128
 context_menu_enabled = false
 flat = true
 caret_blink = true
+language = "en_CA"
 
-[node name="Save" type="Button" parent="ButtonsNStuff"]
+[node name="Buttons" type="HBoxContainer" parent="ButtonsNStuff"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -259.0
-offset_top = -30.0
-offset_right = -223.0
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = -1
+anchor_left = 0.265
+anchor_top = 0.612
+anchor_right = 0.709
+anchor_bottom = 0.953
+offset_left = 7.71997
+offset_top = 2.98
+offset_right = 1.23193
+offset_bottom = -1.005
+theme_override_constants/separation = 6
+
+[node name="Save" type="Button" parent="ButtonsNStuff/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 9
 text = "save"
+icon = ExtResource("19_panoh")
+language = "en_CA"
 
-[node name="SaveAs" type="Button" parent="ButtonsNStuff"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -217.0
-offset_top = -30.0
-offset_right = -148.0
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="SaveAs" type="Button" parent="ButtonsNStuff/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 9
 text = " save as..."
+icon = ExtResource("20_eung0")
+language = "en_CA"
 
-[node name="Load" type="Button" parent="ButtonsNStuff"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -142.0
-offset_top = -30.0
-offset_right = -106.0
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Load" type="Button" parent="ButtonsNStuff/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 9
 text = "load"
+icon = ExtResource("21_6w3jv")
+language = "en_CA"
 
-[node name="Eval" type="Button" parent="ButtonsNStuff"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -30.0
-offset_right = -44.0
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Eval" type="Button" parent="ButtonsNStuff/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 9
 text = "evaluate"
+language = "en_CA"
+
+[node name="Db" type="Button" parent="ButtonsNStuff/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 9
+text = "DEBUG: clear settings"
+language = "en_CA"
+script = ExtResource("19_f6ifl")
 
 [node name="CardName" type="Label" parent="ButtonsNStuff"]
 layout_mode = 1
@@ -365,6 +357,7 @@ offset_bottom = 26.0
 grow_horizontal = 0
 
 [node name="CostType" type="Label" parent="ButtonsNStuff"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -389,22 +382,46 @@ offset_right = -4.0
 offset_bottom = -33.0
 grow_horizontal = 0
 grow_vertical = 0
-item_count = 7
+item_count = 8
 selected = 0
-popup/item_0/text = "Any"
+popup/item_0/text = "Any Cost"
 popup/item_0/id = 0
-popup/item_1/text = "Blood"
-popup/item_1/id = 1
-popup/item_2/text = "Bones"
-popup/item_2/id = 2
-popup/item_3/text = "Energy"
-popup/item_3/id = 3
-popup/item_4/text = "Magick"
-popup/item_4/id = 4
-popup/item_5/text = "Heat"
-popup/item_5/id = 5
-popup/item_6/text = "Runes"
-popup/item_6/id = 6
+popup/item_1/text = ""
+popup/item_1/id = 0
+popup/item_1/separator = true
+popup/item_2/text = "Blood"
+popup/item_2/id = 1
+popup/item_3/text = "Bones"
+popup/item_3/id = 2
+popup/item_4/text = "Energy"
+popup/item_4/id = 3
+popup/item_5/text = "Magick"
+popup/item_5/id = 4
+popup/item_6/text = "Heat"
+popup/item_6/id = 5
+popup/item_7/text = "Runes"
+popup/item_7/id = 6
+
+[node name="Tribe" type="OptionButton" parent="ButtonsNStuff"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_top = -56.0
+offset_right = -136.0
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+item_count = 2
+selected = 0
+popup/item_0/text = "Any Tribe"
+popup/item_0/id = 0
+popup/item_1/text = ""
+popup/item_1/id = 0
+popup/item_1/separator = true
 
 [node name="Search" type="Button" parent="ButtonsNStuff"]
 layout_mode = 1
@@ -420,16 +437,18 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Search"
+language = "en_CA"
 
 [node name="SizeInfo" type="RichTextLabel" parent="ButtonsNStuff"]
 layout_mode = 0
-offset_left = 208.0
-offset_top = 55.0
-offset_right = 329.0
-offset_bottom = 85.0
+offset_left = 198.0
+offset_top = 52.0
+offset_right = 319.0
+offset_bottom = 82.0
 bbcode_enabled = true
 text = "[color=red]main deck: 0/20
 side deck: 0/10"
+language = "en_CA"
 
 [node name="FileDialog" type="FileDialog" parent="ButtonsNStuff"]
 initial_position = 1
@@ -454,9 +473,10 @@ tab_1/title = "Side Deck"
 tab_2/title = "Scrybe"
 
 [connection signal="item_selected" from="Split/ScrybeBrowser" to="." method="_scrybe_selected"]
-[connection signal="pressed" from="ButtonsNStuff/Save" to="." method="to_data"]
-[connection signal="pressed" from="ButtonsNStuff/SaveAs" to="ButtonsNStuff/FileDialog" method="_on_save_as_pressed"]
-[connection signal="pressed" from="ButtonsNStuff/Load" to="ButtonsNStuff/FileDialog" method="_on_load_pressed"]
+[connection signal="pressed" from="ButtonsNStuff/Buttons/Save" to="." method="to_data"]
+[connection signal="pressed" from="ButtonsNStuff/Buttons/SaveAs" to="ButtonsNStuff/FileDialog" method="_on_save_as_pressed"]
+[connection signal="pressed" from="ButtonsNStuff/Buttons/Load" to="ButtonsNStuff/FileDialog" method="_on_load_pressed"]
+[connection signal="pressed" from="ButtonsNStuff/Buttons/Eval" to="." method="_on_eval_pressed"]
 [connection signal="pressed" from="ButtonsNStuff/Search" to="." method="_on_search_pressed"]
 [connection signal="file_selected" from="ButtonsNStuff/FileDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="tab_changed" from="ModeSelect" to="." method="_on_mode_select_tab_changed"]

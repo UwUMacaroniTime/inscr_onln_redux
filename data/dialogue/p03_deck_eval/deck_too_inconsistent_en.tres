@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://8bi2r1ql36cw"]
+
+[ext_resource type="Texture2D" uid="uid://dukfkyjhrs76f" path="res://data/portraits/P03/P03_bruh.tres" id="1_n3i1o"]
+[ext_resource type="Script" path="res://classes/Dialogue.gd" id="2_cebbg"]
+[ext_resource type="Texture2D" uid="uid://y8ptjmvlrq0a" path="res://data/portraits/P03/P03_angy_stare.tres" id="3_1jk64"]
+
+[sub_resource type="Resource" id="Resource_gjm7l"]
+script = ExtResource("2_cebbg")
+text = "What do expect to do if you don't draw what you need?"
+portrait = ExtResource("1_n3i1o")
+
+[resource]
+resource_name = "P03"
+script = ExtResource("2_cebbg")
+text = "why are you running so few copies of each card???"
+portrait = ExtResource("3_1jk64")
+next = SubResource("Resource_gjm7l")

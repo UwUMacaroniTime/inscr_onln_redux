@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://ykarcscqecxc"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_inid1"]
 [ext_resource type="Script" path="res://singletons/dialogue_window.gd" id="2_ne5p6"]
@@ -8,16 +8,19 @@
 canvas_item_default_texture_filter = 0
 title = "How are you reading this?"
 size = Vector2i(500, 100)
+visible = false
 transient = true
 exclusive = true
 unresizable = true
 borderless = true
+always_on_top = true
 popup_window = true
+min_size = Vector2i(500, 100)
 theme = ExtResource("1_inid1")
 script = ExtResource("2_ne5p6")
 
 [node name="backgrnd" type="Button" parent="."]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 2.0
@@ -27,7 +30,7 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Portrait" type="TextureRect" parent="."]
 texture_filter = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -38,7 +41,7 @@ texture = ExtResource("2_t1kwq")
 expand_mode = 4
 stretch_mode = 4
 
-[node name="background" type="Panel" parent="TextureRect"]
+[node name="background" type="Panel" parent="Portrait"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = -1
@@ -53,7 +56,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Dialogue" type="RichTextLabel" parent="."]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 105.0
@@ -62,8 +65,14 @@ offset_right = -5.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 32
-text = "ERR_DIALOGUE_NULL"
+text = "ERR_DIALOGUE_NULL
+aaa
+aa
+"
+fit_content = true
 
 [connection signal="pressed" from="backgrnd" to="." method="_on_backgrnd_pressed"]

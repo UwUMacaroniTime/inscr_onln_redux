@@ -14,6 +14,7 @@ attack_special = 0
 health = 3
 health_special = 0
 conductive = true
+sacrificable = false
 blood_cost = 0
 sap_cost = 0
 mox_green_cost = 0

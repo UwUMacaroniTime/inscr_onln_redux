@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=7 format=3 uid="uid://ivb0ombu6u75"]
+
+[ext_resource type="Texture2D" uid="uid://ckig0nme0d3p4" path="res://data/portraits/P03/P03_smug.tres" id="1_4iojw"]
+[ext_resource type="Texture2D" uid="uid://y8ptjmvlrq0a" path="res://data/portraits/P03/P03_angy_stare.tres" id="1_qrxcq"]
+[ext_resource type="Texture2D" uid="uid://qiwxf0n0oq6v" path="res://data/portraits/P03/P03_neutral.tres" id="1_sem2g"]
+[ext_resource type="Script" path="res://classes/Dialogue.gd" id="2_rtl2n"]
+
+[sub_resource type="Resource" id="Resource_u4h3y"]
+script = ExtResource("2_rtl2n")
+text = "If you aren't strattling the minimum deck size, what's even the point?"
+portrait = ExtResource("1_4iojw")
+
+[sub_resource type="Resource" id="Resource_35yrp"]
+script = ExtResource("2_rtl2n")
+text = "No consistency at all. Thin this deck out."
+portrait = ExtResource("1_sem2g")
+next = SubResource("Resource_u4h3y")
+
+[resource]
+resource_name = "P03"
+script = ExtResource("2_rtl2n")
+text = "This deck is WAY too big."
+portrait = ExtResource("1_qrxcq")
+next = SubResource("Resource_35yrp")

@@ -7,4 +7,5 @@
 resource_name = "Rebekka"
 script = ExtResource("2_05xls")
 portrait = ExtResource("1_p8hie")
+title = "Isekaied Mechanic"
 description = "Woof."

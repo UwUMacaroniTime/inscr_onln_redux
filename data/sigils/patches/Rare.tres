@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Sigil" load_steps=3 format=3 uid="uid://dgyrbgfqxcq3t"]
+
+[ext_resource type="Texture2D" uid="uid://cbe32q2wpy1th" path="res://gfx/cardextras/unsac_patch.png" id="1_6n28r"]
+[ext_resource type="Script" path="res://classes/Sigils/Sigil.gd" id="2_juaf7"]
+
+[resource]
+resource_name = "Rare"
+script = ExtResource("2_juaf7")
+icon_override = ExtResource("1_6n28r")
+rune_value = 1
+use_restrictions = 0

@@ -7,6 +7,11 @@
 resource_name = "Inspector"
 script = ExtResource("2_wfu4q")
 portrait = ExtResource("1_bva3y")
-description = "[b]Leshy, scrybe of beasts[\\b]
-aadhgfgaa, aa. Hhh?Abhgfj
-lorem ipsum, etc. etc."
+title = "Diligent Investigator"
+description = "put flavor text here
+ 
+[b]Digital Insight:
+[/b]when you gain a card, that card gains +0/+1.
+ 
+[b]Polarize:
+[/b]Choose a card: That card becomes conductive. You may not use this ability again while that card remains alive."

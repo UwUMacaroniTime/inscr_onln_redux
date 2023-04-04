@@ -1,9 +1,17 @@
-[gd_resource type="Resource" script_class="ScrybeData" load_steps=2 format=3 uid="uid://dilhixnoom6ia"]
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3 uid="uid://dilhixnoom6ia"]
 
+[ext_resource type="Texture2D" uid="uid://b70h6xlty2dop" path="res://gfx/char_portraits/Angler.png" id="1_3f2q5"]
 [ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_h06g4"]
 
 [resource]
 resource_name = "Angler"
 script = ExtResource("2_h06g4")
+portrait = ExtResource("1_3f2q5")
 title = ""
-description = ""
+description = "The gormless angler, whose hook can catch even the most elusive of foes.
+ 
+[b]Sinker:
+[/b]End of turn: Cards that have been in the backline for more than one turn take 1 damage.
+ 
+[b]Hook:
+[/b]Choose a card, and it becomes hooked. That card cannot move, including moving to the frontlines. You may only hook one card at a time."

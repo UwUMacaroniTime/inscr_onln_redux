@@ -7,6 +7,5 @@
 resource_name = "Dredger"
 script = ExtResource("2_e1lg0")
 portrait = ExtResource("1_bpmbp")
-description = "[b]Leshy, scrybe of beasts[\\b]
-aadhgfgaa, aa. Hhh?Abhgfj
-lorem ipsum, etc. etc."
+title = ""
+description = ""

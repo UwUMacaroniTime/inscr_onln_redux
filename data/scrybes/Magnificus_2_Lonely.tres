@@ -29,7 +29,5 @@ script = ExtResource("2_vlpkt")
 portrait = ExtResource("1_encbr")
 name_tex = SubResource("GradientTexture2D_bohts")
 name_mat = SubResource("ShaderMaterial_2opsx")
-title = ""
-description = "[b]Leshy, scrybe of beasts[\\b]
-aadhgfgaa, aa. Hhh?Abhgfj
-lorem ipsum, etc. etc."
+title = "ADD Icon"
+description = ""

@@ -8,6 +8,4 @@ resource_name = "Mycologist"
 script = ExtResource("2_f0134")
 portrait = ExtResource("1_6kojk")
 title = "Exiled Doctors"
-description = "[b]Leshy, scrybe of beasts[\\b]
-aadhgfgaa, aa. Hhh?Abhgfj
-lorem ipsum, etc. etc."
+description = ""

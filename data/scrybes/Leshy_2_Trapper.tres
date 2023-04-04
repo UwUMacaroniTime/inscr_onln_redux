@@ -8,4 +8,4 @@ resource_name = "Trapper"
 script = ExtResource("2_m4xn7")
 portrait = ExtResource("1_714hr")
 title = ""
-description = ""
+description = "likely reserved for Mr. Egg's idea."

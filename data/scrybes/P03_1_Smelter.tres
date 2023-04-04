@@ -7,6 +7,5 @@
 resource_name = "Smelter"
 script = ExtResource("2_et1hq")
 portrait = ExtResource("1_5bo88")
-description = "[b]Leshy, scrybe of beasts[\\b]
-aadhgfgaa, aa. Hhh?Abhgfj
-lorem ipsum, etc. etc."
+title = "Metallurger Deluxe"
+description = ""

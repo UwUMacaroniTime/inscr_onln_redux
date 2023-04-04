@@ -19,7 +19,7 @@ func load_settings():
 
 func save_settings():
 #	if not FileAccess.file_exists(file_loc):
-	var a := ResourceSaver.save(settings, file_loc, ResourceSaver.SaverFlags.FLAG_CHANGE_PATH)
+	var _a := ResourceSaver.save(settings, file_loc, ResourceSaver.SaverFlags.FLAG_CHANGE_PATH)
 	
 
 func _notification(what):

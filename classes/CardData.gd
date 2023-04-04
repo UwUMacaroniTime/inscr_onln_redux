@@ -50,7 +50,10 @@ enum SPECIAL_STAT {
 ## See [enum SPECIAL_STAT].
 @export var health_special:SPECIAL_STAT
 
+@export_group("Patches")
+
 @export var conductive:bool = false
+@export var sacrificable:bool = true
 
 # COSTS
 

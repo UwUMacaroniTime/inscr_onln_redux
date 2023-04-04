@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://s53h2f3swdrw"]
+[gd_scene load_steps=21 format=3 uid="uid://y6yahgt2gvvg"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_5sxta"]
-[ext_resource type="Texture2D" uid="uid://bo5otj55s2e21" path="res://gfx/pixport/Adder.png" id="2_5x3ru"]
 [ext_resource type="Script" path="res://scenes/card/card.gd" id="2_bi6mc"]
 [ext_resource type="Texture2D" uid="uid://rd1hfix6wupq" path="res://gfx/pixport/49er.png" id="3_fh1e6"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="3_fnah2"]
@@ -9,6 +8,12 @@
 [ext_resource type="Script" path="res://classes/Sigils/Sprinter.gd" id="5_1yhdk"]
 [ext_resource type="Texture2D" uid="uid://drbpoarayruwf" path="res://gfx/cardextras/banoverlay.png" id="5_48lg5"]
 [ext_resource type="Texture2D" uid="uid://d2ojmwh2hoygq" path="res://gfx/sigils/Waterborne.png" id="6_26dv8"]
+[ext_resource type="PackedScene" uid="uid://bt4cq1s4huvku" path="res://scenes/card/sigil.tscn" id="6_fuchl"]
+[ext_resource type="Texture2D" uid="uid://7er8ncm063ey" path="res://gfx/cardextras/costs/mox/mox-g.png" id="6_j4nj5"]
+[ext_resource type="Texture2D" uid="uid://cf4qv6l5lg56w" path="res://gfx/cardextras/conduit_band.png" id="6_m4teg"]
+[ext_resource type="Texture2D" uid="uid://ta5ucx17bca8" path="res://gfx/cardextras/costs/blood/sap1.png" id="7_mifls"]
+[ext_resource type="Texture2D" uid="uid://bwtmaflwr0imc" path="res://gfx/cardextras/costs/blood/blood1.png" id="8_hyk3r"]
+[ext_resource type="Texture2D" uid="uid://cbe32q2wpy1th" path="res://gfx/cardextras/unsac_patch.png" id="8_w35lp"]
 
 [sub_resource type="Resource" id="Resource_bqywo"]
 script = ExtResource("5_1yhdk")
@@ -27,6 +32,7 @@ attack_special = 0
 health = 2
 health_special = 0
 conductive = false
+sacrificable = true
 blood_cost = 0
 sap_cost = 0
 mox_green_cost = 0
@@ -78,14 +84,15 @@ theme = ExtResource("1_5sxta")
 script = ExtResource("2_bi6mc")
 data = SubResource("Resource_mwo0l")
 
-[node name="CardTop" type="VBoxContainer" parent="."]
+[node name="vertical" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.56
-mouse_filter = 2
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Name" type="Label" parent="CardTop"]
+[node name="Name" type="Label" parent="vertical"]
 unique_name_in_owner = true
 layout_direction = 1
 layout_mode = 2
@@ -95,13 +102,18 @@ horizontal_alignment = 1
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="Outline" type="Panel" parent="CardTop"]
+[node name="CardTop" type="VBoxContainer" parent="vertical"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Outline" type="Panel" parent="vertical/CardTop"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_464i6")
 
-[node name="Portrait" type="TextureRect" parent="CardTop/Outline"]
+[node name="Portrait" type="TextureRect" parent="vertical/CardTop/Outline"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -110,32 +122,86 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_5x3ru")
+texture = ExtResource("3_fh1e6")
 stretch_mode = 6
 
-[node name="CardBottom" type="Control" parent="."]
-layout_mode = 1
-anchor_top = 0.56
+[node name="Costs" type="VBoxContainer" parent="vertical/CardTop/Outline"]
+layout_mode = 2
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 2.0
 grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("1_5sxta")
 
-[node name="SigilClip" type="Control" parent="CardBottom"]
+[node name="Mox" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_j4nj5")
+expand_mode = 5
+
+[node name="Sap" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("7_mifls")
+expand_mode = 5
+
+[node name="Blood" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_hyk3r")
+expand_mode = 5
+
+[node name="Energy" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_hyk3r")
+expand_mode = 5
+
+[node name="Cells" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_hyk3r")
+expand_mode = 5
+
+[node name="Bones" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_hyk3r")
+expand_mode = 5
+
+[node name="Heat" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_hyk3r")
+expand_mode = 5
+
+[node name="CardBottom" type="Control" parent="vertical"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="SigilClip" type="Control" parent="vertical/CardBottom"]
 clip_contents = true
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 2.0
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CardBottom/SigilClip"]
+[node name="ColorRect" type="ColorRect" parent="vertical/CardBottom/SigilClip"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.5
+offset_bottom = 12.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="vertical/CardBottom/SigilClip"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,23 +210,33 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TribeText" type="Label" parent="CardBottom/SigilClip/VBoxContainer"]
+[node name="TribeText" type="Label" parent="vertical/CardBottom/SigilClip/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 2
+mouse_filter = 1
 text = "- reptile -"
 label_settings = SubResource("LabelSettings_xhlj8")
 horizontal_alignment = 1
 clip_text = true
 
-[node name="Sigils" type="GridContainer" parent="CardBottom/SigilClip/VBoxContainer"]
+[node name="ConduitBand" type="TextureRect" parent="vertical/CardBottom/SigilClip/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 2
+texture = ExtResource("6_m4teg")
+
+[node name="Sigils" type="GridContainer" parent="vertical/CardBottom/SigilClip/VBoxContainer"]
 unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="StatsClip" type="Control" parent="CardBottom"]
+[node name="sigil" parent="vertical/CardBottom/SigilClip/VBoxContainer/Sigils" instance=ExtResource("6_fuchl")]
+layout_mode = 2
+
+[node name="StatsClip" type="Control" parent="vertical/CardBottom"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -170,7 +246,23 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HpIcon" type="TextureRect" parent="CardBottom/StatsClip"]
+[node name="Patches" type="HBoxContainer" parent="vertical/CardBottom/StatsClip"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 2
+anchor_top = 0.851
+anchor_right = 1.0
+anchor_bottom = 0.97
+offset_left = 30.0
+offset_top = -6.017
+offset_right = -30.0
+offset_bottom = 0.00999451
+
+[node name="sigil" parent="vertical/CardBottom/StatsClip/Patches" instance=ExtResource("6_fuchl")]
+layout_mode = 2
+texture = ExtResource("8_w35lp")
+
+[node name="HpIcon" type="TextureRect" parent="vertical/CardBottom/StatsClip"]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.490196)
@@ -187,7 +279,7 @@ mouse_filter = 2
 texture = SubResource("AtlasTexture_c4d7x")
 expand_mode = 2
 
-[node name="HpLabel" type="Label" parent="CardBottom/StatsClip"]
+[node name="HpLabel" type="Label" parent="vertical/CardBottom/StatsClip"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -197,11 +289,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -16.0
 grow_vertical = 0
-text = "health"
+text = "2"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="AtkIcon" type="TextureRect" parent="CardBottom/StatsClip"]
+[node name="AtkIcon" type="TextureRect" parent="vertical/CardBottom/StatsClip"]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.490196)
@@ -216,7 +308,7 @@ mouse_filter = 2
 texture = SubResource("AtlasTexture_c4d7x")
 expand_mode = 2
 
-[node name="AtkLabel" type="Label" parent="CardBottom/StatsClip"]
+[node name="AtkLabel" type="Label" parent="vertical/CardBottom/StatsClip"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -225,7 +317,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_top = -16.0
 grow_vertical = 0
-text = "atk"
+text = "1"
 vertical_alignment = 2
 
 [node name="IconOverlay" type="Panel" parent="."]

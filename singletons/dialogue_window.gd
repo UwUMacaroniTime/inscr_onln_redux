@@ -1,16 +1,25 @@
 extends Window
 
 @onready var dialogue_text = $Dialogue
-var dialogue:Array[String] = ["hmmm... this deck...", "it sure is a deck, I'll give you that"]
+@onready var portrait = $Portrait
 
-func say(phrases:Array[String]):
+var dialogue:Array[Dialogue] = []
+func say(phrases:Array[Dialogue]):
 	dialogue = phrases
-	dialogue_text.text = dialogue.pop_front()
-	show()
+	next()
+	CanvasTint.color = Color.DIM_GRAY
+	popup_centered(size)
 
 func _on_backgrnd_pressed():
 	if len(dialogue) > 0:
-		dialogue_text.text = dialogue.pop_front()
+		next()
 	else:
+		CanvasTint.color = Color.WHITE
 		hide()
 
+func next():
+	var front :Dialogue = dialogue.pop_front()
+	dialogue_text.text = front.text
+	portrait.texture = front.portrait
+	if front.next != null:
+		dialogue.push_front(front.next)

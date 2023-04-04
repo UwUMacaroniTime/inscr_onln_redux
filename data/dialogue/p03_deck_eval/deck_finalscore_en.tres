@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://bgpjjv2ociro8"]
+
+[ext_resource type="Script" path="res://classes/Dialogue.gd" id="2_7po5e"]
+[ext_resource type="Texture2D" uid="uid://qiwxf0n0oq6v" path="res://data/portraits/P03/P03_neutral.tres" id="3_2ldtn"]
+
+[resource]
+resource_name = "P03"
+script = ExtResource("2_7po5e")
+text = "{0}/10."
+portrait = ExtResource("3_2ldtn")

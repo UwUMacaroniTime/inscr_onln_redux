@@ -25,7 +25,12 @@ enum card_location {
 }
 
 func _ready():
-	randomize()
+#	randomize()
+	
+	var tribe :OptionButton = $ButtonsNStuff/Tribe
+	
+	for item in CData.TRIBES:
+		tribe.add_item(item, CData.TRIBES[item] + 1)
 	
 	for file in DirAccess.get_files_at("res://data/cards"):
 		var card := gen_card(card_location.BROWSER)
@@ -40,12 +45,17 @@ func _ready():
 	
 	if FileAccess.file_exists(SettingsManager.settings.default_deck):
 		from_data(load(SettingsManager.settings.default_deck))
+	
+	$Split.split_offset = SettingsManager.settings.default_deckbuilder_split_offset
 
 func from_data(data:DeckObject):
 	for card in main_deck_list.get_children():
 		card.queue_free()
 	for card in side_deck_list.get_children():
 		card.queue_free()
+	
+	card_decks[0].clear()
+	card_decks[1].clear()
 	
 	for card_data in data.main_deck:
 		var card = gen_card(card_location.MAINDECK)
@@ -186,35 +196,36 @@ func udate_deck_size_info():
 
 func _on_search_pressed():
 	var name_edit :LineEdit = $ButtonsNStuff/NameEdit
-	var cost :OptionButton = $ButtonsNStuff/Cost
+	var cost_id :int = $ButtonsNStuff/Cost.get_selected_id()
+	var tribe_id :int = $ButtonsNStuff/Tribe.get_selected_id() - 1
 	for card in card_browser_list.get_children():
 #			print(card.data.resource_name, ": ", card.data.resource_name.similarity(name_edit.text))
+		card.visible = false
+		
 		if not name_edit.text.is_empty() and card.data.resource_name.similarity(name_edit.text) < 0.02:
-			card.visible = false
 			continue
 		
-		if cost.selected == 1 and (card.data.blood_cost == 0 \
+		if cost_id == 1 and (card.data.blood_cost == 0 \
 		and card.data.sap_cost == 0):
-			card.visible = false
 			continue
 		
-		if cost.selected == 2 and card.data.bone_cost == 0:
-			card.visible = false
+		if cost_id == 2 and card.data.bone_cost == 0:
 			continue
 		
-		if cost.selected == 3 and card.data.energy_cost == 0:
-			card.visible = false
+		if cost_id == 3 and card.data.energy_cost == 0 \
+		and card.data.energy_max_cost == 0:
 			continue
 		
-		if cost.selected == 4 and (card.data.mox_green_cost == 0 \
+		if cost_id == 4 and (card.data.mox_green_cost == 0 \
 		and card.data.mox_blue_cost == 0 \
 		and card.data.mox_orange_cost == 0 \
 		and card.data.mox_prisim_cost == 0):
-			card.visible = false
 			continue
 		
-		if cost.selected == 5 and card.data.heat_cost == 0:
-			card.visible = false
+		if cost_id == 5 and card.data.heat_cost == 0:
+			continue
+		
+		if tribe_id != -1 and not tribe_id in card.data.tribes:
 			continue
 		
 		card.visible = true
@@ -225,3 +236,42 @@ func _on_file_dialog_file_selected(path):
 		to_data()
 	else:
 		from_data(load(path))
+
+
+func _on_eval_pressed():
+	var dlg :Array[Dialogue]
+	var score:int = 7 
+	# despite P03's rating being out of 10, the maximum value you can get is 7.
+	var main_deck_size := deck_size(card_location.MAINDECK)
+	
+	if main_deck_size < min_main_size:
+		score -= 2
+		dlg.append(load("res://data/dialogue/p03_deck_eval/deck_too_small_en.tres"))
+	elif main_deck_size >= min_main_size + 5:
+		dlg.append(load("res://data/dialogue/p03_deck_eval/deck_too_big_en.tres"))
+	
+	var sum := float(len(card_decks[0]))
+	var average:float = 0.0
+	for card in card_decks[0]:
+		average += card_decks[0][card]
+	
+	average = average / sum
+	
+	if average < 2.2:
+		# if you are running less than 2 copies of a card on average:
+		dlg.append(load("res://data/dialogue/p03_deck_eval/deck_too_inconsistent_en.tres"))
+	
+	score -= abs((main_deck_size - min_main_size) / 2)
+	# subtract 1 point for every 2 cards over the minimum.
+	# P03 will only mention it if it's substantially bigger.
+	
+	score -= 3 - int(average)
+	
+	if score > 5:
+		dlg.append(load("res://data/dialogue/p03_deck_eval/deck_fine_en.tres"))
+	
+	var finalscore :Dialogue = load("res://data/dialogue/p03_deck_eval/deck_finalscore_en.tres")
+	finalscore.text = finalscore.text.format([score])
+	dlg.append(finalscore)
+	
+	DialogueWindow.say(dlg)

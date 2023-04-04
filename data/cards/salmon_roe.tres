@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=7 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=7 format=3 uid="uid://83r7b0no82dd"]
 
 [ext_resource type="Texture2D" uid="uid://5sc23iwebx5f" path="res://gfx/pixport/Salmon Roe.png" id="1_tnjn8"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_8656e"]
@@ -24,6 +24,7 @@ attack_special = 0
 health = 1
 health_special = 0
 conductive = false
+sacrificable = true
 blood_cost = 1
 sap_cost = 0
 mox_green_cost = 0

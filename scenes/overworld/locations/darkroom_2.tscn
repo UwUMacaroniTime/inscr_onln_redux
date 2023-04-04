@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://d36uut10jymvj"]
+
+[ext_resource type="Texture2D" uid="uid://yxuwrbppcild" path="res://gfx/overworld/locations/darkroom_floor.png" id="1_382hm"]
+[ext_resource type="Texture2D" uid="uid://csmf7av2vregm" path="res://gfx/overworld/locations/darkroom_objects.png" id="2_e70gg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flehi"]
+atlas = ExtResource("2_e70gg")
+region = Rect2(57, 2, 32, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eggw"]
+size = Vector2(32, 24)
+
+[node name="Darkroom" type="Node2D"]
+z_index = -1
+texture_filter = 1
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_382hm")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(163, 61, 128, 96, 128, 151, 176, 199, 253, 199, 303, 149, 303, 90, 274, 61, 242, 61, 229, 74, 206, 74, 193, 61)
+
+[node name="Cabinet" type="Sprite2D" parent="."]
+position = Vector2(216, 118)
+texture = SubResource("AtlasTexture_flehi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Cabinet"]
+position = Vector2(-216, -118)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet/StaticBody2D"]
+position = Vector2(216, 118)
+shape = SubResource("RectangleShape2D_7eggw")
