@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ScrybeData" load_steps=8 format=3 uid="uid://dlujy6x6874i0"]
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=8 format=3]
 
 [ext_resource type="Shader" path="res://scenes/scrybename.gdshader" id="1_vw5ui"]
 [ext_resource type="Texture2D" uid="uid://c6u7ng80i8oka" path="res://gfx/textures/bark.png" id="2_jwfrm"]

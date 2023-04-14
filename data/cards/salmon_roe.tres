@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="CData" load_steps=7 format=3 uid="uid://83r7b0no82dd"]
+[gd_resource type="Resource" script_class="CData" load_steps=7 format=3]
 
 [ext_resource type="Texture2D" uid="uid://5sc23iwebx5f" path="res://gfx/pixport/Salmon Roe.png" id="1_tnjn8"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_8656e"]
 [ext_resource type="Resource" uid="uid://cb5lju22ckikx" path="res://data/sigils/Waterborne.tres" id="3_waufj"]
-[ext_resource type="Resource" uid="uid://c0w7egpushsrq" path="res://data/cards/salmon.tres" id="4_culeh"]
+[ext_resource type="Resource" path="res://data/cards/salmon.tres" id="4_culeh"]
 [ext_resource type="Script" path="res://classes/Sigils/Fledgeling.gd" id="5_k8yhk"]
 
 [sub_resource type="Resource" id="Resource_5nlyf"]

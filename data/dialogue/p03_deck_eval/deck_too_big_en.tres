@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=7 format=3 uid="uid://ivb0ombu6u75"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=7 format=3]
 
 [ext_resource type="Texture2D" uid="uid://ckig0nme0d3p4" path="res://data/portraits/P03/P03_smug.tres" id="1_4iojw"]
 [ext_resource type="Texture2D" uid="uid://y8ptjmvlrq0a" path="res://data/portraits/P03/P03_angy_stare.tres" id="1_qrxcq"]

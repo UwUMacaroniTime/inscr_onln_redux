@@ -111,8 +111,8 @@ enum SPECIAL_STAT {
 
 @export_group("Metadata")
 
-## Whether or not the card is allowed in your main deck.
-@export var banned:bool = false
+## Whether or not the card is allowed in your side deck.
+@export var sidedecker:bool = false
 
 ## If true, only one copy of this card is allowed in your main deck.
 @export var rare:bool = false

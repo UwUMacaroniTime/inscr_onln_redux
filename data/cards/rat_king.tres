@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://d7iin56hb3af"]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://ju1bd0rrtfl8" path="res://gfx/pixport/Rat King.png" id="1_vlbh0"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_6ensd"]

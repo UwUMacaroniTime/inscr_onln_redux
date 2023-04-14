@@ -11,4 +11,3 @@ extends Resource
 @export var disable_network_warning:bool = false
 
 @export_global_file("*.res") var default_deck:String
-@export var default_deckbuilder_split_offset:int

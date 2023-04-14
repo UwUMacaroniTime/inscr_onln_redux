@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://des2pqmhxy60c"]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://daob15qvysuae" path="res://gfx/pixport/Steel.png" id="1_1763k"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_thimq"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://1sorim4whvjx"]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://bj7kn7skw8v6h" path="res://gfx/pixport/Revenant.png" id="1_hdeej"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_p8do6"]

@@ -35,6 +35,7 @@ func _ready():
 	for file in DirAccess.get_files_at("res://data/cards"):
 		var card := gen_card(card_location.BROWSER)
 		# just assume it's a CData file. If it isn't this all messes up anyway
+		file = file.replace(".redirect", "")
 		card.data = load("data/cards/" + file)
 		card.visual_apply()
 	scrybe_browser_list.clear()
@@ -46,7 +47,7 @@ func _ready():
 	if FileAccess.file_exists(SettingsManager.settings.default_deck):
 		from_data(load(SettingsManager.settings.default_deck))
 	
-	$Split.split_offset = SettingsManager.settings.default_deckbuilder_split_offset
+#	$Split.split_offset = SettingsManager.settings.default_deckbuilder_split_offset
 
 func from_data(data:DeckObject):
 	for card in main_deck_list.get_children():
@@ -56,6 +57,11 @@ func from_data(data:DeckObject):
 	
 	card_decks[0].clear()
 	card_decks[1].clear()
+	
+	if data == null:
+		print("Failed to load deck!")
+		SettingsManager.settings.default_deck = "" # for safety reasons, remove the deck from the default slot.
+		return
 	
 	for card_data in data.main_deck:
 		var card = gen_card(card_location.MAINDECK)
@@ -133,9 +139,11 @@ func _on_mode_select_tab_changed(tab:int):
 		0:
 			main_deck.visible = true
 			card_browser.visible = true
+			hide_deckers(true)
 		1:
 			side_deck.visible = true
 			card_browser.visible = true
+			hide_deckers(false)
 		2:
 			scrybe_browser_list.visible = true
 			preview_scrybe.visible = true
@@ -229,6 +237,11 @@ func _on_search_pressed():
 			continue
 		
 		card.visible = true
+
+func hide_deckers(allow_mains:bool):
+	# this is seperated from the search function for performance reasons.
+	for card in card_browser_list.get_children():
+		card.visible = card.data.sidedecker or allow_mains
 
 func _on_file_dialog_file_selected(path):
 	if $ButtonsNStuff/FileDialog.file_mode == FileDialog.FILE_MODE_SAVE_FILE:

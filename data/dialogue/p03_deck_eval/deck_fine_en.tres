@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=6 format=3 uid="uid://b7ijnv14idbfb"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=6 format=3]
 
-[ext_resource type="Resource" uid="uid://dcxpl1cdnjopn" path="res://data/dialogue/p03_deck_eval/id_give_it.tres" id="1_juo2i"]
+[ext_resource type="Resource" path="res://data/dialogue/p03_deck_eval/id_give_it.tres" id="1_juo2i"]
 [ext_resource type="Texture2D" uid="uid://ckig0nme0d3p4" path="res://data/portraits/P03/P03_smug.tres" id="1_kst8e"]
 [ext_resource type="Script" path="res://classes/Dialogue.gd" id="2_3w4r0"]
 [ext_resource type="Texture2D" uid="uid://qiwxf0n0oq6v" path="res://data/portraits/P03/P03_neutral.tres" id="3_tpnv5"]

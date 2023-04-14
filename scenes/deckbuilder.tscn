@@ -454,7 +454,7 @@ language = "en_CA"
 initial_position = 1
 size = Vector2i(500, 300)
 access = 1
-root_subfolder = "decks/"
+root_subfolder = "decks"
 filters = PackedStringArray("*.res")
 script = ExtResource("19_2dvue")
 

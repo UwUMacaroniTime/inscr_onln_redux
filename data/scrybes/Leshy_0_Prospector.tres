@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ScrybeData" load_steps=6 format=3 uid="uid://c6x70m8abkggu"]
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=6 format=3]
 
 [ext_resource type="Material" uid="uid://yqe35bfl8wva" path="res://data/scrybes/materials/rocks_displace.tres" id="1_dx70v"]
 [ext_resource type="Texture2D" uid="uid://dmog65qjy061j" path="res://data/portraits/prospector/prospector_MAW.tres" id="2_0ngl1"]

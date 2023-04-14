@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://be6jhc1207pce"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3]
 
 [ext_resource type="Texture2D" uid="uid://dukfkyjhrs76f" path="res://data/portraits/P03/P03_bruh.tres" id="1_1r055"]
 [ext_resource type="Script" path="res://classes/Dialogue.gd" id="2_b2f3m"]

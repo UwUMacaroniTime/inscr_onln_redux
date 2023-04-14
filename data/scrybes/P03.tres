@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ScrybeData" load_steps=6 format=3 uid="uid://detvieofs1s5q"]
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=6 format=3]
 
 [ext_resource type="Material" uid="uid://bbio6b302h22w" path="res://data/scrybes/materials/circuit_displace.tres" id="1_ahxj7"]
 [ext_resource type="Texture2D" uid="uid://y8ptjmvlrq0a" path="res://data/portraits/P03/P03_angy_stare.tres" id="2_komec"]

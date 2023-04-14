@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=5 format=3 uid="uid://befrvtlybtb54"]
+[gd_resource type="Resource" script_class="CData" load_steps=5 format=3]
 
 [ext_resource type="Texture2D" uid="uid://dgkc3dt5n54s8" path="res://gfx/pixport/Pronghorn.png" id="1_t4va7"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_l3s5s"]

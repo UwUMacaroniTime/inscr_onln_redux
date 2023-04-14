@@ -8,14 +8,16 @@ func _ready():
 
 func load_settings():
 	if FileAccess.file_exists(file_loc):
-		print("found file!!")
+		print("Settings found.")
 		settings = load(file_loc)
 		settings.resource_path = file_loc
+		if settings == null: # something has happened
+			print("Error while loading settings, reverting to default values.")
+			settings = SettingsRes.new()
 	else:
-		pass
+		print("No settings found, reverting to default values.")
 		# fall back on default values
-#		settings = SettingsRes.new()
-	print(settings.default_deck)
+		settings = SettingsRes.new()
 
 func save_settings():
 #	if not FileAccess.file_exists(file_loc):

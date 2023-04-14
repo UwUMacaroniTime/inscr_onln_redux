@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://bylt0u6dr12o5"]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://bg2octgucqks2" path="res://gfx/pixport/Sparrow.png" id="1_8ejor"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_8syu8"]

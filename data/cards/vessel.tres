@@ -26,6 +26,6 @@ energy_cost = 1
 energy_max_cost = 0
 rune_cost = 0
 heat_cost = 0
-banned = false
+sidedecker = true
 rare = false
 description = ""

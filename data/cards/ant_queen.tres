@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=7 format=3 uid="uid://cnfbb7oksgwbm"]
+[gd_resource type="Resource" script_class="CData" load_steps=7 format=3]
 
 [ext_resource type="Texture2D" uid="uid://fk38x688r3jl" path="res://gfx/pixport/Ant Queen.png" id="1_6qjd7"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_5tall"]

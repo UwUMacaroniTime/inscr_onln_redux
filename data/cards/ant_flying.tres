@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://beodoytijxjsy"]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://b7e036hlxlhhh" path="res://gfx/pixport/Flying Ant.png" id="1_cfkaw"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_fkuek"]

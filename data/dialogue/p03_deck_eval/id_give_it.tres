@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://dcxpl1cdnjopn"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3]
 
 [ext_resource type="Texture2D" uid="uid://stb3g6u41p26" path="res://data/portraits/P03/P03_elipsis.tres" id="1_w4ebo"]
 [ext_resource type="Script" path="res://classes/Dialogue.gd" id="2_ea3f2"]

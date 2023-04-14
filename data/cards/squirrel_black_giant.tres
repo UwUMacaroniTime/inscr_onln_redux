@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://o8ksynh5878l"]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://dveva381xc1nx" path="res://gfx/pixport/Black Giant Squirrel.png" id="1_c86gg"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_gr7ci"]
