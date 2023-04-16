@@ -32,6 +32,7 @@ polygon = PackedVector2Array(163, 61, 128, 96, 128, 151, 176, 199, 253, 199, 303
 [node name="TransitionTrigger" parent="." instance=ExtResource("3_ibar2")]
 position = Vector2(158, 67)
 location = "res://scenes/overworld/locations/darkroom_2.tscn"
+position_group = &"hatch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionTrigger"]
 shape = SubResource("CircleShape2D_6ubop")

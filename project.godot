@@ -23,6 +23,10 @@ NetManager="*res://singletons/NetManager.gd"
 DialogueWindow="*res://singletons/dialogue_window.tscn"
 CanvasTint="*res://singletons/canvas_tint.tscn"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/benja/Downloads/renders/render.avi"
+
 [input]
 
 player_up={

@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://mhyteynmwog3"]
+
+[ext_resource type="Shader" path="res://scenes/card/burn.gdshader" id="1_nkmfl"]
+
+[sub_resource type="Gradient" id="Gradient_bq0r8"]
+offsets = PackedFloat32Array(0, 0.454545, 0.521212, 0.606061, 0.642424, 0.684848, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.0491087, 0.0491087, 0.0491087, 1, 0.0745098, 0.0745098, 0.0745098, 1, 0.858824, 0.176471, 0.176471, 1, 0.0745098, 0.0745098, 0.0745098, 1, 0.294118, 0.294118, 0.294118, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sxhbr"]
+gradient = SubResource("Gradient_bq0r8")
+width = 64
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gax3j"]
+domain_warp_type = 2
+domain_warp_amplitude = 10.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_alqm4"]
+width = 100
+height = 150
+invert = true
+normalize = false
+noise = SubResource("FastNoiseLite_gax3j")
+
+[resource]
+resource_name = "Burnup Mat"
+shader = ExtResource("1_nkmfl")
+shader_parameter/clip = 0.0
+shader_parameter/gradient = SubResource("GradientTexture1D_sxhbr")
+shader_parameter/noise = SubResource("NoiseTexture2D_alqm4")

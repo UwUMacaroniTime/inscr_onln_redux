@@ -114,3 +114,6 @@ func _on_mouse_exited():
 	scale /= scale_manip
 	z_index -= 1
 
+func toggle_icon_overlay():
+	var icon_overlay = $IconOverlay
+	icon_overlay.visible = !icon_overlay.visible

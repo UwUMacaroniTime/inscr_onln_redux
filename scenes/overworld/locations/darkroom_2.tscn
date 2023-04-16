@@ -34,3 +34,6 @@ position = Vector2(-216, -118)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet/StaticBody2D"]
 position = Vector2(216, 118)
 shape = SubResource("RectangleShape2D_7eggw")
+
+[node name="Marker2D" type="Marker2D" parent="." groups=["hatch"]]
+position = Vector2(168, 96)
