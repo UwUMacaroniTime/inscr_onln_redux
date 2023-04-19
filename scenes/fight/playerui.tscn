@@ -1,0 +1,138 @@
+[gd_scene load_steps=8 format=3 uid="uid://ert5jwt7jd6m"]
+
+[ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_p1xoj"]
+[ext_resource type="Script" path="res://scenes/fight/playerui.gd" id="2_kk6ru"]
+[ext_resource type="Texture2D" uid="uid://bdp3crvf15av6" path="res://data/portraits/leshy/leshy_neutral.tres" id="3_gixqq"]
+[ext_resource type="FontFile" uid="uid://doe8y2lnclpcj" path="res://fonts/alagard.ttf" id="4_ow4hv"]
+[ext_resource type="PackedScene" uid="uid://bof83stc6qrbm" path="res://scenes/counter.tscn" id="5_e01d2"]
+[ext_resource type="Texture2D" uid="uid://f2tqpions64m" path="res://gfx/cardextras/costs/bones/bones_icon.png" id="6_u4mtf"]
+[ext_resource type="Texture2D" uid="uid://bytedvubpfxif" path="res://gfx/cardextras/costs/heat/heat_icon.png" id="7_k6knd"]
+
+[node name="PlayerUI" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_p1xoj")
+script = ExtResource("2_kk6ru")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Status" type="Control" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Portrait" type="TextureRect" parent="HBoxContainer/Status"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 152.0
+offset_bottom = 153.0
+texture = ExtResource("3_gixqq")
+
+[node name="Panel" type="Panel" parent="HBoxContainer/Status/Portrait"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="HBoxContainer/Status"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 158.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_ow4hv")
+theme_override_font_sizes/font_size = 32
+text = "test_username"
+
+[node name="Bones" parent="HBoxContainer/Status" instance=ExtResource("5_e01d2")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 158.0
+offset_right = 64.0
+offset_bottom = 174.0
+scale = Vector2(2, 2)
+
+[node name="BonesIcon" type="TextureRect" parent="HBoxContainer/Status/Bones"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -7.5
+offset_right = 5.5
+offset_bottom = 13.0
+texture = ExtResource("6_u4mtf")
+
+[node name="Heat" parent="HBoxContainer/Status" instance=ExtResource("5_e01d2")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 191.0
+offset_right = 64.0
+offset_bottom = 207.0
+scale = Vector2(2, 2)
+
+[node name="HeatIcon" type="TextureRect" parent="HBoxContainer/Status/Heat"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -7.5
+offset_top = -1.0
+offset_right = 14.5
+offset_bottom = 13.0
+texture = ExtResource("7_k6knd")
+
+[node name="Links" parent="HBoxContainer/Status" instance=ExtResource("5_e01d2")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 225.0
+offset_right = 64.0
+offset_bottom = 241.0
+scale = Vector2(2, 2)
+
+[node name="HeatIcon" type="TextureRect" parent="HBoxContainer/Status/Links"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -7.5
+offset_top = -0.5
+offset_right = 14.5
+offset_bottom = 13.5
+texture = ExtResource("7_k6knd")
+
+[node name="Lines" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Backline" type="HBoxContainer" parent="HBoxContainer/Lines"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Frontline" type="HBoxContainer" parent="HBoxContainer/Lines"]
+layout_mode = 2
+theme_override_constants/separation = 6
