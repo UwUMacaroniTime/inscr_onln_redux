@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk0jaiv44hls1"]
+
+[ext_resource type="Texture2D" uid="uid://dbdtkgdmnsag3" path="res://gfx/cardextras/costs/energy/energy_icon.png" id="1_pxtxh"]
+
+[node name="TextureRect" type="TextureRect"]
+texture = ExtResource("1_pxtxh")
+expand_mode = 3

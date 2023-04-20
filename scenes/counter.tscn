@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bof83stc6qrbm"]
+[gd_scene load_steps=5 format=3 uid="uid://bof83stc6qrbm"]
 
+[ext_resource type="Script" path="res://scenes/counter.gd" id="1_bdoql"]
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_ggxf1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fneq1"]
@@ -12,24 +13,37 @@ font_color = Color(0.843137, 0.886275, 0.639216, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Control" type="Control"]
+[node name="Counter" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 16.0
+script = ExtResource("1_bdoql")
 
 [node name="BG" type="Label" parent="."]
 texture_filter = 1
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_ggxf1")
 text = "x1984"
 label_settings = SubResource("LabelSettings_fneq1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="FG" type="Label" parent="."]
 texture_filter = 1
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_ggxf1")
 text = "x1984"
 label_settings = SubResource("LabelSettings_qtyqd")
+horizontal_alignment = 1
+vertical_alignment = 1
