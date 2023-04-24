@@ -75,10 +75,10 @@ region = Rect2(0, 9, 16, 8)
 
 [node name="Card" type="Button"]
 texture_filter = 1
-custom_minimum_size = Vector2(100, 150)
+custom_minimum_size = Vector2(90, 145)
 layout_direction = 2
-offset_right = 100.0
-offset_bottom = 150.0
+offset_right = 90.0
+offset_bottom = 145.0
 pivot_offset = Vector2(50, 75)
 theme = ExtResource("1_5sxta")
 script = ExtResource("2_bi6mc")

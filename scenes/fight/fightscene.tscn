@@ -1,0 +1,350 @@
+[gd_scene load_steps=15 format=3 uid="uid://b66u1uimdagy1"]
+
+[ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_8p8hx"]
+[ext_resource type="Texture2D" uid="uid://davb5qdddwqiw" path="res://gfx/extra/battleicons.png" id="2_dweoa"]
+[ext_resource type="Script" path="res://scenes/fight/fightscene.gd" id="2_x1olu"]
+[ext_resource type="PackedScene" uid="uid://ert5jwt7jd6m" path="res://scenes/fight/playerui.tscn" id="2_xt2sn"]
+[ext_resource type="PackedScene" uid="uid://bk0jaiv44hls1" path="res://scenes/fight/energy_tex.tscn" id="3_5weo7"]
+[ext_resource type="PackedScene" uid="uid://d0rrcqtfu2627" path="res://scenes/fight/cardslot.tscn" id="4_1wcgk"]
+[ext_resource type="PackedScene" uid="uid://y6yahgt2gvvg" path="res://scenes/card/card.tscn" id="5_x852g"]
+[ext_resource type="Texture2D" uid="uid://dvqhavypewijo" path="res://gfx/char_active_icons/magnificus_brush_bleach.png" id="6_hmu6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq6ry"]
+atlas = ExtResource("2_dweoa")
+region = Rect2(51, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4yxx"]
+atlas = ExtResource("2_dweoa")
+region = Rect2(34, 0, 17, 17)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ywy6l"]
+font_color = Color(1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2lgg"]
+atlas = ExtResource("2_dweoa")
+region = Rect2(17, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mho8u"]
+atlas = ExtResource("2_dweoa")
+region = Rect2(0, 4, 17, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8jgg"]
+font_size = 32
+font_color = Color(0.454902, 1, 0.862745, 1)
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8p8hx")
+script = ExtResource("2_x1olu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.003
+offset_left = 2.0
+offset_right = 98.0
+offset_bottom = 0.0559692
+grow_vertical = 2
+alignment = 1
+
+[node name="Forefiet" type="Button" parent="Buttons"]
+modulate = Color(1, 0.478431, 0.411765, 1)
+layout_mode = 2
+tooltip_text = "Surrender"
+icon = SubResource("AtlasTexture_iq6ry")
+icon_alignment = 1
+
+[node name="Draw" type="Button" parent="Buttons"]
+modulate = Color(1, 0.478431, 0.411765, 1)
+layout_mode = 2
+tooltip_text = "Offer Draw"
+icon = SubResource("AtlasTexture_d4yxx")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Buttons"]
+layout_mode = 2
+text = "a"
+label_settings = SubResource("LabelSettings_ywy6l")
+
+[node name="Bell" type="Button" parent="Buttons"]
+layout_mode = 2
+tooltip_text = "Bell"
+icon = SubResource("AtlasTexture_e2lgg")
+icon_alignment = 1
+
+[node name="Hammer" type="Button" parent="Buttons"]
+layout_mode = 2
+tooltip_text = "Hammer"
+icon = SubResource("AtlasTexture_mho8u")
+icon_alignment = 1
+
+[node name="ClientUI" parent="." instance=ExtResource("2_xt2sn")]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 375.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[node name="Energy" type="HBoxContainer" parent="ClientUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 154.0
+offset_top = 31.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_constants/separation = -2
+metadata/_edit_group_ = true
+
+[node name="Cell" parent="ClientUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Cell2" parent="ClientUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Cell3" parent="ClientUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Cell4" parent="ClientUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Cell5" parent="ClientUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Cell6" parent="ClientUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Overcharge" type="Label" parent="ClientUI/Energy"]
+layout_direction = 2
+layout_mode = 2
+text = "+4"
+label_settings = SubResource("LabelSettings_y8jgg")
+
+[node name="EnemyUI" parent="." instance=ExtResource("2_xt2sn")]
+layout_direction = 3
+layout_mode = 1
+offset_right = 375.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Energy" type="HBoxContainer" parent="EnemyUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 154.0
+offset_top = 31.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_constants/separation = -2
+metadata/_edit_group_ = true
+
+[node name="Overcharge" type="Label" parent="EnemyUI/Energy"]
+layout_direction = 2
+layout_mode = 2
+text = "+4"
+label_settings = SubResource("LabelSettings_y8jgg")
+
+[node name="Cell" parent="EnemyUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Cell2" parent="EnemyUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Cell3" parent="EnemyUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Cell4" parent="EnemyUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Cell5" parent="EnemyUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Cell6" parent="EnemyUI/Energy" instance=ExtResource("3_5weo7")]
+layout_mode = 2
+
+[node name="Lines" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -289.0
+offset_right = 180.0
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backline1" type="HBoxContainer" parent="Lines"]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="Slot0" parent="Lines/Backline1" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Card" parent="Lines/Backline1/Slot0" instance=ExtResource("5_x852g")]
+layout_mode = 0
+
+[node name="Slot1" parent="Lines/Backline1" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Slot2" parent="Lines/Backline1" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Slot3" parent="Lines/Backline1" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Frontline1" type="HBoxContainer" parent="Lines"]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="Slot0" parent="Lines/Frontline1" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Slot1" parent="Lines/Frontline1" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Slot2" parent="Lines/Frontline1" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Slot3" parent="Lines/Frontline1" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Frontline0" type="HBoxContainer" parent="Lines"]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="Slot0" parent="Lines/Frontline0" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Slot1" parent="Lines/Frontline0" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Slot2" parent="Lines/Frontline0" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Slot3" parent="Lines/Frontline0" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Backline0" type="HBoxContainer" parent="Lines"]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="Slot0" parent="Lines/Backline0" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Slot1" parent="Lines/Backline0" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Slot2" parent="Lines/Backline0" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="Slot3" parent="Lines/Backline0" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+
+[node name="ClientHand" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -145.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = -57
+alignment = 2
+
+[node name="Card" parent="ClientHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card2" parent="ClientHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card3" parent="ClientHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card4" parent="ClientHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card5" parent="ClientHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card6" parent="ClientHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card7" parent="ClientHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card8" parent="ClientHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card9" parent="ClientHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card10" parent="ClientHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card11" parent="ClientHand" instance=ExtResource("5_x852g")]
+visible = false
+layout_mode = 2
+
+[node name="Card12" parent="ClientHand" instance=ExtResource("5_x852g")]
+visible = false
+layout_mode = 2
+
+[node name="EnemyHand" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme_override_constants/separation = -30
+
+[node name="Card" parent="EnemyHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card2" parent="EnemyHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card3" parent="EnemyHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card4" parent="EnemyHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card5" parent="EnemyHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="Card6" parent="EnemyHand" instance=ExtResource("5_x852g")]
+layout_mode = 2
+
+[node name="AbilityIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1059.0
+offset_top = 276.0
+offset_right = 1172.0
+offset_bottom = 381.0
+rotation = -0.785398
+scale = Vector2(2, 2)
+pivot_offset = Vector2(55, 51)
+texture = ExtResource("6_hmu6h")

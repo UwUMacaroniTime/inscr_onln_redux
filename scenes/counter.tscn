@@ -15,15 +15,13 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Counter" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
+offset_right = 32.0
 offset_bottom = 16.0
 script = ExtResource("1_bdoql")
 
 [node name="BG" type="Label" parent="."]
 texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -31,13 +29,10 @@ grow_vertical = 2
 theme = ExtResource("1_ggxf1")
 text = "x1984"
 label_settings = SubResource("LabelSettings_fneq1")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="FG" type="Label" parent="."]
 texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -45,5 +40,3 @@ grow_vertical = 2
 theme = ExtResource("1_ggxf1")
 text = "x1984"
 label_settings = SubResource("LabelSettings_qtyqd")
-horizontal_alignment = 1
-vertical_alignment = 1
