@@ -75,10 +75,10 @@ region = Rect2(0, 9, 16, 8)
 
 [node name="Card" type="Button"]
 texture_filter = 1
-custom_minimum_size = Vector2(90, 145)
+custom_minimum_size = Vector2(76, 120)
 layout_direction = 2
-offset_right = 90.0
-offset_bottom = 145.0
+offset_right = 76.0
+offset_bottom = 120.0
 pivot_offset = Vector2(50, 75)
 theme = ExtResource("1_5sxta")
 script = ExtResource("2_bi6mc")
@@ -227,7 +227,6 @@ horizontal_alignment = 1
 clip_text = true
 
 [node name="ConduitBand" type="TextureRect" parent="vertical/CardBottom/SigilClip/VBoxContainer"]
-unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 2
@@ -273,7 +272,6 @@ offset_bottom = 0.00999451
 
 [node name="HpIcon" type="TextureRect" parent="vertical/CardBottom/StatsClip"]
 unique_name_in_owner = true
-visible = false
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 1
 anchors_preset = -1
@@ -304,7 +302,6 @@ vertical_alignment = 2
 
 [node name="AtkIcon" type="TextureRect" parent="vertical/CardBottom/StatsClip"]
 unique_name_in_owner = true
-visible = false
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 1
 anchors_preset = -1
@@ -332,9 +329,12 @@ vertical_alignment = 2
 [node name="IconOverlay" type="Panel" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.862745)
-layout_mode = 0
-offset_right = 100.0
-offset_bottom = 150.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 
 [node name="Icon" type="TextureRect" parent="IconOverlay"]
@@ -369,6 +369,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 8
 texture = ExtResource("5_48lg5")
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

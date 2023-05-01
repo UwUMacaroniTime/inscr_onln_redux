@@ -117,3 +117,11 @@ func _on_mouse_exited():
 func toggle_icon_overlay():
 	var icon_overlay = $IconOverlay
 	icon_overlay.visible = !icon_overlay.visible
+
+
+func _on_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_MASK_RIGHT:
+			var cur_rect :Rect2 = Popupmenu.card_popupmenu.get_visible_rect()
+			cur_rect.position = get_global_mouse_position()
+			Popupmenu.card_popupmenu.popup(cur_rect)

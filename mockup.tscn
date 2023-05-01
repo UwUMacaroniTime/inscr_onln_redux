@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://b66u1uimdagy1"]
+
+[ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_llttt"]
+[ext_resource type="PackedScene" uid="uid://ert5jwt7jd6m" path="res://scenes/fight/playerui.tscn" id="1_xbs83"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_llttt")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerUI" parent="Control" instance=ExtResource("1_xbs83")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerUI2" parent="Control" instance=ExtResource("1_xbs83")]
+layout_mode = 2
+size_flags_vertical = 3
+swap_line_order = true
