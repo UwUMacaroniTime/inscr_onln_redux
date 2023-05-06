@@ -15,12 +15,12 @@ item_0/text = "View card tokens"
 item_0/id = 0
 
 [node name="cardview" type="Window" parent="."]
-size = Vector2i(156, 120)
+size = Vector2i(152, 120)
 visible = false
 wrap_controls = true
+transient = true
 exclusive = true
 unresizable = true
-popup_window = true
 theme = ExtResource("2_mxnvx")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="cardview"]
@@ -29,8 +29,10 @@ offset_bottom = 40.0
 
 [node name="Card" parent="cardview/HBoxContainer" instance=ExtResource("2_q6ft6")]
 layout_mode = 2
+scale_manip = 1.0
 
 [node name="Card2" parent="cardview/HBoxContainer" instance=ExtResource("2_q6ft6")]
 layout_mode = 2
+scale_manip = 1.0
 
 [connection signal="id_pressed" from="card_popupmenu" to="." method="_on_card_popupmenu_id_pressed"]

@@ -12,4 +12,3 @@ enum player {
 func get_slot(side:player, frontline:bool, idx:int):
 	return lines[side * 2 + int(frontline)].get_child(idx)
 
-

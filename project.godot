@@ -22,7 +22,8 @@ ErrorDialogue="*res://singletons/error_dialogue.tscn"
 NetManager="*res://singletons/NetManager.gd"
 DialogueWindow="*res://singletons/dialogue_window.tscn"
 CanvasTint="*res://singletons/canvas_tint.tscn"
-Popupmenu="*res://singletons/Popupmenu.tscn"
+Battlemanager="*res://singletons/battlemanager.gd"
+Fightscene="*res://singletons/fightscene.tscn"
 
 [editor]
 
