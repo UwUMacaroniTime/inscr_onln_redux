@@ -64,29 +64,25 @@ func visual_apply():
 	
 	_vis_ld_cost(%Sap, "blood/sap", data.sap_cost, 
 	"You must Sacrifice {0} creature(s) you own to pay this cost.
-Sacrificing a creature will kill it. All creatures can be Sacrificed for Sap.")
+	Sacrificing a creature will kill it. All creatures can be Sacrificed for Sap.")
 
 	_vis_ld_cost(%Blood, "blood/blood", data.blood_cost,
 	"You must Sacrifice {0} creature(s) you own to pay this cost.
-Sacrificing a creature will kill it. Some creatures cannot be Sacrificed for Blood.")
-
+	Sacrificing a creature will kill it. Some creatures cannot be Sacrificed for Blood.")
 	_vis_ld_cost(%Energy, "energy/energy", data.energy_cost, 
 	"you must remove {0} Energy to pay this cost.
-You get +1 maximum Energy (cells) per turn to a maximum of 6.
-All energy regenarates at the start of a turn and unspent Energy is wasted.")
-
+	You get +1 maximum Energy (cells) per turn to a maximum of 6.
+	All energy regenarates at the start of a turn and unspent Energy is wasted.")
 	_vis_ld_cost(%Cells, "energy/cells", data.energy_max_cost, 
 	"You must remove {0} maximum Energy (Cells) to pay this cost.
-You get +1 maximum Energy (cells) per turn to a maximum of 6.")
-
+	You get +1 maximum Energy (cells) per turn to a maximum of 6.")
 	_vis_ld_cost(%Bones, "bones/bones", data.bone_cost, 
 	"You must remove {0} Bone(s) to pay this cost.
-You gain a Bone whenever a creature you own dies.")
-
+	You gain a Bone whenever a creature you own dies.")
 	_vis_ld_cost(%Heat, "heat/heat", data.heat_cost, 
 	"You must remove {x} Heat to pay this cost.
-You gain one Heat whenever you discard a card.
-You may discard cards in your hand at will by using the hammer on them.")
+	You gain one Heat whenever you discard a card.
+	You may discard cards in your hand at will by using the hammer on them.")
 	
 	if not data.sacrificable:
 		_vis_add_sigil(patches, preload("res://data/sigils/patches/Unsacrificable.tres"))
@@ -128,11 +124,17 @@ func _on_pressed():
 	var tweener = create_tween()
 
 func _on_mouse_entered():
+	if anim_player.playback_active:
+		return
 	hover_bound.emit(self, loc)
 	scale *= scale_manip
 	z_index += 1
+	
 
 func _on_mouse_exited():
+	if anim_player.playback_active:
+		return
+	
 	scale /= scale_manip
 	z_index -= 1
 

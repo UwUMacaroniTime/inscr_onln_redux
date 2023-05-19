@@ -26,3 +26,16 @@ func _ready():
 	Battlemanager.synced_prebattle_setup(0)
 	
 #	print("hands: ", hands[0].get_children())
+
+
+func _on_main_deck_pressed():
+	var deck :Button = $ClientDecks/MainDeck
+	var card = preload("res://scenes/card/card.tscn").instantiate()
+	card.data = preload("res://data/cards/insectodrone.tres")
+	
+	card.position = deck.get_global_transform().origin - hands[0].get_global_transform().origin
+	hands[0].add_child(card)
+	
+	card.visual_apply()
+	card.anim_player.play(&"flipfrom")
+	card.text = deck.text

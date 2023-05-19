@@ -271,6 +271,7 @@ offset_bottom = 85.0
 grow_horizontal = 2
 
 [node name="Deckname" type="LineEdit" parent="ButtonsNStuff"]
+visible = false
 modulate = Color(1, 1, 1, 0.14902)
 layout_mode = 0
 offset_right = 830.0

@@ -4,7 +4,7 @@ extends Container
 @export var sort_left:bool
 
 func sortening():
-	var fill:float
+	var fill:float = 0
 	
 	# calc the fill with no offsets
 	for c in get_children():
@@ -26,8 +26,18 @@ func sortening():
 		
 		else:
 			fill -= c.size.x + ofst
-		c.position.x = fill
+		
+		var tween := create_tween()
+		tween.tween_property(c, "position", Vector2(fill, 0), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+		#c.position.x = fill
 
 
 func _on_sort_children():
 	sortening()
+
+
+func _input(event):
+	if event is InputEventKey and event.key_label == KEY_0 and not event.is_echo() and event.is_pressed():
+		for c in get_children():
+			move_child(c, randi_range(0, get_child_count() - 1))
+		sortening()

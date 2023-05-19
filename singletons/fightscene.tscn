@@ -340,6 +340,50 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../Slot2")
 focus_neighbor_top = NodePath("../../Frontline0/Slot3")
 
+[node name="ClientDecks" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 188.0
+offset_top = -287.0
+offset_right = 340.0
+offset_bottom = -167.0
+grow_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="MainDeck" parent="ClientDecks" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+text = "main deck
+(20/20)"
+
+[node name="SideDeck" parent="ClientDecks" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+text = "side deck
+(10/10)"
+
+[node name="EnemyDecks" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_top = 170.0
+offset_right = -73.0
+offset_bottom = 290.0
+grow_horizontal = 0
+metadata/_edit_group_ = true
+
+[node name="MainDeck" parent="EnemyDecks" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+text = "main deck
+(20/20)"
+
+[node name="SideDeck" parent="EnemyDecks" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+text = "side deck
+(10/10)"
+
 [node name="EnemyHand" type="Container" parent="."]
 layout_mode = 1
 anchors_preset = 10
@@ -392,49 +436,6 @@ test_username: god u suck
 you: stfu
 "
 
-[node name="ClientDecks" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 188.0
-offset_top = -287.0
-offset_right = 340.0
-offset_bottom = -167.0
-grow_vertical = 0
-metadata/_edit_group_ = true
-
-[node name="Slot0" parent="ClientDecks" instance=ExtResource("4_1wcgk")]
-layout_mode = 2
-text = "main deck
-(20/20)"
-
-[node name="Slot1" parent="ClientDecks" instance=ExtResource("4_1wcgk")]
-layout_mode = 2
-text = "side deck
-(10/10)"
-
-[node name="EnemyDecks" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -225.0
-offset_top = 170.0
-offset_right = -73.0
-offset_bottom = 290.0
-grow_horizontal = 0
-metadata/_edit_group_ = true
-
-[node name="Slot0" parent="EnemyDecks" instance=ExtResource("4_1wcgk")]
-layout_mode = 2
-text = "main deck
-(20/20)"
-
-[node name="Slot1" parent="EnemyDecks" instance=ExtResource("4_1wcgk")]
-layout_mode = 2
-text = "side deck
-(10/10)"
-
+[connection signal="pressed" from="ClientDecks/MainDeck" to="." method="_on_main_deck_pressed"]
 [connection signal="sort_children" from="EnemyHand" to="EnemyHand" method="_on_sort_children"]
 [connection signal="sort_children" from="ClientHand" to="ClientHand" method="_on_sort_children"]
