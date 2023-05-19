@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://y6yahgt2gvvg"]
+[gd_scene load_steps=28 format=3 uid="uid://y6yahgt2gvvg"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_5sxta"]
 [ext_resource type="Script" path="res://scenes/card/card.gd" id="2_bi6mc"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ta5ucx17bca8" path="res://gfx/cardextras/costs/blood/sap1.png" id="7_mifls"]
 [ext_resource type="Texture2D" uid="uid://bwtmaflwr0imc" path="res://gfx/cardextras/costs/blood/blood1.png" id="8_hyk3r"]
 [ext_resource type="Texture2D" uid="uid://d1mhp0bpcp1ro" path="res://gfx/sigils/Battery Bearer.png" id="11_ox2m0"]
+[ext_resource type="Material" uid="uid://mhyteynmwog3" path="res://scenes/card/burnup_mat.tres" id="15_7wbqx"]
 
 [sub_resource type="Resource" id="Resource_bqywo"]
 script = ExtResource("5_1yhdk")
@@ -73,13 +74,200 @@ font_color = Color(0, 0, 0, 1)
 atlas = ExtResource("3_upmis")
 region = Rect2(0, 9, 16, 8)
 
+[sub_resource type="Animation" id="Animation_p8ugc"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v70ab"]
+resource_name = "burn"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:material:shader_parameter/clip")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.5, 1),
+"update": 0,
+"values": [0.0, 4.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("15_7wbqx"), ExtResource("15_7wbqx")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:material:shader_parameter/gradient:gradient:colors")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [PackedColorArray(1, 1, 1, 1, 0.0491087, 0.0491087, 0.0491087, 1, 0.0745098, 0.0745098, 0.0745098, 1, 0.858824, 0.176471, 0.176471, 1, 0.0745098, 0.0745098, 0.0745098, 1, 0.294118, 0.294118, 0.294118, 0, 1, 1, 1, 0), PackedColorArray(1, 1, 1, 1, 0.0491087, 0.0491087, 0.0491087, 1, 0.0745098, 0.0745098, 0.0745098, 1, 0.298039, 0.992157, 0.341176, 1, 0.0745098, 0.0745098, 0.0745098, 1, 0.294118, 0.294118, 0.294118, 0, 1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f6vw7"]
+resource_name = "die"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7t8i5"]
+resource_name = "dive"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.5, 1.5, 1.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20), Vector2(0, 3), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"toggle_icon_overlay"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_cmt6f"]
+resource_name = "no"
+length = 0.16
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.12, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0436332, -0.0436332, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vk0n8"]
+_data = {
+"RESET": SubResource("Animation_p8ugc"),
+"burn": SubResource("Animation_v70ab"),
+"die": SubResource("Animation_f6vw7"),
+"dive": SubResource("Animation_7t8i5"),
+"no": SubResource("Animation_cmt6f")
+}
+
 [node name="Card" type="Button"]
 texture_filter = 1
 custom_minimum_size = Vector2(76, 120)
 layout_direction = 2
 offset_right = 76.0
 offset_bottom = 120.0
-pivot_offset = Vector2(50, 75)
+pivot_offset = Vector2(38, 60)
 theme = ExtResource("1_5sxta")
 script = ExtResource("2_bi6mc")
 data = SubResource("Resource_mwo0l")
@@ -134,48 +322,50 @@ grow_horizontal = 2
 
 [node name="Mox" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 texture = ExtResource("6_j4nj5")
 expand_mode = 5
 
 [node name="Sap" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
+tooltip_text = "You must Sacrifice [x] creatures you own to pay this cost.
+Sacrificing a card will kill it. All cards can be Sacrificed for Sap."
 texture = ExtResource("7_mifls")
 expand_mode = 5
 
 [node name="Blood" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "You must Sacrifice [x] creatures you own to pay this cost.
+Sacrificing a card will kill it. Some cards cannot be Sacrificed for Blood."
 texture = ExtResource("8_hyk3r")
 expand_mode = 5
 
 [node name="Energy" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
+tooltip_text = "you must remove [x] Energy to pay this cost.
+You get +1 maximum Energy (cells) per turn to a maximum of 6.
+All energy regenarates at the start of a turn and unspent Energy is wasted."
 texture = ExtResource("8_hyk3r")
 expand_mode = 5
 
 [node name="Cells" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
+tooltip_text = "You must remove [x] maximum Energy (Cells) to pay this cost. Cells that are empty are prioritized."
 texture = ExtResource("8_hyk3r")
 expand_mode = 5
 
 [node name="Bones" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 texture = ExtResource("8_hyk3r")
 expand_mode = 5
 
 [node name="Heat" type="TextureRect" parent="vertical/CardTop/Outline/Costs"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 texture = ExtResource("8_hyk3r")
 expand_mode = 5
@@ -227,6 +417,7 @@ horizontal_alignment = 1
 clip_text = true
 
 [node name="ConduitBand" type="TextureRect" parent="vertical/CardBottom/SigilClip/VBoxContainer"]
+unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 2
@@ -368,6 +559,12 @@ grow_vertical = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 8
 texture = ExtResource("5_48lg5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_vk0n8")
+}
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

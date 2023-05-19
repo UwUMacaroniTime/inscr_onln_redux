@@ -4,6 +4,8 @@ extends Button
 @export var data:CData
 var loc:int = 0
 @export var scale_manip:float = 1.2
+@onready var anim_player:AnimationPlayer = %AnimationPlayer
+
 
 signal pressed_bound(card:Card, loc:int)
 signal hover_bound(card:Card, loc:int)
@@ -60,12 +62,31 @@ func visual_apply():
 		print(path)
 		mox.texture = load(path)
 	
-	_vis_ld_cost(%Sap, "blood/sap", data.sap_cost)
-	_vis_ld_cost(%Blood, "blood/blood", data.blood_cost)
-	_vis_ld_cost(%Energy, "energy/energy", data.energy_cost)
-	_vis_ld_cost(%Cells, "energy/cells", data.energy_max_cost)
-	_vis_ld_cost(%Bones, "bones/bones", data.bone_cost)
-	_vis_ld_cost(%Heat, "heat/heat", data.heat_cost)
+	_vis_ld_cost(%Sap, "blood/sap", data.sap_cost, 
+	"You must Sacrifice {0} creature(s) you own to pay this cost.
+Sacrificing a creature will kill it. All creatures can be Sacrificed for Sap.")
+
+	_vis_ld_cost(%Blood, "blood/blood", data.blood_cost,
+	"You must Sacrifice {0} creature(s) you own to pay this cost.
+Sacrificing a creature will kill it. Some creatures cannot be Sacrificed for Blood.")
+
+	_vis_ld_cost(%Energy, "energy/energy", data.energy_cost, 
+	"you must remove {0} Energy to pay this cost.
+You get +1 maximum Energy (cells) per turn to a maximum of 6.
+All energy regenarates at the start of a turn and unspent Energy is wasted.")
+
+	_vis_ld_cost(%Cells, "energy/cells", data.energy_max_cost, 
+	"You must remove {0} maximum Energy (Cells) to pay this cost.
+You get +1 maximum Energy (cells) per turn to a maximum of 6.")
+
+	_vis_ld_cost(%Bones, "bones/bones", data.bone_cost, 
+	"You must remove {0} Bone(s) to pay this cost.
+You gain a Bone whenever a creature you own dies.")
+
+	_vis_ld_cost(%Heat, "heat/heat", data.heat_cost, 
+	"You must remove {x} Heat to pay this cost.
+You gain one Heat whenever you discard a card.
+You may discard cards in your hand at will by using the hammer on them.")
 	
 	if not data.sacrificable:
 		_vis_add_sigil(patches, preload("res://data/sigils/patches/Unsacrificable.tres"))
@@ -93,17 +114,18 @@ func _vis_add_sigil(parent:Container, sigil:Sigil):
 	sigil_instance.texture = sigil.get_icon()
 	sigil_instance.tooltip_text = sigil.get_desc()
 
-func _vis_ld_cost(display:TextureRect, root:String, value:int):
+func _vis_ld_cost(display:TextureRect, root:String, value:int, desc:String):
 	display.visible = value
 	
 	if not value:
 		return
 	
+	display.tooltip_text = desc.format([value])
 	display.texture = load("res://gfx/cardextras/costs/" + root + str(value) + ".png")
 
 func _on_pressed():
 	pressed_bound.emit(self, loc)
-
+	var tweener = create_tween()
 
 func _on_mouse_entered():
 	hover_bound.emit(self, loc)

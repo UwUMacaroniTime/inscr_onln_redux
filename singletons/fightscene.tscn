@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b66u1uimdagy1"]
+[gd_scene load_steps=18 format=3 uid="uid://b66u1uimdagy1"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_8p8hx"]
 [ext_resource type="Texture2D" uid="uid://davb5qdddwqiw" path="res://gfx/extra/battleicons.png" id="2_dweoa"]
@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ert5jwt7jd6m" path="res://scenes/fight/playerui.tscn" id="2_xt2sn"]
 [ext_resource type="PackedScene" uid="uid://bk0jaiv44hls1" path="res://scenes/fight/energy_tex.tscn" id="3_5weo7"]
 [ext_resource type="PackedScene" uid="uid://d0rrcqtfu2627" path="res://scenes/fight/cardslot.tscn" id="4_1wcgk"]
-[ext_resource type="PackedScene" uid="uid://y6yahgt2gvvg" path="res://scenes/card/card.tscn" id="5_x852g"]
+[ext_resource type="Script" path="res://scenes/fight/Hammer.gd" id="4_6wj3d"]
 [ext_resource type="Texture2D" uid="uid://dvqhavypewijo" path="res://gfx/char_active_icons/magnificus_brush_bleach.png" id="6_hmu6h"]
-[ext_resource type="PackedScene" uid="uid://dum4k0pfhp6ah" path="res://scenes/card/cardholder.tscn" id="8_x4hrq"]
+[ext_resource type="Script" path="res://scenes/fight/HandContainer.gd" id="8_ygr0l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iq6ry"]
 atlas = ExtResource("2_dweoa")
@@ -20,6 +20,14 @@ region = Rect2(4, 97.5, 26, 26)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ywy6l"]
 font_color = Color(1, 1, 1, 0)
+
+[sub_resource type="InputEventKey" id="InputEventKey_3e163"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_wgqlf"]
+events = [SubResource("InputEventKey_3e163")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2lgg"]
 atlas = ExtResource("2_dweoa")
@@ -39,6 +47,7 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8p8hx")
@@ -65,34 +74,53 @@ alignment = 1
 [node name="Forefiet" type="Button" parent="Buttons"]
 modulate = Color(1, 0.478431, 0.411765, 1)
 layout_mode = 2
-tooltip_text = "Surrender"
+tooltip_text = "Surrender - Forefiet the game."
+focus_neighbor_right = NodePath("../../Lines/Backline1/Slot0")
 icon = SubResource("AtlasTexture_iq6ry")
 icon_alignment = 1
 
 [node name="Draw" type="Button" parent="Buttons"]
 modulate = Color(1, 0.478431, 0.411765, 1)
 layout_mode = 2
-tooltip_text = "Offer Draw"
+tooltip_text = "Offer Draw - Propose a draw to your opponent. Use in case of stalemate."
+focus_neighbor_right = NodePath("../../Lines/Frontline1/Slot0")
 icon = SubResource("AtlasTexture_d4yxx")
 icon_alignment = 1
 
-[node name="Label" type="Label" parent="Buttons"]
+[node name="Sep" type="Label" parent="Buttons"]
 layout_mode = 2
-text = "a"
+text = "div"
 label_settings = SubResource("LabelSettings_ywy6l")
 
 [node name="Bell" type="Button" parent="Buttons"]
 layout_mode = 2
-tooltip_text = "Bell"
+tooltip_text = "Bell - Move to combat."
+focus_neighbor_right = NodePath("../../Lines/Frontline0/Slot0")
+shortcut = SubResource("Shortcut_wgqlf")
 icon = SubResource("AtlasTexture_e2lgg")
 icon_alignment = 1
 
 [node name="Hammer" type="Button" parent="Buttons"]
 layout_mode = 2
-tooltip_text = "Hammer"
-text = " "
+tooltip_text = "Hammer - Use to destroy cards on your side of the field, or discard cards in your hand.
+Hammer Smashes Left this turn: [UNKNOWN]"
+focus_neighbor_right = NodePath("../../Lines/Backline0/Slot0")
+theme_override_colors/font_color = Color(0.211765, 0.211765, 0.211765, 1)
+theme_override_colors/font_pressed_color = Color(0.211765, 0.211765, 0.211765, 1)
+theme_override_colors/font_hover_color = Color(0.211765, 0.211765, 0.211765, 1)
+theme_override_colors/font_focus_color = Color(0.211765, 0.211765, 0.211765, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+toggle_mode = true
+text = "(?/?)"
 icon = SubResource("AtlasTexture_mho8u")
+alignment = 2
 icon_alignment = 1
+script = ExtResource("4_6wj3d")
+
+[node name="Sep2" type="Label" parent="Buttons"]
+layout_mode = 2
+text = "div"
+label_settings = SubResource("LabelSettings_ywy6l")
 
 [node name="ClientUI" parent="." instance=ExtResource("2_xt2sn")]
 layout_direction = 2
@@ -143,7 +171,6 @@ label_settings = SubResource("LabelSettings_y8jgg")
 
 [node name="EnemyUI" parent="." instance=ExtResource("2_xt2sn")]
 layout_direction = 3
-layout_mode = 1
 offset_right = 375.0
 grow_horizontal = 1
 grow_vertical = 1
@@ -203,18 +230,26 @@ metadata/_edit_group_ = true
 
 [node name="Slot0" parent="Lines/Backline1" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
-
-[node name="Card" parent="Lines/Backline1/Slot0" instance=ExtResource("5_x852g")]
-layout_mode = 0
+focus_neighbor_left = NodePath("../../../Buttons/Forefiet")
+focus_neighbor_right = NodePath("../Slot1")
+focus_neighbor_bottom = NodePath("../../Frontline1/Slot0")
 
 [node name="Slot1" parent="Lines/Backline1" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot0")
+focus_neighbor_right = NodePath("../Slot2")
+focus_neighbor_bottom = NodePath("../../Frontline1/Slot1")
 
 [node name="Slot2" parent="Lines/Backline1" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot1")
+focus_neighbor_right = NodePath("../Slot3")
+focus_neighbor_bottom = NodePath("../../Frontline1/Slot2")
 
 [node name="Slot3" parent="Lines/Backline1" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot2")
+focus_neighbor_bottom = NodePath("../../Frontline1/Slot3")
 
 [node name="Frontline1" type="HBoxContainer" parent="Lines"]
 layout_mode = 2
@@ -222,15 +257,30 @@ metadata/_edit_group_ = true
 
 [node name="Slot0" parent="Lines/Frontline1" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../Buttons/Draw")
+focus_neighbor_top = NodePath("../../Backline1/Slot0")
+focus_neighbor_right = NodePath("../Slot1")
+focus_neighbor_bottom = NodePath("../../Frontline0/Slot0")
 
 [node name="Slot1" parent="Lines/Frontline1" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot0")
+focus_neighbor_top = NodePath("../../Backline1/Slot1")
+focus_neighbor_right = NodePath("../Slot2")
+focus_neighbor_bottom = NodePath("../../Frontline0/Slot1")
 
 [node name="Slot2" parent="Lines/Frontline1" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot1")
+focus_neighbor_top = NodePath("../../Backline1/Slot2")
+focus_neighbor_right = NodePath("../Slot3")
+focus_neighbor_bottom = NodePath("../../Frontline0/Slot2")
 
 [node name="Slot3" parent="Lines/Frontline1" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot2")
+focus_neighbor_top = NodePath("../../Backline1/Slot3")
+focus_neighbor_bottom = NodePath("../../Frontline0/Slot3")
 
 [node name="Frontline0" type="HBoxContainer" parent="Lines"]
 layout_mode = 2
@@ -238,15 +288,30 @@ metadata/_edit_group_ = true
 
 [node name="Slot0" parent="Lines/Frontline0" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../Buttons/Bell")
+focus_neighbor_top = NodePath("../../Frontline1/Slot0")
+focus_neighbor_right = NodePath("../Slot1")
+focus_neighbor_bottom = NodePath("../../Backline0/Slot0")
 
 [node name="Slot1" parent="Lines/Frontline0" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot0")
+focus_neighbor_top = NodePath("../../Frontline1/Slot1")
+focus_neighbor_right = NodePath("../Slot2")
+focus_neighbor_bottom = NodePath("../../Backline0/Slot1")
 
 [node name="Slot2" parent="Lines/Frontline0" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot1")
+focus_neighbor_top = NodePath("../../Frontline1/Slot2")
+focus_neighbor_right = NodePath("../Slot3")
+focus_neighbor_bottom = NodePath("../../Backline0/Slot2")
 
 [node name="Slot3" parent="Lines/Frontline0" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot2")
+focus_neighbor_top = NodePath("../../Frontline1/Slot3")
+focus_neighbor_bottom = NodePath("../../Backline0/Slot3")
 
 [node name="Backline0" type="HBoxContainer" parent="Lines"]
 layout_mode = 2
@@ -254,50 +319,48 @@ metadata/_edit_group_ = true
 
 [node name="Slot0" parent="Lines/Backline0" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../Buttons/Hammer")
+focus_neighbor_top = NodePath("../../Frontline0/Slot0")
+focus_neighbor_right = NodePath("../Slot1")
 
 [node name="Slot1" parent="Lines/Backline0" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot0")
+focus_neighbor_top = NodePath("../../Frontline0/Slot1")
+focus_neighbor_right = NodePath("../Slot2")
 
 [node name="Slot2" parent="Lines/Backline0" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot0")
+focus_neighbor_top = NodePath("../../Frontline0/Slot2")
+focus_neighbor_right = NodePath("../Slot3")
 
 [node name="Slot3" parent="Lines/Backline0" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Slot2")
+focus_neighbor_top = NodePath("../../Frontline0/Slot3")
 
-[node name="ClientHand" type="HBoxContainer" parent="."]
+[node name="EnemyHand" type="Container" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -728.0
+offset_bottom = 120.0
+grow_horizontal = 2
+script = ExtResource("8_ygr0l")
+sort_left = true
+
+[node name="ClientHand" type="Container" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 728.0
 offset_top = -120.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = -25
-alignment = 2
-
-[node name="Card" parent="ClientHand" instance=ExtResource("5_x852g")]
-layout_mode = 2
-
-[node name="Card2" parent="ClientHand" instance=ExtResource("5_x852g")]
-layout_mode = 2
-
-[node name="EnemyHand" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 120.0
-grow_horizontal = 2
-theme_override_constants/separation = -25
-
-[node name="Card" parent="EnemyHand" instance=ExtResource("8_x4hrq")]
-layout_mode = 2
-
-[node name="Card2" parent="EnemyHand" instance=ExtResource("8_x4hrq")]
-layout_mode = 2
-
-[node name="Card3" parent="EnemyHand" instance=ExtResource("8_x4hrq")]
-layout_mode = 2
+script = ExtResource("8_ygr0l")
 
 [node name="AbilityIcon" type="TextureRect" parent="."]
 layout_mode = 0
@@ -328,3 +391,50 @@ text = "[color=gray]test_username won![/color]
 test_username: god u suck
 you: stfu
 "
+
+[node name="ClientDecks" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 188.0
+offset_top = -287.0
+offset_right = 340.0
+offset_bottom = -167.0
+grow_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="Slot0" parent="ClientDecks" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+text = "main deck
+(20/20)"
+
+[node name="Slot1" parent="ClientDecks" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+text = "side deck
+(10/10)"
+
+[node name="EnemyDecks" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_top = 170.0
+offset_right = -73.0
+offset_bottom = 290.0
+grow_horizontal = 0
+metadata/_edit_group_ = true
+
+[node name="Slot0" parent="EnemyDecks" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+text = "main deck
+(20/20)"
+
+[node name="Slot1" parent="EnemyDecks" instance=ExtResource("4_1wcgk")]
+layout_mode = 2
+text = "side deck
+(10/10)"
+
+[connection signal="sort_children" from="EnemyHand" to="EnemyHand" method="_on_sort_children"]
+[connection signal="sort_children" from="ClientHand" to="ClientHand" method="_on_sort_children"]

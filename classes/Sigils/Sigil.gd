@@ -37,3 +37,6 @@ func get_desc() -> String:
 func resolved() -> void:
 	# we gotta delete if we have ONCE_ONLY
 	pass
+
+func _player_drew_card():
+	await resolved
