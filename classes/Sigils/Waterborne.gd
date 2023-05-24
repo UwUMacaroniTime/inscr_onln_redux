@@ -7,5 +7,5 @@ func get_icon() -> Texture2D:
 	return icon_override
 
 func get_desc() -> String:
-	var construct:String = "This submerges during the opponent's turn. While submerged, opposing creatures attack this' owner directly."
+	var construct:String = "This creature submerges during your opponent's turn. While submerged, this creature does not block enemy strikes."
 	return super.get_desc().format([construct])

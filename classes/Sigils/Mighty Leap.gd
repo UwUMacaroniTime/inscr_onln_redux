@@ -7,5 +7,5 @@ func get_icon() -> Texture2D:
 	return icon_override
 
 func get_desc() -> String:
-	var construct:String = "This blocks attacks from Airborne cards."
+	var construct:String = "This creature can block attacking creatures with the 'Airborne' sigil."
 	return super.get_desc().format([construct])

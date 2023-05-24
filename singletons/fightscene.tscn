@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b66u1uimdagy1"]
+[gd_scene load_steps=19 format=3 uid="uid://b66u1uimdagy1"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_8p8hx"]
 [ext_resource type="Texture2D" uid="uid://davb5qdddwqiw" path="res://gfx/extra/battleicons.png" id="2_dweoa"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d0rrcqtfu2627" path="res://scenes/fight/cardslot.tscn" id="4_1wcgk"]
 [ext_resource type="Script" path="res://scenes/fight/Hammer.gd" id="4_6wj3d"]
 [ext_resource type="Texture2D" uid="uid://dvqhavypewijo" path="res://gfx/char_active_icons/magnificus_brush_bleach.png" id="6_hmu6h"]
+[ext_resource type="Script" path="res://scenes/fight/DeckButton.gd" id="8_avxot"]
 [ext_resource type="Script" path="res://scenes/fight/HandContainer.gd" id="8_ygr0l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iq6ry"]
@@ -352,15 +353,18 @@ offset_bottom = -167.0
 grow_vertical = 0
 metadata/_edit_group_ = true
 
-[node name="MainDeck" parent="ClientDecks" instance=ExtResource("4_1wcgk")]
+[node name="Main Deck" parent="ClientDecks" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
 text = "main deck
 (20/20)"
+script = ExtResource("8_avxot")
 
-[node name="SideDeck" parent="ClientDecks" instance=ExtResource("4_1wcgk")]
+[node name="Side Deck" parent="ClientDecks" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
 text = "side deck
 (10/10)"
+script = ExtResource("8_avxot")
+start_val = 10
 
 [node name="EnemyDecks" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -374,15 +378,17 @@ offset_bottom = 290.0
 grow_horizontal = 0
 metadata/_edit_group_ = true
 
-[node name="MainDeck" parent="EnemyDecks" instance=ExtResource("4_1wcgk")]
+[node name="Main Deck" parent="EnemyDecks" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
 text = "main deck
 (20/20)"
+script = ExtResource("8_avxot")
 
-[node name="SideDeck" parent="EnemyDecks" instance=ExtResource("4_1wcgk")]
+[node name="Side Deck" parent="EnemyDecks" instance=ExtResource("4_1wcgk")]
 layout_mode = 2
 text = "side deck
 (10/10)"
+script = ExtResource("8_avxot")
 
 [node name="EnemyHand" type="Container" parent="."]
 layout_mode = 1
@@ -436,6 +442,7 @@ test_username: god u suck
 you: stfu
 "
 
-[connection signal="pressed" from="ClientDecks/MainDeck" to="." method="_on_main_deck_pressed"]
+[connection signal="pressed" from="ClientDecks/Main Deck" to="." method="_on_main_deck_pressed"]
+[connection signal="pressed" from="ClientDecks/Side Deck" to="." method="_on_side_deck_pressed"]
 [connection signal="sort_children" from="EnemyHand" to="EnemyHand" method="_on_sort_children"]
 [connection signal="sort_children" from="ClientHand" to="ClientHand" method="_on_sort_children"]

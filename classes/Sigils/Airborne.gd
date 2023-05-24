@@ -7,5 +7,5 @@ func get_icon() -> Texture2D:
 	return icon_override
 
 func get_desc() -> String:
-	var construct:String = "This attacks directly, even if a creature opposes this."
+	var construct:String = "While attacking, this strikes directly."
 	return super.get_desc().format([construct])

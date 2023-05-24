@@ -17,7 +17,7 @@ func _ready():
 		p.deck = DeckObject.new()
 		p.deck.main_deck = [
 			preload("res://data/cards/49er.tres"),
-			preload("res://data/cards/ant.tres"),
+			preload("res://data/cards/49er.tres"),
 			preload("res://data/cards/49er.tres"),
 			preload("res://data/cards/49er.tres"),
 			preload("res://data/cards/49er.tres"),]
@@ -27,11 +27,9 @@ func _ready():
 	
 #	print("hands: ", hands[0].get_children())
 
-
-func _on_main_deck_pressed():
-	var deck :Button = $ClientDecks/MainDeck
+func vis_draw_from_deck(deck:DeckButton, hand:Container, card_data:CData):
 	var card = preload("res://scenes/card/card.tscn").instantiate()
-	card.data = preload("res://data/cards/insectodrone.tres")
+	card.data = card_data
 	
 	card.position = deck.get_global_transform().origin - hands[0].get_global_transform().origin
 	hands[0].add_child(card)
@@ -39,3 +37,11 @@ func _on_main_deck_pressed():
 	card.visual_apply()
 	card.anim_player.play(&"flipfrom")
 	card.text = deck.text
+	deck.cur_val -= 1
+	deck.vis_apply()
+
+func _on_main_deck_pressed():
+	vis_draw_from_deck($"ClientDecks/Main Deck", hands[0], preload("res://data/cards/49er.tres"))
+
+func _on_side_deck_pressed():
+	vis_draw_from_deck($"ClientDecks/Side Deck", hands[0], preload("res://data/cards/bullfrog.tres"))

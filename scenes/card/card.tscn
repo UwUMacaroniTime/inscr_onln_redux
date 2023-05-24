@@ -247,23 +247,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_cmt6f"]
-resource_name = "no"
-length = 0.16
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 3
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.04, 0.12, 0.16),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0436332, -0.0436332, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_k8iav"]
 resource_name = "flipfrom"
 length = 0.5
@@ -303,6 +286,23 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_cmt6f"]
+resource_name = "no"
+length = 0.16
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.12, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0436332, -0.0436332, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vk0n8"]
@@ -517,6 +517,7 @@ offset_bottom = 0.00999451
 
 [node name="HpIcon" type="TextureRect" parent="vertical/CardBottom/StatsClip"]
 unique_name_in_owner = true
+visible = false
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 1
 anchors_preset = -1
@@ -547,6 +548,7 @@ vertical_alignment = 2
 
 [node name="AtkIcon" type="TextureRect" parent="vertical/CardBottom/StatsClip"]
 unique_name_in_owner = true
+visible = false
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 1
 anchors_preset = -1
