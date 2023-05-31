@@ -15,7 +15,7 @@ var card_decks:Array[Dictionary] = [{}, {}]
 var scrybes = []
 var scrybe_data :ScrybeData
 var deck_save_path :String
-var min_main_size = 20
+var min_main_size = 30
 var min_side_size = 5
 
 enum card_location {
@@ -23,6 +23,8 @@ enum card_location {
 	SIDEDECK,
 	BROWSER,
 }
+
+const default_deck_maximum := [4, 10]
 
 func _ready():
 #	randomize()
@@ -100,9 +102,14 @@ func to_data():
 
 func gen_card(loc:card_location) -> Card:
 	var card_instance :Card = card_scn.instantiate()
+	
 	card_instance.hover_bound.connect(self._card_hovered)
-	card_instance.pressed_bound.connect(self._card_selected)
-	card_instance.loc = loc
+	if loc == card_location.BROWSER:
+		card_instance.pressed_bound.connect(self._on_browser_card_selected)
+	else:
+		card_instance.pressed_bound.connect(self._on_deck_card_selected)
+	
+	# could use some betterment
 	match loc:
 		card_location.MAINDECK:
 			main_deck_list.add_child(card_instance)
@@ -154,37 +161,24 @@ func deck_size(loc:card_location) -> int:
 		total += card_decks[loc][card]
 	return total
 
-func _card_selected(card:Card, loc:int):
-	match loc:
-		card_location.BROWSER:
-			match mode_select.current_tab:
-				0:
-					if card_decks[0].get(card.data.resource_name, 1) >= 4:
-						return
-					
-					var new_card : = gen_card(card_location.MAINDECK)
-					new_card.data = card.data
-					new_card.visual_apply()
-					
-					card_decks[0][card.data.resource_name] = card_decks[0].get(card.data.resource_name, 0) + 1
-				1:
-					if card_decks[1].get(card.data.resource_name, 1) >= 10:
-						return
-					
-					var new_card : = gen_card(card_location.SIDEDECK)
-					new_card.data = card.data
-					new_card.visual_apply()
-					
-					card_decks[1][card.data.resource_name] = card_decks[1].get(card.data.resource_name, 0) + 1
-		card_location.SIDEDECK:
-			card.queue_free()
-			card_decks[1][card.data.resource_name] -= 1
-		card_location.MAINDECK:
-			card.queue_free()
-			card_decks[0][card.data.resource_name] -= 1
+func _on_browser_card_selected(card:Card):
+	if card_decks[mode_select.current_tab].get(card.data.resource_name, 1) >= default_deck_maximum[mode_select.current_tab]:
+		card.anim_player.play(&"no")
+		$GlitchSFX.play()
+		return
+	var new_card : = gen_card(card_location.MAINDECK)
+	new_card.data = card.data
+	new_card.visual_apply()
+	
+	card_decks[0][card.data.resource_name] = card_decks[0].get(card.data.resource_name, 0) + 1
 	udate_deck_size_info()
 
-func _card_hovered(card:Card, _loc:int):
+func _on_deck_card_selected(card:Card):
+	card.queue_free()
+	card_decks[1][card.data.resource_name] -= 1
+	udate_deck_size_info()
+
+func _card_hovered(card:Card):
 	preview_card.data = card.data
 	preview_card.visual_apply()
 

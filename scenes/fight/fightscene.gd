@@ -5,6 +5,11 @@ enum player {
 	enemy
 }
 
+signal selected_creature(card:Card)
+signal selected_card(card:Card)
+
+
+
 @onready var hands :Array[Node] = [$ClientHand, $EnemyHand]
 @onready var player_uis :Array[Node] = [ $ClientUI, $EnemyUI,]
 @onready var lines :Array[Node] = [$Lines/Backline0, $Lines/Frontline0, $Lines/Backline1, $Lines/Frontline1]

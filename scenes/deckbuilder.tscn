@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://qrh7v3mee2ao"]
+[gd_scene load_steps=29 format=3 uid="uid://qrh7v3mee2ao"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_6ek54"]
 [ext_resource type="PackedScene" uid="uid://y6yahgt2gvvg" path="res://scenes/card/card.tscn" id="1_nrmy2"]
@@ -23,6 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://vpc62nxn4ych" path="res://gfx/icons/save.tres" id="19_panoh"]
 [ext_resource type="Texture2D" uid="uid://d1u56luomx2wk" path="res://gfx/icons/save_As.tres" id="20_eung0"]
 [ext_resource type="Texture2D" uid="uid://bfky8mo1124mx" path="res://gfx/icons/load.tres" id="21_6w3jv"]
+[ext_resource type="Texture2D" uid="uid://i3wjxbb4bm61" path="res://gfx/sigils/Hoarder.png" id="23_erpra"]
+[ext_resource type="AudioStream" uid="uid://v7hvdfy4ja6s" path="res://sfx/glitch.wav" id="24_tr22o"]
+[ext_resource type="Script" path="res://scenes/DeckFlowContainer.gd" id="26_dw76v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tr6xp"]
 
@@ -74,7 +77,7 @@ offset_left = -0.400009
 offset_top = 88.0
 grow_horizontal = 2
 grow_vertical = 2
-split_offset = 120
+split_offset = 110
 
 [node name="Main Deck" type="ScrollContainer" parent="Split"]
 unique_name_in_owner = true
@@ -89,14 +92,13 @@ size_flags_vertical = 3
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 
-[node name="MaindeckList" type="HFlowContainer" parent="Split/Main Deck/Margin"]
+[node name="MaindeckList" type="Container" parent="Split/Main Deck/Margin"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_6ek54")
-theme_override_constants/h_separation = 6
-theme_override_constants/v_separation = 6
+script = ExtResource("26_dw76v")
 
 [node name="Side Deck" type="ScrollContainer" parent="Split"]
 unique_name_in_owner = true
@@ -112,14 +114,13 @@ size_flags_vertical = 3
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 
-[node name="SidedeckList" type="HFlowContainer" parent="Split/Side Deck/Margin"]
+[node name="SidedeckList" type="Container" parent="Split/Side Deck/Margin"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_6ek54")
-theme_override_constants/h_separation = 6
-theme_override_constants/v_separation = 6
+script = ExtResource("26_dw76v")
 
 [node name="CardBrowser" type="PanelContainer" parent="Split"]
 unique_name_in_owner = true
@@ -265,9 +266,8 @@ item_13/icon = ExtResource("17_xgaly")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -1.0
 offset_right = -1.0
-offset_bottom = 85.0
+offset_bottom = 89.0
 grow_horizontal = 2
 
 [node name="Deckname" type="LineEdit" parent="ButtonsNStuff"]
@@ -296,9 +296,9 @@ anchor_top = 0.612
 anchor_right = 0.709
 anchor_bottom = 0.953
 offset_left = 7.71997
-offset_top = 2.98
+offset_top = 4.98
 offset_right = 1.23193
-offset_bottom = -1.005
+offset_bottom = 0.995003
 theme_override_constants/separation = 6
 
 [node name="Save" type="Button" parent="ButtonsNStuff/Buttons"]
@@ -335,28 +335,17 @@ text = "DEBUG: clear settings"
 language = "en_CA"
 script = ExtResource("19_f6ifl")
 
-[node name="CardName" type="Label" parent="ButtonsNStuff"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -322.0
-offset_top = 6.0
-offset_right = -256.0
-offset_bottom = 23.0
-grow_horizontal = 0
-text = "Card Name:"
-
 [node name="NameEdit" type="LineEdit" parent="ButtonsNStuff"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -256.0
-offset_top = 2.0
+offset_left = -264.0
+offset_top = 1.0
 offset_right = -2.0
-offset_bottom = 26.0
+offset_bottom = 25.0
 grow_horizontal = 0
+placeholder_text = "Card Name"
 
 [node name="CostType" type="Label" parent="ButtonsNStuff"]
 visible = false
@@ -379,9 +368,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -130.0
-offset_top = -55.0
+offset_top = -60.0
 offset_right = -4.0
-offset_bottom = -33.0
+offset_bottom = -37.0
 grow_horizontal = 0
 grow_vertical = 0
 item_count = 8
@@ -412,9 +401,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -262.0
-offset_top = -56.0
+offset_top = -60.0
 offset_right = -136.0
-offset_bottom = -33.0
+offset_bottom = -37.0
 grow_horizontal = 0
 grow_vertical = 0
 item_count = 2
@@ -433,19 +422,20 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -85.0
-offset_top = -27.0
+offset_top = -31.0
 offset_right = -4.0
 offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Search"
+icon = ExtResource("23_erpra")
 language = "en_CA"
 
 [node name="SizeInfo" type="RichTextLabel" parent="ButtonsNStuff"]
 layout_mode = 0
-offset_left = 198.0
+offset_left = 180.0
 offset_top = 52.0
-offset_right = 319.0
+offset_right = 301.0
 offset_bottom = 82.0
 bbcode_enabled = true
 text = "[color=red]main deck: 0/20
@@ -462,11 +452,14 @@ script = ExtResource("19_2dvue")
 
 [node name="ModeSelect" type="TabBar" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 28.0
-offset_top = 58.0
-offset_right = 204.0
-offset_bottom = 87.0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.14
+anchor_bottom = 0.14
+offset_left = 3.0
+offset_top = -28.72
+offset_right = 179.0
+offset_bottom = 0.279999
 theme = ExtResource("1_6ek54")
 scrolling_enabled = false
 tab_count = 3
@@ -474,6 +467,12 @@ tab_0/title = "Main Deck"
 tab_1/title = "Side Deck"
 tab_2/title = "Scrybe"
 
+[node name="GlitchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_tr22o")
+volume_db = -10.0
+
+[connection signal="sort_children" from="Split/Main Deck/Margin/MaindeckList" to="Split/Main Deck/Margin/MaindeckList" method="_on_sort_children"]
+[connection signal="sort_children" from="Split/Side Deck/Margin/SidedeckList" to="Split/Side Deck/Margin/SidedeckList" method="_on_sort_children"]
 [connection signal="item_selected" from="Split/ScrybeBrowser" to="." method="_scrybe_selected"]
 [connection signal="pressed" from="ButtonsNStuff/Buttons/Save" to="." method="to_data"]
 [connection signal="pressed" from="ButtonsNStuff/Buttons/SaveAs" to="ButtonsNStuff/FileDialog" method="_on_save_as_pressed"]

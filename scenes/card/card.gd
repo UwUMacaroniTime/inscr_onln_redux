@@ -2,10 +2,9 @@ class_name Card
 extends Button
 
 @export var data:CData
-var loc:int = 0
 @export var scale_manip:float = 1.2
 @onready var anim_player:AnimationPlayer = %AnimationPlayer
-
+var hovered:bool = false
 
 signal pressed_bound(card:Card, loc:int)
 signal hover_bound(card:Card, loc:int)
@@ -120,21 +119,23 @@ func _vis_ld_cost(display:TextureRect, root:String, value:int, desc:String):
 	display.texture = load("res://gfx/cardextras/costs/" + root + str(value) + ".png")
 
 func _on_pressed():
-	pressed_bound.emit(self, loc)
-	var tweener = create_tween()
+	pressed_bound.emit(self)
+	
 
 func _on_mouse_entered():
-	if anim_player.playback_active:
+	hover_bound.emit(self)
+	if anim_player.is_playing() or hovered:
 		return
-	hover_bound.emit(self, loc)
 	scale *= scale_manip
+	hovered = true
 	z_index += 1
 	
 
 func _on_mouse_exited():
-	if anim_player.playback_active:
+	if anim_player.is_playing() or not hovered:
 		return
 	
+	hovered = false
 	scale /= scale_manip
 	z_index -= 1
 

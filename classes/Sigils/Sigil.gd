@@ -34,6 +34,7 @@ func get_desc() -> String:
 		construct += " This sigil is worth " + str(rune_value) + " Runes."
 	return construct
 
+
 func resolved() -> void:
 	# we gotta delete if we have ONCE_ONLY
 	pass
