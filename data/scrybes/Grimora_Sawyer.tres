@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3 uid="uid://cxjs7vmdns34"]
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3]
 
 [ext_resource type="Texture2D" uid="uid://iv5saadbsdgb" path="res://gfx/char_portraits/Sawyer.png" id="1_la4ao"]
 [ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_miv42"]

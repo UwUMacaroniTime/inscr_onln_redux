@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DeckObject" load_steps=2 format=3 uid="uid://dv2tpa1in6ngx"]
+[gd_resource type="Resource" script_class="DeckObject" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://classes/DeckObject.gd" id="1_3km3r"]
 

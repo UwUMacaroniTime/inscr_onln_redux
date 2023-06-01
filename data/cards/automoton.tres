@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=3 format=3 uid="uid://deiwxv466u7my"]
+[gd_resource type="Resource" script_class="CData" load_steps=3 format=3]
 
 [ext_resource type="Texture2D" uid="uid://b4pcnwew5s7ok" path="res://gfx/pixport/Automaton.png" id="1_gv1qt"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_td86q"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bdt3dh6lqrw8o" path="res://gfx/pixport/Sentry Spore.png" id="1_3bc87"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_kpatq"]
-[ext_resource type="Resource" uid="uid://bub45lhieo1jd" path="res://data/sigils/Sentry +1.tres" id="3_u5ip0"]
+[ext_resource type="Resource" path="res://data/sigils/Sentry +1.tres" id="3_u5ip0"]
 
 [resource]
 resource_name = "Spore Drone"

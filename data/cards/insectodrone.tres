@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dbvk2oql4jfpq" path="res://gfx/pixport/Insectodrone.png" id="1_niath"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_e5pup"]
-[ext_resource type="Resource" uid="uid://dekag3cpg0g8f" path="res://data/sigils/Airborne.tres" id="3_137ci"]
+[ext_resource type="Resource" path="res://data/sigils/Airborne.tres" id="3_137ci"]
 
 [resource]
 resource_name = "Insectodrone"

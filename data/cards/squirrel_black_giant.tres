@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dveva381xc1nx" path="res://gfx/pixport/Black Giant Squirrel.png" id="1_c86gg"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_gr7ci"]
-[ext_resource type="Resource" uid="uid://b708aa2ogkxxc" path="res://data/sigils/Rodent Dependant.tres" id="3_gq6fv"]
+[ext_resource type="Resource" path="res://data/sigils/Rodent Dependant.tres" id="3_gq6fv"]
 
 [resource]
 resource_name = "Black Giant Squirrel"

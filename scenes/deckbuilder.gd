@@ -166,16 +166,16 @@ func _on_browser_card_selected(card:Card):
 		card.anim_player.play(&"no")
 		$GlitchSFX.play()
 		return
-	var new_card : = gen_card(card_location.MAINDECK)
+	var new_card : = gen_card(mode_select.current_tab)
 	new_card.data = card.data
 	new_card.visual_apply()
 	
-	card_decks[0][card.data.resource_name] = card_decks[0].get(card.data.resource_name, 0) + 1
+	card_decks[mode_select.current_tab][card.data.resource_name] = card_decks[mode_select.current_tab].get(card.data.resource_name, 0) + 1
 	udate_deck_size_info()
 
 func _on_deck_card_selected(card:Card):
 	card.queue_free()
-	card_decks[1][card.data.resource_name] -= 1
+	card_decks[mode_select.current_tab][card.data.resource_name] -= 1
 	udate_deck_size_info()
 
 func _card_hovered(card:Card):

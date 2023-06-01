@@ -55,6 +55,7 @@ theme = ExtResource("1_8p8hx")
 script = ExtResource("2_x1olu")
 
 [node name="Panel" type="Panel" parent="."]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -212,6 +213,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Lines" type="VBoxContainer" parent="."]
+z_index = -1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -442,6 +444,14 @@ test_username: god u suck
 you: stfu
 "
 
+[connection signal="pressed" from="Lines/Frontline0/Slot0" to="." method="_on_slot_pressed" binds= [Vector2i(0, 1)]]
+[connection signal="pressed" from="Lines/Frontline0/Slot1" to="." method="_on_slot_pressed" binds= [Vector2i(1, 1)]]
+[connection signal="pressed" from="Lines/Frontline0/Slot2" to="." method="_on_slot_pressed" binds= [Vector2i(2, 1)]]
+[connection signal="pressed" from="Lines/Frontline0/Slot3" to="." method="_on_slot_pressed" binds= [Vector2i(3, 1)]]
+[connection signal="pressed" from="Lines/Backline0/Slot0" to="." method="_on_slot_pressed" binds= [Vector2i(0, 0)]]
+[connection signal="pressed" from="Lines/Backline0/Slot1" to="." method="_on_slot_pressed" binds= [Vector2i(1, 0)]]
+[connection signal="pressed" from="Lines/Backline0/Slot2" to="." method="_on_slot_pressed" binds= [Vector2i(2, 0)]]
+[connection signal="pressed" from="Lines/Backline0/Slot3" to="." method="_on_slot_pressed" binds= [Vector2i(3, 0)]]
 [connection signal="pressed" from="ClientDecks/Main Deck" to="." method="_on_main_deck_pressed"]
 [connection signal="pressed" from="ClientDecks/Side Deck" to="." method="_on_side_deck_pressed"]
 [connection signal="sort_children" from="EnemyHand" to="EnemyHand" method="_on_sort_children"]

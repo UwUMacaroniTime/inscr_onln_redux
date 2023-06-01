@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ScrybeData" load_steps=8 format=3 uid="uid://cnx3pw1wgy8p0"]
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=8 format=3]
 
 [ext_resource type="Texture2D" uid="uid://d0vvhetlepiei" path="res://gfx/char_portraits/Grimora.png" id="1_563cp"]
 [ext_resource type="Shader" path="res://scenes/scrybename.gdshader" id="1_bv6q7"]

@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://bc64f4xunyusk"]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://b0gqwpo34kre6" path="res://gfx/pixport/Leaping Vessel.png" id="1_jv4ja"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_ymu2p"]
-[ext_resource type="Resource" uid="uid://duegliqhq0xrd" path="res://data/sigils/Mighty Leap.tres" id="3_qftch"]
+[ext_resource type="Resource" path="res://data/sigils/Mighty Leap.tres" id="3_qftch"]
 
 [resource]
 resource_name = "Jumping Vessel"

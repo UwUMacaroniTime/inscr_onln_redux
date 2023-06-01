@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3 uid="uid://dilhixnoom6ia"]
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3]
 
 [ext_resource type="Texture2D" uid="uid://b70h6xlty2dop" path="res://gfx/char_portraits/Angler.png" id="1_3f2q5"]
 [ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_h06g4"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Sigil_Sentry" load_steps=2 format=3 uid="uid://bub45lhieo1jd"]
+[gd_resource type="Resource" script_class="Sigil_Sentry" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://classes/Sigils/Sentry.gd" id="1_e8q72"]
 

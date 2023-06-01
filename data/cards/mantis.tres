@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bbok3ifve7b2u" path="res://gfx/pixport/Mantis.png" id="1_xl42a"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_v4wqr"]
-[ext_resource type="Resource" uid="uid://bq3ikye2sui71" path="res://data/sigils/Bifurcated Strike.tres" id="3_c5f4x"]
+[ext_resource type="Resource" path="res://data/sigils/Bifurcated Strike.tres" id="3_c5f4x"]
 
 [resource]
 resource_name = "Mantis"

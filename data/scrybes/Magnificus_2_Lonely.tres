@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ScrybeData" load_steps=8 format=3 uid="uid://b47gia5qause6"]
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=8 format=3]
 
 [ext_resource type="Texture2D" uid="uid://cxifg45ydvw0s" path="res://gfx/char_portraits/Lonely Wizard.png" id="1_encbr"]
 [ext_resource type="Shader" path="res://scenes/scrybename.gdshader" id="1_ki8c8"]

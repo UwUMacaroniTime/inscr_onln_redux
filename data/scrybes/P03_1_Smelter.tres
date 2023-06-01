@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3 uid="uid://cneeyc24kxqe0"]
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=3 format=3]
 
 [ext_resource type="Texture2D" uid="uid://sk668qmuath7" path="res://gfx/char_portraits/Smelter.png" id="1_5bo88"]
 [ext_resource type="Script" path="res://classes/ScrybeData.gd" id="2_et1hq"]

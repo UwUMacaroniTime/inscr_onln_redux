@@ -1,12 +1,12 @@
-[gd_scene load_steps=29 format=3 uid="uid://y6yahgt2gvvg"]
+[gd_scene load_steps=29 format=3 uid="uid://cw2bkovas8y1f"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_5sxta"]
 [ext_resource type="Script" path="res://scenes/card/card.gd" id="2_bi6mc"]
 [ext_resource type="Texture2D" uid="uid://rd1hfix6wupq" path="res://gfx/pixport/49er.png" id="3_fh1e6"]
-[ext_resource type="Script" path="res://classes/CardData.gd" id="3_fnah2"]
 [ext_resource type="Texture2D" uid="uid://cf2sriou2jnq5" path="res://gfx/cardextras/pixel_special_stat_icons.png" id="3_upmis"]
-[ext_resource type="Script" path="res://classes/Sigils/Sprinter.gd" id="5_1yhdk"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="4_6ucoe"]
 [ext_resource type="Texture2D" uid="uid://drbpoarayruwf" path="res://gfx/cardextras/banoverlay.png" id="5_48lg5"]
+[ext_resource type="Script" path="res://classes/Sigils/Sprinter.gd" id="5_bdtmi"]
 [ext_resource type="Texture2D" uid="uid://d2ojmwh2hoygq" path="res://gfx/sigils/Waterborne.png" id="6_26dv8"]
 [ext_resource type="PackedScene" uid="uid://bt4cq1s4huvku" path="res://scenes/card/sigil.tscn" id="6_fuchl"]
 [ext_resource type="Texture2D" uid="uid://7er8ncm063ey" path="res://gfx/cardextras/costs/mox/mox-g.png" id="6_j4nj5"]
@@ -17,14 +17,14 @@
 [ext_resource type="Material" uid="uid://mhyteynmwog3" path="res://scenes/card/burnup_mat.tres" id="15_7wbqx"]
 
 [sub_resource type="Resource" id="Resource_bqywo"]
-script = ExtResource("5_1yhdk")
+script = ExtResource("5_bdtmi")
 movement_quirk = 0
 rune_value = 1
 use_restrictions = 0
 
 [sub_resource type="Resource" id="Resource_mwo0l"]
 resource_name = "49er"
-script = ExtResource("3_fnah2")
+script = ExtResource("4_6ucoe")
 portait = ExtResource("3_fh1e6")
 tribes = Array[int]([9])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([SubResource("Resource_bqywo")])
@@ -316,6 +316,7 @@ _data = {
 }
 
 [node name="Card" type="Button"]
+z_as_relative = false
 texture_filter = 1
 custom_minimum_size = Vector2(76, 120)
 layout_direction = 2

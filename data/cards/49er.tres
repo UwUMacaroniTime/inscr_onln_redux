@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://rd1hfix6wupq" path="res://gfx/pixport/49er.png" id="1_d5aw1"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_r5mqo"]
-[ext_resource type="Resource" uid="uid://dwvsl1f6bme38" path="res://data/sigils/Sprinter.tres" id="3_vih3m"]
+[ext_resource type="Resource" path="res://data/sigils/Sprinter.tres" id="3_vih3m"]
 
 [resource]
 resource_name = "49er"

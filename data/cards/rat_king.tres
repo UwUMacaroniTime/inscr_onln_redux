@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ju1bd0rrtfl8" path="res://gfx/pixport/Rat King.png" id="1_vlbh0"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_6ensd"]
-[ext_resource type="Resource" uid="uid://6mgeuq7w3708" path="res://data/sigils/Bone King.tres" id="3_jmiy3"]
+[ext_resource type="Resource" path="res://data/sigils/Bone King.tres" id="3_jmiy3"]
 
 [resource]
 resource_name = "Rat King"

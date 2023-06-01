@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cp5chlja3f1jx" path="res://gfx/pixport/Sentry Drone.png" id="1_8b4rj"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_icfoa"]
-[ext_resource type="Resource" uid="uid://cmdy42l4ox4o2" path="res://data/sigils/Sentry.tres" id="3_3ihbr"]
+[ext_resource type="Resource" path="res://data/sigils/Sentry.tres" id="3_3ihbr"]
 
 [resource]
 resource_name = "Sentry Drone"

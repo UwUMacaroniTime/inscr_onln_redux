@@ -6,8 +6,8 @@ extends Button
 @onready var anim_player:AnimationPlayer = %AnimationPlayer
 var hovered:bool = false
 
-signal pressed_bound(card:Card, loc:int)
-signal hover_bound(card:Card, loc:int)
+signal pressed_bound(card:Card)
+signal hover_bound(card:Card)
 
 var sigil_scne = preload("res://scenes/card/sigil.tscn")
 

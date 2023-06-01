@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=3 format=3 uid="uid://b4exmohqe0efo"]
+[gd_resource type="Resource" script_class="CData" load_steps=3 format=3]
 
 [ext_resource type="Texture2D" uid="uid://bwfyivreh1xpl" path="res://gfx/pixport/Robo-Ant.png" id="1_7xfyh"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_kudwx"]

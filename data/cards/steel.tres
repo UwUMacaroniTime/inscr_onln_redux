@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://daob15qvysuae" path="res://gfx/pixport/Steel.png" id="1_1763k"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_thimq"]
-[ext_resource type="Resource" uid="uid://cb5lju22ckikx" path="res://data/sigils/Waterborne.tres" id="3_jhfek"]
+[ext_resource type="Resource" path="res://data/sigils/Waterborne.tres" id="3_jhfek"]
 
 [resource]
 resource_name = "Steel"

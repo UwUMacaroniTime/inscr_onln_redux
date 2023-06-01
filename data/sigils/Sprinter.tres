@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Sigil_Sprinter" load_steps=2 format=3 uid="uid://dwvsl1f6bme38"]
+[gd_resource type="Resource" script_class="Sigil_Sprinter" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://classes/Sigils/Sprinter.gd" id="1_g85ai"]
 

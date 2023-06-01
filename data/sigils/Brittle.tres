@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Sigil_Brittle" load_steps=2 format=3 uid="uid://cwuwapnixbnby"]
+[gd_resource type="Resource" script_class="Sigil_Brittle" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://classes/Sigils/Brittle.gd" id="1_e3jdw"]
 

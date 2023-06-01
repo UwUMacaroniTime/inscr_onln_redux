@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://biduo78x3uod4" path="res://gfx/pixport/Bullfrog.png" id="1_dqd5x"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_4ptvi"]
-[ext_resource type="Resource" uid="uid://duegliqhq0xrd" path="res://data/sigils/Mighty Leap.tres" id="3_egk0y"]
+[ext_resource type="Resource" path="res://data/sigils/Mighty Leap.tres" id="3_egk0y"]
 
 [resource]
 resource_name = "Bullfrog"

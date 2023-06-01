@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://qrh7v3mee2ao"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_6ek54"]
-[ext_resource type="PackedScene" uid="uid://y6yahgt2gvvg" path="res://scenes/card/card.tscn" id="1_nrmy2"]
+[ext_resource type="PackedScene" uid="uid://cw2bkovas8y1f" path="res://scenes/card/card.tscn" id="1_nrmy2"]
 [ext_resource type="Script" path="res://scenes/deckbuilder.gd" id="2_bu6d7"]
 [ext_resource type="Texture2D" uid="uid://bifgbqdt3w306" path="res://gfx/char_portraits/Leshy.png" id="4_tdxse"]
 [ext_resource type="Texture2D" uid="uid://biyodn2e4a55v" path="res://gfx/char_portraits/P03.png" id="5_1noy1"]
