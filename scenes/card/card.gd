@@ -9,6 +9,7 @@ var hovered:bool = false
 signal pressed_bound(card:Card)
 signal hover_bound(card:Card)
 
+var grid_pos:Vector2i
 var sigil_scne = preload("res://scenes/card/sigil.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -84,7 +85,7 @@ func visual_apply():
 	You may discard cards in your hand at will by using the hammer on them.")
 	
 	if not data.sacrificable:
-		_vis_add_sigil(patches, preload("res://data/sigils/patches/Unsacrificable.tres"))
+		_vis_add_sigil(patches, load("res://data/sigils/patches/Unsacrificable.tres"))
 	
 	# sigil adding
 	

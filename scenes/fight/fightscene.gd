@@ -9,10 +9,12 @@ signal selected_creature(card:Card)
 signal selected_card(card:Card)
 
 var cur_selected_card:Card
+var is_target_selection:bool = false
+@onready var hammer :Button = %Hammer
 
 @onready var hands :Array[Node] = [$ClientHand, $EnemyHand]
 @onready var player_uis :Array[Node] = [ $ClientUI, $EnemyUI,]
-@onready var lines :Array[Node] = [$Lines/Backline0, $Lines/Frontline0, $Lines/Backline1, $Lines/Frontline1]
+@onready var lines :Array[Node] = [$Lines/Backline0, $Lines/Frontline0, $Lines/Frontline1, $Lines/Backline1]
 
 func get_slot(side:player, frontline:int, idx:int):
 	return lines[side * 2 + int(frontline)].get_child(idx)
@@ -66,26 +68,35 @@ func _on_side_deck_pressed():
 	vis_draw_from_deck($"ClientDecks/Side Deck", hands[0], preload("res://data/cards/bullfrog.tres"))
 
 func _on_card_pressed(card:Card):
+	if not is_target_selection and hammer.is_pressed():
+		card.queue_free()
+		return
 	selected_card.emit(card)
 	cur_selected_card = card
 
 func _on_creature_pressed(card:Card):
+	if not is_target_selection and hammer.is_pressed():
+		# hammer
+		hammer.udate()
+		card.queue_free()
+		return
+	
 	selected_creature.emit(card)
 	cur_selected_card = null
 
+func vis_play_card(card:Card, pos:Vector2i):
+	var slot:Control = lines[pos.y].get_child(pos.x)
+	
+	card.position = card.get_global_transform().origin - slot.get_global_transform().origin
+	card.get_parent().remove_child(card)
+	
+	card.pressed_bound.disconnect(_on_card_pressed)
+	card.pressed_bound.connect(_on_creature_pressed)
+	
+	slot.add_child(cur_selected_card)
+	var tween := create_tween()
+	tween.tween_property(card, "position", Vector2.ZERO, 0.5).set_trans(tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+
 func _on_slot_pressed(pos:Vector2i):
 	if cur_selected_card != null:
-		var slot:Control = lines[pos.y].get_child(pos.x)
-		
-		print("we got a card we can do with!!")
-		cur_selected_card.position = cur_selected_card.get_global_transform().origin \
-		- slot.get_global_transform().origin
-		hands[0].remove_child(cur_selected_card)
-		cur_selected_card.pressed_bound.disconnect(_on_card_pressed)
-		cur_selected_card.pressed_bound.connect(_on_creature_pressed)
-		
-		slot.add_child(cur_selected_card)
-		var tween = create_tween()
-		tween.tween_property(cur_selected_card, "position", Vector2.ZERO, 1.0)
-		cur_selected_card = null
-
+		vis_play_card(cur_selected_card, pos)

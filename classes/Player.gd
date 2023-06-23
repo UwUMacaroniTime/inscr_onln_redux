@@ -61,4 +61,4 @@ func setup():
 	bones = 0
 	heat = 0
 	notes = 0
-	
+
