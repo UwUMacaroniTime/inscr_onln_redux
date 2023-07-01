@@ -43,10 +43,12 @@ enum SPECIAL_STAT {
 
 ## The attack value of the card.
 @export var attack:int
+var attack_mod:int = 0
 ## See [enum SPECIAL_STAT].
 @export var attack_special:SPECIAL_STAT
 ## The health value of the card.
 @export var health:int = 1
+var health_mod:int = 0
 ## See [enum SPECIAL_STAT].
 @export var health_special:SPECIAL_STAT
 

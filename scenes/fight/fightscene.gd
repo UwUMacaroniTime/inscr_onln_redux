@@ -10,6 +10,7 @@ signal selected_card(card:Card)
 
 var cur_selected_card:Card
 var is_target_selection:bool = false
+var inputless:bool = false
 @onready var hammer :Button = %Hammer
 
 @onready var hands :Array[Node] = [$ClientHand, $EnemyHand]
@@ -68,17 +69,25 @@ func _on_side_deck_pressed():
 	vis_draw_from_deck($"ClientDecks/Side Deck", hands[0], preload("res://data/cards/bullfrog.tres"))
 
 func _on_card_pressed(card:Card):
+	if inputless:
+		return
+	
 	if not is_target_selection and hammer.is_pressed():
 		card.queue_free()
-		return
 	selected_card.emit(card)
 	cur_selected_card = card
 
 func _on_creature_pressed(card:Card):
+	if inputless:
+		return
+	
 	if not is_target_selection and hammer.is_pressed():
 		# hammer
 		hammer.udate()
-		card.queue_free()
+		var player_hammer_card = GameEvent.PlayerHammerCard.new()
+		player_hammer_card.card = card
+		player_hammer_card.source = Battlemanager.players[0]
+		await player_hammer_card.echo()
 		return
 	
 	selected_creature.emit(card)

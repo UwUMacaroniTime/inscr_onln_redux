@@ -21,9 +21,10 @@ var lines := [[
 	Cardslot.new(Vector2i(1,2)),
 	Cardslot.new(Vector2i(1,3)),
 ]]
-var hand:Array[Card]
+var hand:Array[CData]
 var idx:int
 var deck:DeckObject
+var graveyard:Array[CData]
 
 # hammer + meta stuff
 var hammer_smashes:int = Battlemanager.base_hammer_smashes
