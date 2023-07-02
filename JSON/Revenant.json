@@ -1,0 +1,1 @@
+{"attack":3,"blood_cost":0,"bone_cost":3,"cells_cost":0,"conduit":false,"description":"","energy_cost":0,"health":1,"heat_csot":0,"mox_cost":[],"name":"Revenant","nosac":false,"portrait":"res://gfx/pixport/Revenant.png","sap_cost":0,"sigils":[{"desc":"After this attacks, perish.","icon":"res://gfx/sigils/Brittle.png","name":"Brittle"}],"tribes":["Marrowite"]}

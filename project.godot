@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SettingsManager="*res://singletons/SettingsManager.gd"
+CursorManager="*res://singletons/CursorManager.gd"
 ErrorDialogue="*res://singletons/error_dialogue.tscn"
 NetManager="*res://singletons/NetManager.gd"
 DialogueWindow="*res://singletons/dialogue_window.tscn"
@@ -28,6 +29,10 @@ Fightscene="*res://singletons/fightscene.tscn"
 [editor]
 
 movie_writer/movie_file="C:/Users/benja/Downloads/renders/render.avi"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/card_editor/plugin.cfg")
 
 [input]
 

@@ -1,0 +1,1 @@
+{"attack":1,"blood_cost":0,"bone_cost":2,"cells_cost":0,"conduit":false,"description":"","energy_cost":0,"health":1,"heat_csot":0,"mox_cost":[],"name":"Zombie","nosac":false,"portrait":"res://gfx/pixport/Zombie.png","sap_cost":0,"sigils":[{"desc":"Creatures that oppose this lose 1 attack.","icon":"res://gfx/sigils/Stinky.png","name":"Stinky"}],"tribes":["Cadaver"]}

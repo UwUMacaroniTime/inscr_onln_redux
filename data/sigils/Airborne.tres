@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Sigil_Airborne" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="Sigil_Airborne" load_steps=2 format=3 uid="uid://gqhft4hr8wcu"]
 
 [ext_resource type="Script" path="res://classes/Sigils/Airborne.gd" id="1_bsprc"]
 

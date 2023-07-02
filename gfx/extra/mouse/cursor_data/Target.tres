@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Cursor" load_steps=4 format=3 uid="uid://byjd1rvxxvp0m"]
+
+[ext_resource type="Texture2D" uid="uid://bpxtowk2p8gi7" path="res://gfx/extra/mouse/target2.png" id="1_1rwio"]
+[ext_resource type="Texture2D" uid="uid://crd2pk57k0ddb" path="res://gfx/extra/mouse/target1.png" id="2_go34f"]
+[ext_resource type="Script" path="res://classes/Cursor.gd" id="3_v0fnl"]
+
+[resource]
+script = ExtResource("3_v0fnl")
+norm = ExtResource("2_go34f")
+click = ExtResource("1_1rwio")
+hotspot = Vector2(8, 8)
+mouse_type = 3

@@ -1,0 +1,1 @@
+{"attack":2,"blood_cost":0,"bone_cost":0,"cells_cost":0,"conduit":false,"description":"","energy_cost":3,"health":2,"heat_csot":0,"mox_cost":[],"name":"Exeskeleton","nosac":false,"portrait":"res://gfx/pixport/Skeleton.png","sap_cost":0,"sigils":[{"desc":"After this attacks, perish.","icon":"res://gfx/sigils/Brittle.png","name":"Brittle"}],"tribes":["Marrowite"]}

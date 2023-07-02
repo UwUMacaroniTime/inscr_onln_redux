@@ -32,7 +32,6 @@ func _ready():
 		p.deck.side_deck = [preload("res://data/cards/bullfrog.tres")]
 	
 	Battlemanager.synced_prebattle_setup(0)
-	Input.set_custom_mouse_cursor(preload("res://gfx/cardextras/costs/blood/blood1.png"))
 	
 #	print("hands: ", hands[0].get_children())
 
@@ -75,8 +74,10 @@ func _on_card_pressed(card:Card):
 	
 	if not is_target_selection and hammer.is_pressed():
 		card.queue_free()
+		return
 	selected_card.emit(card)
 	cur_selected_card = card
+	CursorManager.cur_cursor = preload("res://gfx/extra/mouse/cursor_data/Place.tres")
 
 func _on_creature_pressed(card:Card):
 	if inputless:
@@ -93,6 +94,7 @@ func _on_creature_pressed(card:Card):
 	
 	selected_creature.emit(card)
 	cur_selected_card = null
+	CursorManager.cur_cursor = preload("res://gfx/extra/mouse/cursor_data/Pointer.tres")
 
 func vis_play_card(card:Card, pos:Vector2i):
 	var slot:Control = lines[pos.y].get_child(pos.x)
@@ -110,3 +112,4 @@ func vis_play_card(card:Card, pos:Vector2i):
 func _on_slot_pressed(pos:Vector2i):
 	if cur_selected_card != null:
 		vis_play_card(cur_selected_card, pos)
+		CursorManager.cur_cursor = preload("res://gfx/extra/mouse/cursor_data/Pointer.tres")

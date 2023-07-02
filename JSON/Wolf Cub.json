@@ -1,0 +1,1 @@
+{"attack":1,"blood_cost":1,"bone_cost":0,"cells_cost":0,"conduit":false,"description":"","energy_cost":0,"health":2,"heat_csot":0,"mox_cost":[],"name":"Wolf Cub","nosac":false,"portrait":"res://gfx/pixport/Wolf Cub.png","sap_cost":0,"sigils":[{"desc":"This will turn into a Wolf after 1 turn(s) on the board.","icon":"res://gfx/sigils/Fledgling.png","name":""}],"tribes":["Canine"]}
