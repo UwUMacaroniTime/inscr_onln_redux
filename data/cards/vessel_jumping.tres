@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://b72odwndhcj28"]
 
 [ext_resource type="Texture2D" uid="uid://b0gqwpo34kre6" path="res://gfx/pixport/Leaping Vessel.png" id="1_jv4ja"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_ymu2p"]
@@ -7,7 +7,7 @@
 [resource]
 resource_name = "Jumping Vessel"
 script = ExtResource("2_ymu2p")
-portait = ExtResource("1_jv4ja")
+portrait = ExtResource("1_jv4ja")
 tribes = Array[int]([11])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_qftch")])
 attack = 0

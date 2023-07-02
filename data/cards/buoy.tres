@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://b1435goe7fs03"]
 
 [ext_resource type="Texture2D" uid="uid://d36ooygr2b13h" path="res://gfx/pixport/Buoy.png" id="1_xxdvr"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_h4xjq"]
@@ -7,7 +7,7 @@
 [resource]
 resource_name = "Buoy"
 script = ExtResource("2_h4xjq")
-portait = ExtResource("1_xxdvr")
+portrait = ExtResource("1_xxdvr")
 tribes = Array[int]([11])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_k83hq")])
 attack = 0

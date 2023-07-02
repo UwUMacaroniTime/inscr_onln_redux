@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="CData" load_steps=7 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=7 format=3 uid="uid://br1kne2pcq11h"]
 
 [ext_resource type="Texture2D" uid="uid://fk38x688r3jl" path="res://gfx/pixport/Ant Queen.png" id="1_6qjd7"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_5tall"]
-[ext_resource type="Resource" path="res://data/cards/ant.tres" id="3_8sgkf"]
+[ext_resource type="Resource" uid="uid://cdtl8710qqft5" path="res://data/cards/ant.tres" id="3_8sgkf"]
 [ext_resource type="Texture2D" uid="uid://bn1k14yywkc5x" path="res://gfx/sigils/Ant Spawner.png" id="4_jajip"]
 [ext_resource type="Script" path="res://classes/Sigils/Draw On Play.gd" id="5_a55cw"]
 
@@ -17,7 +17,7 @@ use_restrictions = 0
 [resource]
 resource_name = "Ant Queen"
 script = ExtResource("2_5tall")
-portait = ExtResource("1_6qjd7")
+portrait = ExtResource("1_6qjd7")
 tribes = Array[int]([13, 6, 7])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([SubResource("Resource_eohge")])
 attack = 0
@@ -25,6 +25,7 @@ attack_special = 1
 health = 3
 health_special = 0
 conductive = false
+sacrificable = true
 blood_cost = 2
 sap_cost = 0
 mox_green_cost = 0
@@ -36,6 +37,6 @@ energy_cost = 0
 energy_max_cost = 0
 rune_cost = 0
 heat_cost = 0
-banned = false
+sidedecker = false
 rare = false
 description = ""

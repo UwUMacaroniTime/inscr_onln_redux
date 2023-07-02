@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://tq4jpxlphgy0"]
 
 [ext_resource type="Texture2D" uid="uid://dams32buc3yjw" path="res://gfx/pixport/Bee.png" id="1_k05ia"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_h4qx3"]
@@ -7,7 +7,7 @@
 [resource]
 resource_name = "Bee"
 script = ExtResource("2_h4qx3")
-portait = ExtResource("1_k05ia")
+portrait = ExtResource("1_k05ia")
 tribes = Array[int]([6])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_38si5")])
 attack = 1

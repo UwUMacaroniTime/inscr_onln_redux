@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=3 format=3 uid="uid://brvonvdibg1ba"]
 
 [ext_resource type="Texture2D" uid="uid://b4pcnwew5s7ok" path="res://gfx/pixport/Automaton.png" id="1_gv1qt"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_td86q"]
@@ -6,7 +6,7 @@
 [resource]
 resource_name = "Automoton"
 script = ExtResource("2_td86q")
-portait = ExtResource("1_gv1qt")
+portrait = ExtResource("1_gv1qt")
 tribes = Array[int]([])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([])
 attack = 1

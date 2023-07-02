@@ -32,6 +32,7 @@ func _ready():
 		p.deck.side_deck = [preload("res://data/cards/bullfrog.tres")]
 	
 	Battlemanager.synced_prebattle_setup(0)
+	Input.set_custom_mouse_cursor(preload("res://gfx/cardextras/costs/blood/blood1.png"))
 	
 #	print("hands: ", hands[0].get_children())
 

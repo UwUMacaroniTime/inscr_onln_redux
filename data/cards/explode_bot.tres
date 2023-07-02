@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://tb7cbv3sg8la"]
 
 [ext_resource type="Texture2D" uid="uid://bs8e0ckrrsdrg" path="res://gfx/pixport/Explode Bot.png" id="1_k13hc"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_1vc0p"]
@@ -7,7 +7,7 @@
 [resource]
 resource_name = "Explode Bot"
 script = ExtResource("2_1vc0p")
-portait = ExtResource("1_k13hc")
+portrait = ExtResource("1_k13hc")
 tribes = Array[int]([10])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_8kfiw")])
 attack = 1
@@ -27,6 +27,6 @@ energy_cost = 2
 energy_max_cost = 0
 rune_cost = 0
 heat_cost = 0
-banned = false
+sidedecker = false
 rare = false
 description = ""

@@ -34,7 +34,7 @@ enum SPECIAL_STAT {
 }
 
 ## The visual artwork of the card.
-@export var portait:Texture2D = preload("res://gfx/pixport/49er.png")
+@export var portrait:Texture2D = preload("res://gfx/pixport/49er.png")
 
 ## see [enum TRIBES].
 @export var tribes:Array[TRIBES]

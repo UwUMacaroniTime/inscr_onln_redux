@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=5 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=5 format=3 uid="uid://dv60agrasmq3q"]
 
 [ext_resource type="Texture2D" uid="uid://co8x2sovb434u" path="res://gfx/pixport/Salmon.png" id="1_oaj4c"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_4cpv5"]
@@ -8,7 +8,7 @@
 [resource]
 resource_name = "Salmon"
 script = ExtResource("2_4cpv5")
-portait = ExtResource("1_oaj4c")
+portrait = ExtResource("1_oaj4c")
 tribes = Array[int]([4])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_kqg7j"), ExtResource("4_d0fvy")])
 attack = 2
@@ -16,6 +16,7 @@ attack_special = 0
 health = 2
 health_special = 0
 conductive = false
+sacrificable = true
 blood_cost = 2
 sap_cost = 0
 mox_green_cost = 0
@@ -27,6 +28,6 @@ energy_cost = 0
 energy_max_cost = 0
 rune_cost = 0
 heat_cost = 0
-banned = false
+sidedecker = false
 rare = false
 description = ""

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=3 format=3 uid="uid://vmtpep4fkxnj"]
 
 [ext_resource type="Texture2D" uid="uid://qaocoigq1f1u" path="res://gfx/pixport/Coyote.png" id="1_vjsqn"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_djw6n"]
@@ -6,7 +6,7 @@
 [resource]
 resource_name = "Coyote"
 script = ExtResource("2_djw6n")
-portait = ExtResource("1_vjsqn")
+portrait = ExtResource("1_vjsqn")
 tribes = Array[int]([0])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([])
 attack = 2
@@ -14,6 +14,7 @@ attack_special = 0
 health = 1
 health_special = 0
 conductive = false
+sacrificable = true
 blood_cost = 0
 sap_cost = 0
 mox_green_cost = 0
@@ -25,6 +26,6 @@ energy_cost = 0
 energy_max_cost = 0
 rune_cost = 0
 heat_cost = 0
-banned = false
+sidedecker = false
 rare = false
 description = ""

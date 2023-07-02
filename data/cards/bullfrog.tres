@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://8mc0cft3k3ea"]
 
 [ext_resource type="Texture2D" uid="uid://biduo78x3uod4" path="res://gfx/pixport/Bullfrog.png" id="1_dqd5x"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_4ptvi"]
@@ -7,7 +7,7 @@
 [resource]
 resource_name = "Bullfrog"
 script = ExtResource("2_4ptvi")
-portait = ExtResource("1_dqd5x")
+portrait = ExtResource("1_dqd5x")
 tribes = Array[int]([2])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_egk0y")])
 attack = 1
@@ -15,6 +15,7 @@ attack_special = 0
 health = 2
 health_special = 0
 conductive = false
+sacrificable = true
 blood_cost = 0
 sap_cost = 1
 mox_green_cost = 0
@@ -26,6 +27,6 @@ energy_cost = 0
 energy_max_cost = 0
 rune_cost = 0
 heat_cost = 0
-banned = false
+sidedecker = false
 rare = false
 description = ""

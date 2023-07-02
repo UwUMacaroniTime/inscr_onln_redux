@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=3 format=3 uid="uid://d2b4fc3cl6mqk"]
 
 [ext_resource type="Texture2D" uid="uid://difwl4hf7jcj6" path="res://gfx/pixport/Squirrel.png" id="1_ou0bf"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_xrx63"]
@@ -6,7 +6,7 @@
 [resource]
 resource_name = "Squirrel"
 script = ExtResource("2_xrx63")
-portait = ExtResource("1_ou0bf")
+portrait = ExtResource("1_ou0bf")
 tribes = Array[int]([3])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([])
 attack = 0

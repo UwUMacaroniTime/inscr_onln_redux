@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=3 format=3 uid="uid://jynctm3mda3v"]
 
 [ext_resource type="Texture2D" uid="uid://ci7y8obsnlgir" path="res://gfx/pixport/Empty Vessel.png" id="1_xslkf"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_12thu"]
@@ -6,7 +6,7 @@
 [resource]
 resource_name = "Empty Vessel"
 script = ExtResource("2_12thu")
-portait = ExtResource("1_xslkf")
+portrait = ExtResource("1_xslkf")
 tribes = Array[int]([11])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([])
 attack = 0

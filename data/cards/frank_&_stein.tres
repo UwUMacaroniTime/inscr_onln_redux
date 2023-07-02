@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=3 format=3 uid="uid://hw66whxks6lh"]
 
 [ext_resource type="Texture2D" uid="uid://bny77i86j5uoh" path="res://gfx/pixport/Frank & Stein.png" id="1_vyfns"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_5mj8e"]
@@ -6,7 +6,7 @@
 [resource]
 resource_name = "Frank & Stein"
 script = ExtResource("2_5mj8e")
-portait = ExtResource("1_vyfns")
+portrait = ExtResource("1_vyfns")
 tribes = Array[int]([16, 11])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([])
 attack = 2
@@ -14,6 +14,7 @@ attack_special = 0
 health = 3
 health_special = 0
 conductive = true
+sacrificable = true
 blood_cost = 0
 sap_cost = 0
 mox_green_cost = 0
@@ -25,6 +26,6 @@ energy_cost = 0
 energy_max_cost = 0
 rune_cost = 0
 heat_cost = 0
-banned = false
+sidedecker = false
 rare = false
 description = ""

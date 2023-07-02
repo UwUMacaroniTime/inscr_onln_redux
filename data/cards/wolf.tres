@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=3 format=3 uid="uid://d0o8vl4wi8d7x"]
 
 [ext_resource type="Texture2D" uid="uid://cfig3s7845rxo" path="res://gfx/pixport/Wolf.png" id="1_fs77l"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_ylb36"]
@@ -6,7 +6,7 @@
 [resource]
 resource_name = "Wolf"
 script = ExtResource("2_ylb36")
-portait = ExtResource("1_fs77l")
+portrait = ExtResource("1_fs77l")
 tribes = Array[int]([0])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([])
 attack = 3
@@ -14,6 +14,7 @@ attack_special = 0
 health = 2
 health_special = 0
 conductive = false
+sacrificable = true
 blood_cost = 2
 sap_cost = 0
 mox_green_cost = 0
@@ -25,6 +26,6 @@ energy_cost = 0
 energy_max_cost = 0
 rune_cost = 0
 heat_cost = 0
-banned = false
+sidedecker = false
 rare = false
 description = ""

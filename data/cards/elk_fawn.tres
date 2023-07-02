@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="CData" load_steps=7 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=7 format=3 uid="uid://nll1850bgtcl"]
 
 [ext_resource type="Texture2D" uid="uid://dyelnckq63p50" path="res://gfx/pixport/Elk Fawn.png" id="1_iqbhk"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_bawnk"]
 [ext_resource type="Resource" path="res://data/sigils/Sprinter.tres" id="3_7w1hk"]
-[ext_resource type="Resource" path="res://data/cards/elk.tres" id="4_7almm"]
+[ext_resource type="Resource" uid="uid://c8l3vqe46gfs1" path="res://data/cards/elk.tres" id="4_7almm"]
 [ext_resource type="Script" path="res://classes/Sigils/Fledgeling.gd" id="5_nwxdu"]
 
 [sub_resource type="Resource" id="Resource_70ku0"]
@@ -17,7 +17,7 @@ use_restrictions = 0
 [resource]
 resource_name = "Elk Fawn"
 script = ExtResource("2_bawnk")
-portait = ExtResource("1_iqbhk")
+portrait = ExtResource("1_iqbhk")
 tribes = Array[int]([8])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_7w1hk"), SubResource("Resource_70ku0")])
 attack = 1
@@ -37,6 +37,6 @@ energy_cost = 0
 energy_max_cost = 0
 rune_cost = 0
 heat_cost = 0
-banned = false
+sidedecker = false
 rare = false
 description = ""

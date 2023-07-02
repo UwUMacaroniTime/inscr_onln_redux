@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=3 format=3 uid="uid://c6llhjcntkbv2"]
 
 [ext_resource type="Texture2D" uid="uid://cycmkh5ctn8tr" path="res://gfx/pixport/Opossum.png" id="1_dboxc"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_kmqcg"]
@@ -6,7 +6,7 @@
 [resource]
 resource_name = "Opossum"
 script = ExtResource("2_kmqcg")
-portait = ExtResource("1_dboxc")
+portrait = ExtResource("1_dboxc")
 tribes = Array[int]([3])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([])
 attack = 1
@@ -14,6 +14,7 @@ attack_special = 0
 health = 2
 health_special = 0
 conductive = false
+sacrificable = true
 blood_cost = 0
 sap_cost = 0
 mox_green_cost = 0
@@ -25,6 +26,6 @@ energy_cost = 0
 energy_max_cost = 0
 rune_cost = 0
 heat_cost = 0
-banned = false
+sidedecker = false
 rare = false
 description = ""

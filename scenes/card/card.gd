@@ -22,7 +22,7 @@ func _ready():
 
 func visual_apply():
 	%Name.text = data.resource_name
-	%Portrait.texture = data.portait
+	%Portrait.texture = data.portrait
 	
 	var tribe_text = %TribeText
 	if SettingsManager.settings.card_TribeText_visible:

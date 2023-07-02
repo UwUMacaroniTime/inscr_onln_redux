@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="CData" load_steps=6 format=3]
+[gd_resource type="Resource" script_class="CData" load_steps=6 format=3 uid="uid://lo5erbsmj1ro"]
 
 [ext_resource type="Texture2D" uid="uid://cu4xv8r6t5miu" path="res://gfx/pixport/Wolf Cub.png" id="1_bwl1v"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_y118y"]
-[ext_resource type="Resource" path="res://data/cards/wolf.tres" id="3_i6b5s"]
+[ext_resource type="Resource" uid="uid://d0o8vl4wi8d7x" path="res://data/cards/wolf.tres" id="3_i6b5s"]
 [ext_resource type="Script" path="res://classes/Sigils/Fledgeling.gd" id="4_m36wp"]
 
 [sub_resource type="Resource" id="Resource_wpqlk"]
@@ -15,7 +15,7 @@ use_restrictions = 0
 [resource]
 resource_name = "Wolf Cub"
 script = ExtResource("2_y118y")
-portait = ExtResource("1_bwl1v")
+portrait = ExtResource("1_bwl1v")
 tribes = Array[int]([0])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([SubResource("Resource_wpqlk")])
 attack = 1
@@ -35,6 +35,6 @@ energy_cost = 0
 energy_max_cost = 0
 rune_cost = 0
 heat_cost = 0
-banned = false
+sidedecker = false
 rare = false
 description = ""
