@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ScrybeData" load_steps=6 format=3]
+[gd_resource type="Resource" script_class="ScrybeData" load_steps=6 format=3 uid="uid://b4u5wxhnucyjc"]
 
 [ext_resource type="Texture2D" uid="uid://wj2jgyyspujq" path="res://gfx/char_portraits/Kaycee.png" id="1_naqy4"]
 [ext_resource type="Material" uid="uid://drd8o10ti6w7y" path="res://data/scrybes/materials/frost_displace.tres" id="1_somx0"]
