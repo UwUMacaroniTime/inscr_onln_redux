@@ -81,6 +81,6 @@ func _export_file(path, type, features):
 				"portrait":data.portrait.resource_path,
 				"title":data.title,
 				"name":data.resource_name,
-				"desc":data.description.replace("[b]", "**").replace("\n[b]", "**"),
+				"desc":data.description.replace("[b]", "**").replace("\n[/b]", "**\n"),
 			}
 			compiled["scrybes"].append(json)
