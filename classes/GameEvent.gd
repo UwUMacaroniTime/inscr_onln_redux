@@ -1,6 +1,13 @@
 extends RefCounted
 class_name GameEvent
 
+enum piles {
+	GRAVEYARD,
+	HAND,
+	DECK,
+	SIDEDECK,
+}
+
 enum event_return_flag {
 	AND_STOP = 1 << 0, ## ONLY USE THIS FLAG IF ABSOLUTELY NESSICARY. This flag terminates the rest of the event, making no other listeners able to react to it.
 	OVERRIDE_DEFAULT = 1 << 1, ## continue the loop, but stop the default behaviour. Only works if the event is a "pre" event with default behaviour.
@@ -75,6 +82,15 @@ class PlayerSacrificeCard extends PlayerCardTargetedAction:
 		
 		await card_die.echo()
 
+class PlayerPlayCard extends PlayerCardTargetedAction:
+	var position:Vector2i
+	
+	func echo_default():
+		var card_move_from_pile = CardMoveFromPile.new()
+		card_move_from_pile.card = card
+		card_move_from_pile.from = piles.HAND
+		await card_move_from_pile.echo()
+
 class CardEvent extends BasicEvent:
 	var card:Card
 
@@ -92,4 +108,15 @@ class CardDie extends CardEvent:
 		Battlemanager.players[card.grid_pos.y / 2].bones += 1
 		Battlemanager.players[card.grid_pos.y / 2].graveyard.append(card.data)
 		card.queue_free()
-		
+
+class CardMove extends CardEvent:
+	var to:Vector2i
+	
+	func echo_default():
+		Fightscene.vis_play_card(card, to)
+
+class CardMoveFromPile extends CardMove:
+	var from:piles
+
+class CardMoveFromSlot extends CardMove:
+	var from:Vector2i

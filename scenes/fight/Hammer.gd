@@ -1,6 +1,6 @@
 extends Button
 
-func _toggled(button_pressed):
+func _toggled(_button_pressed):
 	if Input.is_key_pressed(KEY_SHIFT): 
 		# shift forces the button down.
 		button_pressed = true

@@ -43,7 +43,7 @@ func _export_file(path, type, features):
 				"bone_cost":cdata.bone_cost,
 				"energy_cost":cdata.energy_cost,
 				"cells_cost":cdata.energy_max_cost,
-				"heat_csot":cdata.heat_cost,
+				"heat_cost":cdata.heat_cost,
 				"portrait":cdata.portrait.resource_path,
 				"mox_cost":[],
 				"sigils":[],

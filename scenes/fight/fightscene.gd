@@ -63,9 +63,15 @@ func vis_draw_from_deck(deck:DeckButton, hand:Container, card_data:CData):
 	deck.vis_apply()
 
 func _on_main_deck_pressed():
+	if inputless:
+		return
+	# TODO: make this use stack
 	vis_draw_from_deck($"ClientDecks/Main Deck", hands[0], preload("res://data/cards/49er.tres"))
 
 func _on_side_deck_pressed():
+	if inputless:
+		return
+	# TODO: make this use stack
 	vis_draw_from_deck($"ClientDecks/Side Deck", hands[0], preload("res://data/cards/bullfrog.tres"))
 
 func _on_card_pressed(card:Card):
@@ -108,8 +114,22 @@ func vis_play_card(card:Card, pos:Vector2i):
 	slot.add_child(cur_selected_card)
 	var tween := create_tween()
 	tween.tween_property(card, "position", Vector2.ZERO, 0.5).set_trans(tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	await tween.finished
 
 func _on_slot_pressed(pos:Vector2i):
+	if inputless:
+		return
+	
 	if cur_selected_card != null:
-		vis_play_card(cur_selected_card, pos)
+		var player_play_card :=  GameEvent.PlayerPlayCard.new()
+		player_play_card.card = cur_selected_card
+		player_play_card.position = pos
+		player_play_card.source = Battlemanager.players[0]
+		
+		
+		cur_selected_card = null
 		CursorManager.cur_cursor = preload("res://gfx/extra/mouse/cursor_data/Pointer.tres")
+		inputless = true
+		await player_play_card.echo()
+		inputless = false
+		
