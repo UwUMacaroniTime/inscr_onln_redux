@@ -114,9 +114,37 @@ class CardMove extends CardEvent:
 	
 	func echo_default():
 		Fightscene.vis_play_card(card, to)
+		print("warning: cardmove generic!")
 
 class CardMoveFromPile extends CardMove:
 	var from:piles
 
 class CardMoveFromSlot extends CardMove:
 	var from:Vector2i
+	
+	func echo_default():
+		await Fightscene.vis_play_card(card, to)
+		card.player_owner.lines[from.y][from.x].card = null
+		card.player_owner.lines[to.y][to.x].card = card
+		card.grid_pos = to
+
+
+class BellRing extends PlayerAction:
+	
+	func echo():
+		# we have a prereq to do:
+		for player in Battlemanager.players:
+			for line in player.lines:
+				for slot in line:
+					
+					if slot.card != null:
+						
+						for sigil in slot.card.sigils:
+							await sigil.event(self)
+							
+							if event_return_flags & event_return_flag.AND_STOP:
+								return
+	
+	pass
+
+

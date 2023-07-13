@@ -4,6 +4,7 @@ extends Button
 @export var data:CData
 @export var scale_manip:float = 1.2
 @onready var anim_player:AnimationPlayer = %AnimationPlayer
+var player_owner:int
 var hovered:bool = false
 
 signal pressed_bound(card:Card)
