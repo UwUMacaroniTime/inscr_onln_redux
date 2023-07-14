@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://classes/Sigils/Fledgeling.gd" id="4_m36wp"]
 
 [sub_resource type="Resource" id="Resource_wpqlk"]
+resource_name = "Fledgeling (Wolf)"
 script = ExtResource("4_m36wp")
 evolution_form = ExtResource("3_i6b5s")
 turns_to_evolve = 1

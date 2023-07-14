@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Sigil_SplitStrike" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="Sigil_SplitStrike" load_steps=3 format=3 uid="uid://e0silkb3qeen"]
 
-[ext_resource type="Script" path="res://classes/Sigils/Split Strike.gd" id="1_cvh5l"]
+[ext_resource type="Script" path="res://classes/Sigils/Split Strike.gd" id="1_akodu"]
+[ext_resource type="Texture2D" uid="uid://dict84g1tqj46" path="res://gfx/sigils/Bifurcated Strike.png" id="1_voqed"]
 
 [resource]
 resource_name = "Bifurcated Strike"
-script = ExtResource("1_cvh5l")
+script = ExtResource("1_akodu")
 attack_left = true
 attack_right = true
 attack_ahead = false
+icon_override = ExtResource("1_voqed")
 rune_value = 1
 use_restrictions = 0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Sigil_SharpQuills" load_steps=2 format=3 uid="uid://blm60brjag2ab"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Sharp Quills.gd" id="1_nkje0"]
+
+[resource]
+resource_name = "Sharp Quills"
+script = ExtResource("1_nkje0")
+damage = 1
+rune_value = 1
+use_restrictions = 0

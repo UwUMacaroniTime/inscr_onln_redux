@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://classes/Sigils/Fledgeling.gd" id="5_nwxdu"]
 
 [sub_resource type="Resource" id="Resource_70ku0"]
-resource_name = "Fledgeling"
+resource_name = "Fledgeling (Elk)"
 script = ExtResource("5_nwxdu")
 evolution_form = ExtResource("4_7almm")
 turns_to_evolve = 1

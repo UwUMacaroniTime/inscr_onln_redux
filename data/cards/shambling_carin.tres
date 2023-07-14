@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CData" load_steps=5 format=3 uid="uid://blp0o22mx8fj6"]
+
+[ext_resource type="Texture2D" uid="uid://dpykwmuwfs8i1" path="res://gfx/pixport/Shambling Cairn.png" id="1_7ifn8"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_b2kcq"]
+[ext_resource type="Resource" path="res://data/sigils/Sprinter.tres" id="3_dlvkb"]
+[ext_resource type="Resource" uid="uid://daew2qs2te7y4" path="res://data/sigils/Bone Digger.tres" id="4_luma2"]
+
+[resource]
+resource_name = "Shambling Carin"
+script = ExtResource("2_b2kcq")
+portrait = ExtResource("1_7ifn8")
+tribes = Array[int]([])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_dlvkb"), ExtResource("4_luma2")])
+attack = 0
+attack_special = 0
+health = 1
+health_special = 0
+conductive = false
+sacrificable = true
+blood_cost = 0
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = -1
+energy_cost = 0
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+sidedecker = true
+rare = false
+description = ""

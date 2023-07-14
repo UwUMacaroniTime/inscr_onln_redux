@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://banbshw5o4nud" path="res://gfx/pixport/Raven.png" id="1_svkks"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_i6jmt"]
-[ext_resource type="Resource" path="res://data/sigils/Airborne.tres" id="3_duami"]
+[ext_resource type="Resource" uid="uid://gqhft4hr8wcu" path="res://data/sigils/Airborne.tres" id="3_duami"]
 
 [resource]
 resource_name = "Raven"

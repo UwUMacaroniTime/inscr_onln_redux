@@ -124,8 +124,8 @@ class CardMoveFromSlot extends CardMove:
 	
 	func echo_default():
 		await Fightscene.vis_play_card(card, to)
-		card.player_owner.lines[from.y][from.x].card = null
-		card.player_owner.lines[to.y][to.x].card = card
+		(card.player_owner.lines[from.y][from.x]).card = null
+		(card.player_owner.lines[to.y][to.x]).card = card
 		card.grid_pos = to
 
 

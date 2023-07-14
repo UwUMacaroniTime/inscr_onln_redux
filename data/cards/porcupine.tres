@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://bx2fvi48md8gg"]
+
+[ext_resource type="Texture2D" uid="uid://ejvjnqmg8p5l" path="res://gfx/pixport/Porcupine.png" id="1_32cxn"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_26pak"]
+[ext_resource type="Resource" uid="uid://blm60brjag2ab" path="res://data/sigils/Sharp Quills.tres" id="3_041ho"]
+
+[resource]
+resource_name = "Stoat"
+script = ExtResource("2_26pak")
+portrait = ExtResource("1_32cxn")
+tribes = Array[int]([3])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_041ho")])
+attack = 1
+attack_special = 0
+health = 2
+health_special = 0
+conductive = false
+sacrificable = true
+blood_cost = 1
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 0
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+sidedecker = false
+rare = false
+description = ""

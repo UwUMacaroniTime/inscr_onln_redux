@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://cvau82gxcbb4k"]
+
+[ext_resource type="Texture2D" uid="uid://cyb8jbrc6ray" path="res://gfx/pixport/S.P.A.R.Ky.png" id="1_8gmyh"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_33m2e"]
+[ext_resource type="Resource" uid="uid://bp8pu8qdub0g0" path="res://data/sigils/Ignition.tres" id="3_0cb3t"]
+
+[resource]
+resource_name = "S.P.A.R.Ky"
+script = ExtResource("2_33m2e")
+portrait = ExtResource("1_8gmyh")
+tribes = Array[int]([9])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_0cb3t")])
+attack = 1
+attack_special = 0
+health = 1
+health_special = 0
+conductive = false
+sacrificable = true
+blood_cost = 0
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 2
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+sidedecker = false
+rare = false
+description = ""

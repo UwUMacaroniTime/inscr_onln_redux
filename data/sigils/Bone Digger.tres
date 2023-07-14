@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Sigil_BoneDigger" load_steps=2 format=3 uid="uid://daew2qs2te7y4"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Bone Digger.gd" id="1_lj6lg"]
+
+[resource]
+resource_name = "Bone Digger"
+script = ExtResource("1_lj6lg")
+amount = 1
+rune_value = 1
+use_restrictions = 0

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CData" load_steps=5 format=3 uid="uid://cvypt0xv5fge5"]
+
+[ext_resource type="Texture2D" uid="uid://b6pneeg2dsk0e" path="res://gfx/pixport/Shutterbug.png" id="1_4yrii"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_pjvdk"]
+[ext_resource type="Resource" path="res://data/sigils/Sentry.tres" id="3_d3ixp"]
+[ext_resource type="Resource" uid="uid://scew3eqbnsb" path="res://data/sigils/TOD.tres" id="4_shxwm"]
+
+[resource]
+resource_name = "Shutterbug"
+script = ExtResource("2_pjvdk")
+portrait = ExtResource("1_4yrii")
+tribes = Array[int]([])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_d3ixp"), ExtResource("4_shxwm")])
+attack = 0
+attack_special = 0
+health = 1
+health_special = 0
+conductive = false
+sacrificable = true
+blood_cost = 0
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 5
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+sidedecker = false
+rare = true
+description = ""

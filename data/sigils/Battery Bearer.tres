@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Sigil_BatteryBearer" load_steps=2 format=3 uid="uid://ckv7b1r2waxtx"]
+
+[ext_resource type="Script" path="res://classes/Sigils/BatteryBearer.gd" id="1_1iqqm"]
+
+[resource]
+script = ExtResource("1_1iqqm")
+cells_gain = 1
+filled = true
+rune_value = 1
+use_restrictions = 0

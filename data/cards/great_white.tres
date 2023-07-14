@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://ccw7usia50bc6"]
+
+[ext_resource type="Texture2D" uid="uid://dvmdmxnw4khnu" path="res://gfx/pixport/Great White.png" id="1_xu5jo"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_32fpi"]
+[ext_resource type="Resource" path="res://data/sigils/Waterborne.tres" id="3_nq2ga"]
+
+[resource]
+resource_name = "Grizzly"
+script = ExtResource("2_32fpi")
+portrait = ExtResource("1_xu5jo")
+tribes = Array[int]([4])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_nq2ga")])
+attack = 4
+attack_special = 0
+health = 2
+health_special = 0
+conductive = false
+sacrificable = true
+blood_cost = 3
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 0
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+sidedecker = false
+rare = false
+description = ""

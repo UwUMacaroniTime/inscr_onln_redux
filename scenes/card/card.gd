@@ -4,7 +4,7 @@ extends Button
 @export var data:CData
 @export var scale_manip:float = 1.2
 @onready var anim_player:AnimationPlayer = %AnimationPlayer
-var player_owner:int
+var player_owner:Player = Battlemanager.players[0]
 var hovered:bool = false
 
 signal pressed_bound(card:Card)
@@ -108,6 +108,7 @@ func visual_apply():
 func _vis_add_sigil(parent:Container, sigil:Sigil):
 	var sigil_instance :TextureRect = sigil_scne.instantiate()
 	parent.add_child(sigil_instance)
+	assert(sigil != null, "sigil of card \"" + data.resource_path + "\" (" + data.resource_name + ") has null sigil")
 	sigil_instance.texture = sigil.get_icon()
 	sigil_instance.tooltip_text = sigil.get_desc()
 

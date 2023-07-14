@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Sigil_Ignition" load_steps=2 format=3 uid="uid://bp8pu8qdub0g0"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Ignition.gd" id="1_ampb0"]
+
+[resource]
+resource_name = "Ignition"
+script = ExtResource("1_ampb0")
+heat_gain = 1
+rune_value = 1
+use_restrictions = 0

@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="CData" load_steps=4 format=3 uid="uid://bki54wcj2ydd3"]
 
-[ext_resource type="Texture2D" uid="uid://dqyh5okuq57ca" path="res://gfx/pixport/Squirrel Ball.png" id="1_kjfx0"]
+[ext_resource type="Texture2D" uid="uid://dveva381xc1nx" path="res://gfx/pixport/Black Giant Squirrel.png" id="1_ikcia"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_gr7ci"]
 [ext_resource type="Resource" path="res://data/sigils/Rodent Dependant.tres" id="3_gq6fv"]
 
 [resource]
 resource_name = "Black Giant Squirrel"
 script = ExtResource("2_gr7ci")
-portrait = ExtResource("1_kjfx0")
+portrait = ExtResource("1_ikcia")
 tribes = Array[int]([3])
 sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_gq6fv")])
 attack = 3

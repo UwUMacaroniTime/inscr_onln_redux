@@ -11,7 +11,7 @@ func get_icon() -> Texture2D:
 	return icon_override
 
 func get_desc() -> String:
-	var construct:String = "This attacks "
+	var construct:String = "While attacking, This creature strikes "
 	if attack_left:
 		construct += "to the left"
 		if attack_right:
@@ -21,7 +21,7 @@ func get_desc() -> String:
 		construct += "to the right"
 	
 	if not attack_ahead:
-		construct += " instead of attacking forward"
+		construct += " instead of striking forward"
 	
 	construct += "."
 	
