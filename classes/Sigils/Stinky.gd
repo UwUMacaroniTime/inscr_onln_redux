@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Stinky.png")
 class_name Sigil_Stinky
 extends Sigil
 

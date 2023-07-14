@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Waterborne.png")
 class_name Sigil_Waterborne
 extends Sigil
 

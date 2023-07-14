@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Rodent Dependant.png")
 class_name Sigil_TribeDependant
 extends Sigil
 

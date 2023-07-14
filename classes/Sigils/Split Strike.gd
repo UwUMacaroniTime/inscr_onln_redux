@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Bifurcated Strike.png")
 class_name Sigil_SplitStrike
 extends Sigil
 

@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Guardian.png")
 class_name Sigil_Guardian
 extends Sigil
 

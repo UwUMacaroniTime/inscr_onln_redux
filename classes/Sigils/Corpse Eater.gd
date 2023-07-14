@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Corpse Eater.png")
 class_name Sigil_CorpseEater
 extends Sigil
 

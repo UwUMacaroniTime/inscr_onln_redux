@@ -18,6 +18,7 @@ var deck_save_path :String
 var min_main_size = 30
 var min_side_size = 5
 
+
 enum card_location {
 	MAINDECK,
 	SIDEDECK,

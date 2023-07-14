@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Sentry.png")
 class_name Sigil_Sentry
 extends Sigil
 

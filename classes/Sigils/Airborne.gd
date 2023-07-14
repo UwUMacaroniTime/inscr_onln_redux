@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Airborne.png")
 class_name Sigil_Airborne
 extends Sigil
 

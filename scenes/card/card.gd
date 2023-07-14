@@ -22,7 +22,9 @@ func _ready():
 #	visual_apply()
 
 func visual_apply():
-	%Name.text = data.resource_name
+	var name := %Name
+	name.text = data.resource_name
+	name.tooltip_text = data.resource_name
 	%Portrait.texture = data.portrait
 	
 	var tribe_text = %TribeText
@@ -110,7 +112,7 @@ func _vis_add_sigil(parent:Container, sigil:Sigil):
 	parent.add_child(sigil_instance)
 	assert(sigil != null, "sigil of card \"" + data.resource_path + "\" (" + data.resource_name + ") has null sigil")
 	sigil_instance.texture = sigil.get_icon()
-	sigil_instance.tooltip_text = sigil.get_desc()
+	sigil_instance.tooltip_text = sigil.resource_name + ": " + sigil.get_desc()
 
 func _vis_ld_cost(display:TextureRect, root:String, value:int, desc:String):
 	display.visible = value

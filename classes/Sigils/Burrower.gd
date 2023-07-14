@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Burrower.png")
 class_name Sigil_Burrower
 extends Sigil
 

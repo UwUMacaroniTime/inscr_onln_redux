@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Bone Digger.png")
 class_name Sigil_BoneDigger
 extends Sigil
 

@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Sprinter.png")
 class_name Sigil_Sprinter
 extends Sigil
 

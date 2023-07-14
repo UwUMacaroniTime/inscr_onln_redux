@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Touch Of Death.png")
 class_name Sigil_TouchOfDeath
 extends Sigil
 

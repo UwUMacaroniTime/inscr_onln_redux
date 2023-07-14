@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Brittle.png")
 class_name Sigil_Brittle
 extends Sigil
 

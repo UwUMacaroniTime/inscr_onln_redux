@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Fledgling.png")
 class_name Sigil_Fledgeling
 extends Sigil
 

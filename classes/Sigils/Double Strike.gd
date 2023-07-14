@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Double Strike.png")
 class_name Sigil_DoubleStrike
 extends Sigil
 

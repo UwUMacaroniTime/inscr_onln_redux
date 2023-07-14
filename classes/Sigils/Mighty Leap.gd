@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Mighty Leap.png")
 class_name Sigil_MightyLeap
 extends Sigil
 

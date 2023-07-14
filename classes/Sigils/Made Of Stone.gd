@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Made Of Stone.png")
 class_name Sigil_MadeOfStone
 extends Sigil
 

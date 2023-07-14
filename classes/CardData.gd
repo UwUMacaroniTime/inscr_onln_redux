@@ -1,3 +1,4 @@
+@icon("res://gfx/extra/CardData.png")
 class_name  CData
 extends Resource
 

@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Unkillable.png")
 class_name Sigil_Unkillable
 extends Sigil
 

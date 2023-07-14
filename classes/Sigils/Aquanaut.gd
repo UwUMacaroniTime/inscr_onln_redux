@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Aquanaut2.png")
 class_name Sigil_Aquanaut
 extends Sigil
 

@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Relight.png")
 class_name Sigil_Ignition
 extends Sigil
 

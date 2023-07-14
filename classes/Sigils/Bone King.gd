@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Bone King.png")
 class_name Sigil_BoneKing
 extends Sigil
 

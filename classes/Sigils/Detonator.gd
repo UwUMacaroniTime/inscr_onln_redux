@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Detonator.png")
 class_name Sigil_Detonator
 extends Sigil
 

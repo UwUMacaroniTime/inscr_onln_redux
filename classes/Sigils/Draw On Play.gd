@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Ant Spawner.png")
 class_name Sigil_DrawOnPlay
 extends Sigil
 

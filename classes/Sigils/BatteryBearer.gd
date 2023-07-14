@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Battery Bearer.png")
 class_name Sigil_BatteryBearer
 extends Sigil
 

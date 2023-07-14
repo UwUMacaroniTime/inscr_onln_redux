@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Bees Within.png")
 class_name Sigil_DrawOnHit
 extends Sigil
 

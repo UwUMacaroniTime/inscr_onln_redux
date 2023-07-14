@@ -1,3 +1,4 @@
+@icon("res://gfx/sigils/Sharp Quills.png")
 class_name Sigil_SharpQuills
 extends Sigil
 
