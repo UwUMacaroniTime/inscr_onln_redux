@@ -62,7 +62,6 @@ func visual_apply():
 		path = path.rpad(len(path) + data.mox_green_cost, "g")
 		path = path.rpad(len(path) + data.mox_prisim_cost, "p")
 		path += ".png"
-		print(path)
 		mox.texture = load(path)
 	
 	_vis_ld_cost(%Sap, "blood/sap", data.sap_cost, 
@@ -95,10 +94,10 @@ func visual_apply():
 	for sigil in data.sigils:
 		_vis_add_sigil(sigils, sigil)
 	
-	if len(data.sigils) >= 2:
-		sigils.columns = 2
+	if len(data.sigils) > 3:
+		sigils.columns = len(data.sigils) / 2
 	else:
-		sigils.columns = 1
+		sigils.columns = max(len(data.sigils), 1)
 	
 	if not SettingsManager.settings.card_stat_scratches:
 		%AtkLabel.text = str(data.attack)
@@ -106,6 +105,8 @@ func visual_apply():
 	else:
 		%AtkLabel.text = "".lpad(data.attack, "I")
 		%HpLabel.text = "".lpad(data.health, "I")
+	
+	theme_type_variation = "ButtonRare" if data.rare else ""
 
 func _vis_add_sigil(parent:Container, sigil:Sigil):
 	var sigil_instance :TextureRect = sigil_scne.instantiate()

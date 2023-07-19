@@ -5,7 +5,7 @@
 [ext_resource type="Resource" path="res://data/sigils/Waterborne.tres" id="3_nq2ga"]
 
 [resource]
-resource_name = "Grizzly"
+resource_name = "Great White"
 script = ExtResource("2_32fpi")
 portrait = ExtResource("1_xu5jo")
 tribes = Array[int]([4])

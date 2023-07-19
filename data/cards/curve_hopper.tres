@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://classes/CardData.gd" id="2_ko8at"]
 
 [resource]
-resource_name = "Shutterbug"
+resource_name = "Curve Hopper"
 script = ExtResource("2_ko8at")
 portrait = ExtResource("1_vmcwp")
 tribes = Array[int]([])

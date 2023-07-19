@@ -8,5 +8,5 @@ func get_icon() -> Texture2D:
 	return icon_override
 
 func get_desc() -> String:
-	var construct:String = "This is immune to the effects of Stinky and Touch Of Death."
+	var construct:String = "This creature is immune to the effects of Stinky and Touch Of Death."
 	return super.get_desc().format([construct])

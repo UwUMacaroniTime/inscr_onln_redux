@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Sigil_Kindling" load_steps=2 format=3 uid="uid://cu0xg3jk18jgh"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Kindling.gd" id="1_s8xt0"]
+
+[resource]
+resource_name = "Kindling"
+script = ExtResource("1_s8xt0")
+heat_gain = 2
+rune_value = 1
+use_restrictions = 0

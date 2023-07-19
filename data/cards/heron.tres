@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="CData" load_steps=6 format=3 uid="uid://0f8f5i6lwxi1"]
+
+[ext_resource type="Texture2D" uid="uid://uqhv77ubk6vn" path="res://gfx/pixport/Heron.png" id="1_5b1qr"]
+[ext_resource type="Script" path="res://classes/CardData.gd" id="2_yh4h3"]
+[ext_resource type="Resource" uid="uid://gqhft4hr8wcu" path="res://data/sigils/Airborne.tres" id="3_x833r"]
+[ext_resource type="Resource" uid="uid://dvcjydyd4ymxa" path="res://data/sigils/Aquanaut.tres" id="4_b44ua"]
+[ext_resource type="Resource" uid="uid://scew3eqbnsb" path="res://data/sigils/TOD.tres" id="5_x2fvp"]
+
+[resource]
+resource_name = "Heron"
+script = ExtResource("2_yh4h3")
+portrait = ExtResource("1_5b1qr")
+tribes = Array[int]([5])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([ExtResource("3_x833r"), ExtResource("4_b44ua"), ExtResource("5_x2fvp")])
+attack = 1
+attack_special = 0
+health = 1
+health_special = 0
+conductive = false
+sacrificable = true
+blood_cost = 1
+sap_cost = 0
+mox_green_cost = 0
+mox_orange_cost = 0
+mox_blue_cost = 0
+mox_prisim_cost = 0
+bone_cost = 0
+energy_cost = 0
+energy_max_cost = 0
+rune_cost = 0
+heat_cost = 0
+sidedecker = false
+rare = false
+description = ""

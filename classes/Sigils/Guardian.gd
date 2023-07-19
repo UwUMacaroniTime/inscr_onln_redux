@@ -10,5 +10,5 @@ func get_icon() -> Texture2D:
 	return icon_override
 
 func get_desc() -> String:
-	var construct:String = "When an enemy card is played, this moves into the space opposing it (if able)."
+	var construct:String = "When an enemy card is played, this creature moves into the space opposing it (if able)."
 	return super.get_desc().format([construct])

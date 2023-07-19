@@ -8,5 +8,5 @@ func get_icon() -> Texture2D:
 	return icon_override
 
 func get_desc() -> String:
-	var construct:String = "When an enemy card would strike directly, this will attempt to block it."
+	var construct:String = "When an enemy creature would strike directly, this creature moves to block it. (if able)"
 	return super.get_desc().format([construct])

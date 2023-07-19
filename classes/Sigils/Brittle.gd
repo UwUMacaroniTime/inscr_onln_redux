@@ -8,5 +8,5 @@ func get_icon() -> Texture2D:
 	return icon_override
 
 func get_desc() -> String:
-	var construct:String = "After this attacks, perish."
+	var construct:String = "After this creature attacks, it perishes."
 	return super.get_desc().format([construct])

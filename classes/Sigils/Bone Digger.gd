@@ -10,5 +10,5 @@ func get_icon() -> Texture2D:
 	return icon_override
 
 func get_desc() -> String:
-	var construct:String = "At the start of owner's turn, owner gains " + str(amount) + " bones."
+	var construct:String = "At the end of owner's turn, owner gains " + str(amount) + " bone(s)."
 	return super.get_desc().format([construct])

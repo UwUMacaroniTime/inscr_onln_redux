@@ -10,5 +10,5 @@ func get_icon() -> Texture2D:
 	return icon_override
 
 func get_desc() -> String:
-	var construct:String = "When this perishes, owner gains " + str(amount) + " bones instead of one."
+	var construct:String = "When this creature perishes, it yields " + str(amount) + " bones instead of 1."
 	return super.get_desc().format([construct])

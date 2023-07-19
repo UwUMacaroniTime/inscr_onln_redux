@@ -8,6 +8,6 @@ func get_icon() -> Texture2D:
 	return icon_override
 
 func get_desc() -> String:
-	var construct:String = "When a friendly card perishes and this is in your hand, this card gets placed there."
+	var construct:String = "When one of your creatures perish, This card moves into the spot it persihed (if able)."
 	construct += super.get_desc()
 	return construct

@@ -25,5 +25,6 @@ func _get_minimum_size():
 	var min_size:Vector2 = Vector2.ZERO
 	for c in get_children():
 		min_size.x = max(min_size.x, c.size.x * c.scale.x)
+		min_size.y = max(min_size.y, c.position.y + c.size.y * c.scale.y)
 	min_size += Vector2.ONE
 	return min_size

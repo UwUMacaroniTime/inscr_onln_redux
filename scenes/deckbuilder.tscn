@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://qrh7v3mee2ao"]
+[gd_scene load_steps=28 format=3 uid="uid://qrh7v3mee2ao"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_6ek54"]
 [ext_resource type="PackedScene" uid="uid://cw2bkovas8y1f" path="res://scenes/card/card.tscn" id="1_nrmy2"]
@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://bfky8mo1124mx" path="res://gfx/icons/load.tres" id="21_6w3jv"]
 [ext_resource type="Texture2D" uid="uid://i3wjxbb4bm61" path="res://gfx/sigils/Hoarder.png" id="23_erpra"]
 [ext_resource type="AudioStream" uid="uid://v7hvdfy4ja6s" path="res://sfx/glitch.wav" id="24_tr22o"]
-[ext_resource type="Script" path="res://scenes/DeckFlowContainer.gd" id="26_dw76v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tr6xp"]
 
@@ -77,7 +76,7 @@ offset_left = -0.400009
 offset_top = 88.0
 grow_horizontal = 2
 grow_vertical = 2
-split_offset = 110
+split_offset = 118
 
 [node name="Main Deck" type="ScrollContainer" parent="Split"]
 unique_name_in_owner = true
@@ -92,13 +91,12 @@ size_flags_vertical = 3
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 
-[node name="MaindeckList" type="Container" parent="Split/Main Deck/Margin"]
+[node name="MaindeckList" type="HFlowContainer" parent="Split/Main Deck/Margin"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_6ek54")
-script = ExtResource("26_dw76v")
 
 [node name="Side Deck" type="ScrollContainer" parent="Split"]
 unique_name_in_owner = true
@@ -114,13 +112,12 @@ size_flags_vertical = 3
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 
-[node name="SidedeckList" type="Container" parent="Split/Side Deck/Margin"]
+[node name="SidedeckList" type="HFlowContainer" parent="Split/Side Deck/Margin"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_6ek54")
-script = ExtResource("26_dw76v")
 
 [node name="CardBrowser" type="PanelContainer" parent="Split"]
 unique_name_in_owner = true
