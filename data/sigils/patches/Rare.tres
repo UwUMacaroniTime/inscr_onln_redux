@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="Sigil" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="Patch" load_steps=3 format=3 uid="uid://baqd0lnu3trwm"]
 
-[ext_resource type="Texture2D" uid="uid://cbe32q2wpy1th" path="res://gfx/cardextras/unsac_patch.png" id="1_6n28r"]
-[ext_resource type="Script" path="res://classes/Sigils/Sigil.gd" id="2_juaf7"]
+[ext_resource type="Texture2D" uid="uid://btcblg0y0ccx" path="res://gfx/cardextras/rare_patch.png" id="1_swlqr"]
+[ext_resource type="Script" path="res://classes/Sigils/Patch.gd" id="2_vcafu"]
 
 [resource]
 resource_name = "Rare"
-script = ExtResource("2_juaf7")
-icon_override = ExtResource("1_6n28r")
+script = ExtResource("2_vcafu")
+description = "You may only have one copy of this card in a deck."
+icon_override = ExtResource("1_swlqr")
 rune_value = 1
 use_restrictions = 0

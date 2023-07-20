@@ -87,7 +87,13 @@ func visual_apply():
 	You may discard cards in your hand at will by using the hammer on them.")
 	
 	if not data.sacrificable:
-		_vis_add_sigil(patches, load("res://data/sigils/patches/Unsacrificable.tres"))
+		_vis_add_sigil(patches, preload("res://data/sigils/patches/Unsacrificable.tres"))
+	
+	if data.sidedecker:
+		_vis_add_sigil(patches, preload("res://data/sigils/patches/Small.tres"))
+	
+	if data.rare:
+		_vis_add_sigil(patches, preload("res://data/sigils/patches/Rare.tres"))
 	
 	# sigil adding
 	

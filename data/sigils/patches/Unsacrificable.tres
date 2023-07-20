@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="Sigil" load_steps=3 format=3 uid="uid://bsrvw537ooy18"]
+[gd_resource type="Resource" script_class="Patch" load_steps=2 format=3 uid="uid://bsrvw537ooy18"]
 
-[ext_resource type="Texture2D" uid="uid://cbe32q2wpy1th" path="res://gfx/cardextras/unsac_patch.png" id="1_8y8ah"]
-[ext_resource type="Script" path="res://classes/Sigils/Sigil.gd" id="1_fo8xf"]
+[ext_resource type="Script" path="res://classes/Sigils/Patch.gd" id="1_6q3o6"]
 
 [resource]
 resource_name = "Unworthy Sacrifice"
-script = ExtResource("1_fo8xf")
-icon_override = ExtResource("1_8y8ah")
+script = ExtResource("1_6q3o6")
+description = "This creature cannot be sacrificed for blood."
 rune_value = 1
 use_restrictions = 0

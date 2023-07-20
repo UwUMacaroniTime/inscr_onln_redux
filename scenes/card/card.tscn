@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cw2bkovas8y1f"]
+[gd_scene load_steps=27 format=3 uid="uid://cw2bkovas8y1f"]
 
 [ext_resource type="Theme" uid="uid://do36jrxowl4gq" path="res://themes/papertheme.tres" id="1_5sxta"]
 [ext_resource type="Script" path="res://scenes/card/card.gd" id="2_bi6mc"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cf2sriou2jnq5" path="res://gfx/cardextras/pixel_special_stat_icons.png" id="3_upmis"]
 [ext_resource type="Script" path="res://classes/CardData.gd" id="4_6ucoe"]
 [ext_resource type="Texture2D" uid="uid://drbpoarayruwf" path="res://gfx/cardextras/banoverlay.png" id="5_48lg5"]
-[ext_resource type="Script" path="res://classes/Sigils/Sprinter.gd" id="5_bdtmi"]
 [ext_resource type="Texture2D" uid="uid://d2ojmwh2hoygq" path="res://gfx/sigils/Waterborne.png" id="6_26dv8"]
 [ext_resource type="PackedScene" uid="uid://bt4cq1s4huvku" path="res://scenes/card/sigil.tscn" id="6_fuchl"]
 [ext_resource type="Texture2D" uid="uid://7er8ncm063ey" path="res://gfx/cardextras/costs/mox/mox-g.png" id="6_j4nj5"]
@@ -16,18 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://d1mhp0bpcp1ro" path="res://gfx/sigils/Battery Bearer.png" id="11_ox2m0"]
 [ext_resource type="Material" uid="uid://mhyteynmwog3" path="res://scenes/card/burnup_mat.tres" id="15_7wbqx"]
 
-[sub_resource type="Resource" id="Resource_bqywo"]
-script = ExtResource("5_bdtmi")
-movement_quirk = 0
-rune_value = 1
-use_restrictions = 0
-
 [sub_resource type="Resource" id="Resource_mwo0l"]
 resource_name = "49er"
 script = ExtResource("4_6ucoe")
 portrait = ExtResource("3_fh1e6")
 tribes = Array[int]([9])
-sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([SubResource("Resource_bqywo")])
+sigils = Array[Resource("res://classes/Sigils/Sigil.gd")]([])
 attack = 1
 attack_special = 0
 health = 2
@@ -339,6 +332,7 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_direction = 1
 layout_mode = 2
+mouse_filter = 1
 text = "Eel"
 label_settings = SubResource("LabelSettings_grnag")
 horizontal_alignment = 1
@@ -508,13 +502,13 @@ mouse_filter = 2
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 2
-anchor_top = 0.851
+anchor_top = 0.731
 anchor_right = 1.0
-anchor_bottom = 0.97
-offset_left = 30.0
-offset_top = -6.017
-offset_right = -30.0
-offset_bottom = 0.00999451
+anchor_bottom = 0.962
+offset_left = 22.0
+offset_top = -0.012001
+offset_right = -22.0
+offset_bottom = -0.0240021
 
 [node name="HpIcon" type="TextureRect" parent="vertical/CardBottom/StatsClip"]
 unique_name_in_owner = true

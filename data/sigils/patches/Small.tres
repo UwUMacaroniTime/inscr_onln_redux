@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Patch" load_steps=3 format=3 uid="uid://dtlhohituwloe"]
+
+[ext_resource type="Script" path="res://classes/Sigils/Patch.gd" id="1_42w7u"]
+[ext_resource type="Texture2D" uid="uid://cqt2bwa2alqll" path="res://gfx/cardextras/small_patch.png" id="1_gla74"]
+
+[resource]
+resource_name = "Small"
+script = ExtResource("1_42w7u")
+description = "You may put this card into your sidedeck."
+icon_override = ExtResource("1_gla74")
+rune_value = 1
+use_restrictions = 0
