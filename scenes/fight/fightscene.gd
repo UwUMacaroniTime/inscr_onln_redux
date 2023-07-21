@@ -61,6 +61,7 @@ func vis_draw_from_deck(deck:DeckButton, hand:Container, card_data:CData):
 	card.text = deck.text
 	deck.cur_val -= 1
 	deck.vis_apply()
+	await hand.reorg_complete
 
 func _on_main_deck_pressed():
 	if inputless:

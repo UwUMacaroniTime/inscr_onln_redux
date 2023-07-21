@@ -2,6 +2,7 @@
 extends Container
 
 @export var sort_left:bool
+signal reorg_complete
 
 func sortening():
 	var fill:float = 0
@@ -18,6 +19,7 @@ func sortening():
 		fill = 0
 	else:
 		fill = size.x + ofst
+	var tween := create_tween()
 	
 	for i in get_child_count():
 		var c := get_child(i)
@@ -27,9 +29,10 @@ func sortening():
 		else:
 			fill -= c.size.x + ofst
 		
-		var tween := create_tween()
 		tween.tween_property(c, "position", Vector2(fill, 0), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 		#c.position.x = fill
+	await tween.finished
+	reorg_complete.emit()
 
 
 func _on_sort_children():

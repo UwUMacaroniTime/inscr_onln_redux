@@ -2,10 +2,10 @@ extends RefCounted
 class_name GameEvent
 
 enum piles {
+	DECK = 0,
+	SIDEDECK = 1,
 	GRAVEYARD,
 	HAND,
-	DECK,
-	SIDEDECK,
 }
 
 enum event_return_flag {
@@ -91,6 +91,20 @@ class PlayerPlayCard extends PlayerCardTargetedAction:
 		card_move_from_pile.from = piles.HAND
 		await card_move_from_pile.echo()
 
+class PlayerDrawCard extends PlayerCardTargetedAction:
+	var from:piles
+	
+	func echo_default():
+		assert(from < piles.GRAVEYARD) # assert: from must be a location before graveyard idx
+		var deck_container :=  \
+		Fightscene.get_node(("Client" if source.idx == 0 else "Enemy") + "Decks") \
+		.get_child(from) # if we are trying to get child 2 (graveyard) or child 3 (hand) 
+			# as our from, something has gone awfully wrong.
+		
+		await Fightscene.vis_draw_from_deck(deck_container, Fightscene.hands[source.idx], \
+		(source.deck.main_deck if from == piles.DECK else source.deck.side_deck).pop_front() \
+		)
+
 class CardEvent extends BasicEvent:
 	var card:Card
 
@@ -118,6 +132,7 @@ class CardMove extends CardEvent:
 
 class CardMoveFromPile extends CardMove:
 	var from:piles
+	
 
 class CardMoveFromSlot extends CardMove:
 	var from:Vector2i
@@ -127,7 +142,6 @@ class CardMoveFromSlot extends CardMove:
 		(card.player_owner.lines[from.y][from.x]).card = null
 		(card.player_owner.lines[to.y][to.x]).card = card
 		card.grid_pos = to
-
 
 class BellRing extends PlayerAction:
 	

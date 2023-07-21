@@ -23,14 +23,3 @@ func synced_prebattle_setup(random_seed:int):
 	players[host].setup()
 	players[1 - host].setup()
 
-func hammer_creature(creature:Card, source:Player) -> void:
-	
-	pass
-
-func burn_card(card:Card, source:Player) -> void:
-	
-	pass
-
-func echo_event():
-	
-	pass
