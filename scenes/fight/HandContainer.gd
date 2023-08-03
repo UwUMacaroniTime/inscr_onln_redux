@@ -20,6 +20,7 @@ func sortening():
 	else:
 		fill = size.x + ofst
 	var tween := create_tween()
+	tween.set_parallel()
 	
 	for i in get_child_count():
 		var c := get_child(i)

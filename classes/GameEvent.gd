@@ -45,7 +45,7 @@ class BasicEvent extends Node:
 				for slot in line:
 					
 					if slot.card != null:
-						for sigil in slot.card.sigils:
+						for sigil in slot.card.data.sigils:
 							await sigil.event(self)
 							
 							if event_return_flags & event_return_flag.AND_STOP:
@@ -89,6 +89,7 @@ class PlayerPlayCard extends PlayerCardTargetedAction:
 		var card_move_from_pile = CardMoveFromPile.new()
 		card_move_from_pile.card = card
 		card_move_from_pile.from = piles.HAND
+		card_move_from_pile.to = position
 		await card_move_from_pile.echo()
 
 class PlayerDrawCard extends PlayerCardTargetedAction:
@@ -96,7 +97,7 @@ class PlayerDrawCard extends PlayerCardTargetedAction:
 	
 	func echo_default():
 		assert(from < piles.GRAVEYARD) # assert: from must be a location before graveyard idx
-		var deck_container :=  \
+		var deck_container :DeckButton =  \
 		Fightscene.get_node(("Client" if source.idx == 0 else "Enemy") + "Decks") \
 		.get_child(from) # if we are trying to get child 2 (graveyard) or child 3 (hand) 
 			# as our from, something has gone awfully wrong.
@@ -119,16 +120,18 @@ class CardDie extends CardEvent:
 		card.data.attack_mod = 0
 		
 		# put the card in the  graveyard of the player you're on the side of
-		Battlemanager.players[card.grid_pos.y / 2].bones += 1
-		Battlemanager.players[card.grid_pos.y / 2].graveyard.append(card.data)
+		Battlemanager.card.player_owner.bones += 1
+		Battlemanager.card.player_owner.graveyard.append(card.data)
 		card.queue_free()
 
 class CardMove extends CardEvent:
 	var to:Vector2i
 	
 	func echo_default():
-		Fightscene.vis_play_card(card, to)
-		print("warning: cardmove generic!")
+		
+		Battlemanager.get_virtual_slot(to).card = card
+		card.grid_pos = to
+		await Fightscene.vis_play_card(card, to)
 
 class CardMoveFromPile extends CardMove:
 	var from:piles
@@ -139,9 +142,9 @@ class CardMoveFromSlot extends CardMove:
 	
 	func echo_default():
 		await Fightscene.vis_play_card(card, to)
-		(card.player_owner.lines[from.y][from.x]).card = null
-		(card.player_owner.lines[to.y][to.x]).card = card
-		card.grid_pos = to
+		Battlemanager.get_virtual_slot(from).card = null
+		
+		return await super.echo_default()
 
 class BellRing extends PlayerAction:
 	
@@ -152,13 +155,12 @@ class BellRing extends PlayerAction:
 				for slot in line:
 					
 					if slot.card != null:
-						
-						for sigil in slot.card.sigils:
+						for sigil in slot.card.data.sigils:
 							await sigil.event(self)
 							
 							if event_return_flags & event_return_flag.AND_STOP:
 								return
-	
+						await Fightscene.vis_card_attack_slot(slot.card, Vector2i(0,0))
 	pass
 
 

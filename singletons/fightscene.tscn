@@ -445,6 +445,7 @@ test_username: god u suck
 you: stfu
 "
 
+[connection signal="pressed" from="Buttons/Bell" to="." method="_on_bell_pressed"]
 [connection signal="pressed" from="Lines/Backline1/Slot0" to="." method="_on_slot_pressed" binds= [Vector2i(0, 3)]]
 [connection signal="pressed" from="Lines/Backline1/Slot1" to="." method="_on_slot_pressed" binds= [Vector2i(1, 3)]]
 [connection signal="pressed" from="Lines/Backline1/Slot2" to="." method="_on_slot_pressed" binds= [Vector2i(2, 3)]]

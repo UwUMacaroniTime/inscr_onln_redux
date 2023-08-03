@@ -108,14 +108,30 @@ func vis_play_card(card:Card, pos:Vector2i):
 	
 	card.position = card.get_global_transform().origin - slot.get_global_transform().origin
 	card.get_parent().remove_child(card)
-	
 	card.pressed_bound.disconnect(_on_card_pressed)
 	card.pressed_bound.connect(_on_creature_pressed)
 	
 	slot.add_child(cur_selected_card)
+	
 	var tween := create_tween()
 	tween.tween_property(card, "position", Vector2.ZERO, 0.5).set_trans(tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	await tween.finished
+
+func vis_card_attack_slot(card:Card, pos:Vector2i, onhit:Callable = Callable()):
+	var tween := create_tween()
+	
+	tween.tween_property(card, "position", Vector2(pos - card.grid_pos).normalized() * 100, 0.3)\
+	.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+	
+	tween.chain().tween_property(card, "position", Vector2.ZERO, 0.3)\
+	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	await tween.step_finished
+	
+	if(onhit.is_valid()):
+		await onhit.call()
+	
+	await tween.finished
+	return
 
 func _on_slot_pressed(pos:Vector2i):
 	if inputless:
@@ -128,9 +144,12 @@ func _on_slot_pressed(pos:Vector2i):
 		player_play_card.source = Battlemanager.players[0]
 		
 		
-		cur_selected_card = null
 		CursorManager.cur_cursor = preload("res://gfx/extra/mouse/cursor_data/Pointer.tres")
 		inputless = true
 		await player_play_card.echo()
+		cur_selected_card = null
 		inputless = false
-		
+
+func _on_bell_pressed():
+	var bell_ring: GameEvent.BellRing = GameEvent.BellRing.new()
+	bell_ring.echo()

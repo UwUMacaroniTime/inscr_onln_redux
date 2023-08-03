@@ -23,3 +23,8 @@ func synced_prebattle_setup(random_seed:int):
 	players[host].setup()
 	players[1 - host].setup()
 
+func get_virtual_slot(pos:Vector2i) -> Player.Cardslot:
+	return get_player(pos).lines[pos.y % 2][pos.x]
+
+func get_player(pos:Vector2i) -> Player:
+	return players[pos.y / 2]
