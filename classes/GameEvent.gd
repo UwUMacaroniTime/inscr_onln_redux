@@ -40,7 +40,7 @@ class BasicEvent extends Node:
 	## incomplete propigation. Don't call this.
 	func propigate():
 		# where for loops go to die
-		for player in Battlemanager.players:
+		for player in Battlemanager.get_players_ordered():
 			for line in player.lines:
 				for slot in line:
 					
@@ -150,7 +150,7 @@ class BellRing extends PlayerAction:
 	
 	func echo():
 		# we have a prereq to do:
-		for player in Battlemanager.players:
+		for player in Battlemanager.get_players_ordered():
 			for line in player.lines:
 				for slot in line:
 					

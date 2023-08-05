@@ -19,12 +19,17 @@ func synced_prebattle_setup(random_seed:int):
 	
 	# setup the host *first*. 
 	# Important, because otherwise would desync
-	
-	players[host].setup()
-	players[1 - host].setup()
+	for player in get_players_ordered():
+		player.setup()
 
 func get_virtual_slot(pos:Vector2i) -> Player.Cardslot:
-	return get_player(pos).lines[pos.y % 2][pos.x]
+	var line_y = pos.y % 2
+	print(pos, " = player ", pos.y / 2, ": (", line_y , ", ", pos.x,")")
+	return get_player(pos).lines[line_y][pos.x]
 
 func get_player(pos:Vector2i) -> Player:
 	return players[pos.y / 2]
+
+## get players in deterministic order.
+func get_players_ordered() -> Array[Player]:
+	return [players[host], players[1 - host]]
