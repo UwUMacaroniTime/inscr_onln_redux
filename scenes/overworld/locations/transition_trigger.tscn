@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://wakfx46in4gx"]
-
-[ext_resource type="Script" path="res://scenes/overworld/locations/transition_trigger.gd" id="1_fbh33"]
-
-[node name="TransitionTrigger" type="Area2D"]
-script = ExtResource("1_fbh33")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

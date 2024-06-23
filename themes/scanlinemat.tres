@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://u3aaems70ti3"]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id="1"]
 code = "/*
 Shader from Godot Shaders - the free shader library.
 godotshaders.com/shader/VHS-and-CRT-monitor-effect
@@ -21,6 +21,7 @@ shader_type canvas_item;
 // to \"vec2 uv = warp(SCREEN_UV);\" on line 98.
 uniform bool overlay = false;
 
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
 uniform float scanlines_opacity : hint_range(0.0, 1.0) = 0.4;
 uniform float scanlines_width : hint_range(0.0, 0.5) = 0.25;
 uniform float grille_opacity : hint_range(0.0, 1.0) = 0.3;
@@ -232,25 +233,25 @@ void fragment()
 }"
 
 [resource]
-shader = SubResource( 1 )
-shader_param/overlay = true
-shader_param/scanlines_opacity = 0.4
-shader_param/scanlines_width = 0.25
-shader_param/grille_opacity = 0.0
-shader_param/resolution = Vector2( 1080, 608 )
-shader_param/pixelate = true
-shader_param/roll = true
-shader_param/roll_speed = 1.0
-shader_param/roll_size = 15.0
-shader_param/roll_variation = 1.8
-shader_param/distort_intensity = 0.0
-shader_param/noise_opacity = 0.068
-shader_param/noise_speed = 5.0
-shader_param/static_noise_intensity = 0.06
-shader_param/aberration = 0.0
-shader_param/brightness = 1.4
-shader_param/discolor = false
-shader_param/warp_amount = 0.0
-shader_param/clip_warp = false
-shader_param/vignette_intensity = 0.4
-shader_param/vignette_opacity = 0.5
+shader = SubResource("1")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(1080, 608)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.068
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.0
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
